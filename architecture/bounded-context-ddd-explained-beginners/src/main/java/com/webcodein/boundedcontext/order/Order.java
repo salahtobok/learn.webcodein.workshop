@@ -13,7 +13,7 @@ public class Order {
     private UUID customerId;
     private String status;
 
-    public Order() {}
+    protected Order() {} // JPA requirement
 
     public Order(UUID customerId) {
         this.id = UUID.randomUUID();
@@ -24,4 +24,8 @@ public class Order {
     public UUID getId() { return id; }
     public UUID getCustomerId() { return customerId; }
     public String getStatus() { return status; }
+    
+    public void confirmOrder() {
+        this.status = "CONFIRMED";
+    }
 }
