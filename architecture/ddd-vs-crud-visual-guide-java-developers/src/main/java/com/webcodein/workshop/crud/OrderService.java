@@ -12,10 +12,18 @@ public class OrderService {
     }
 
     public OrderEntity createOrder(String email, BigDecimal amount) {
+        if (email == null || !email.contains("@")) {
+            throw new IllegalArgumentException("Invalid email");
+        }
+        if (amount.compareTo(BigDecimal.ZERO) <= 0) {
+            throw new IllegalArgumentException("Amount must be greater than zero");
+        }
+        
         OrderEntity order = new OrderEntity();
         order.setCustomerEmail(email);
         order.setTotalAmount(amount);
         order.setStatus("CREATED");
+        
         return repository.save(order);
     }
     
@@ -27,7 +35,7 @@ public class OrderService {
                 order.setStatus("FULFILLED");
                 repository.save(order);
             } else {
-                throw new IllegalStateException("Cannot fulfill");
+                throw new IllegalStateException("You cannot fulfill this order because it is not CREATED.");
             }
         }
     }

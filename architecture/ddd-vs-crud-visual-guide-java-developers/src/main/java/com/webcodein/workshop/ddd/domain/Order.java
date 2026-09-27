@@ -11,9 +11,9 @@ public class Order {
 
     public Order(String customerEmail, BigDecimal totalAmount) {
         if (customerEmail == null || !customerEmail.contains("@")) {
-            throw new IllegalArgumentException("Invalid email");
+            throw new IllegalArgumentException("Invalid email format");
         }
-        if (totalAmount.compareTo(BigDecimal.ZERO) <= 0) {
+        if (totalAmount == null || totalAmount.compareTo(BigDecimal.ZERO) <= 0) {
             throw new IllegalArgumentException("Amount must be positive");
         }
         this.customerEmail = customerEmail;
