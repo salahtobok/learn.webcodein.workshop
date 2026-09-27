@@ -1,0 +1,1 @@
+package com.webcodein.workshop.dddmistakes.logistics.domain; public class DeliveryManifest {}

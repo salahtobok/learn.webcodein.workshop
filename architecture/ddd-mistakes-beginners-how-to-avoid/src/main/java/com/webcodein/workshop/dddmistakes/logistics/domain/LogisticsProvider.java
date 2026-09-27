@@ -1,0 +1,1 @@
+package com.webcodein.workshop.dddmistakes.logistics.domain; public interface LogisticsProvider { void schedulePickup(DeliveryManifest manifest); }

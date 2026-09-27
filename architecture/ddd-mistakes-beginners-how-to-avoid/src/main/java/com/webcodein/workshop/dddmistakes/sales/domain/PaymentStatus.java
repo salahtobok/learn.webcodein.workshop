@@ -1,0 +1,1 @@
+package com.webcodein.workshop.dddmistakes.sales.domain; public enum PaymentStatus { PENDING, PARTIALLY_PAID, CLEARED }
