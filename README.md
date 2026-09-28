@@ -40,8 +40,10 @@
 | architecture | 10 DDD Concepts | `content/wordpress-export/architecture/ddd-concepts-java-developer-must-know` | [workshop/architecture/ddd-concepts-java-developer-must-know](https://github.com/salahtobok/learn.werbcodein.workshop/tree/main/architecture/ddd-concepts-java-developer-must-know) |
 | architecture | DDD Mistakes | `content/wordpress-export/architecture/ddd-mistakes-beginners-how-to-avoid` | [workshop/architecture/ddd-mistakes-beginners-how-to-avoid](https://github.com/salahtobok/learn.werbcodein.workshop/tree/main/architecture/ddd-mistakes-beginners-how-to-avoid) |
 
+| architecture | Distributed Background Jobs in Java 25 with JobRunr & Spring Boot 4 | `content/wordpress-export/architecture/jobrunr-distributed-background-jobs-spring-boot-4` | [workshop/architecture/jobrunr-distributed-background-jobs-spring-boot-4](https://github.com/salahtobok/learn.werbcodein.workshop/tree/main/architecture/jobrunr-distributed-background-jobs-spring-boot-4) |
 ## CI
 `.github/workflows/build.yml` builds every project with `mvn verify` (JDK 25, Docker available for the Testcontainers projects). Add a matrix entry when adding a project.
 
-|   a r c h i t e c t u r e   |   ` a r c h i t e c t u r e / s t r a t e g y - p a t t e r n - j a v a - j a k a r t a - e e - g u i d e `   |   T B D   |  
+|   a r c h i t e c t u r e   |   ` a r c h i t e c t u r e / s t r a t e g y - p a t t e r n - j a v a - j a k a r t a - e e - g u i d e `   |   T B D   | 
+ 
  
