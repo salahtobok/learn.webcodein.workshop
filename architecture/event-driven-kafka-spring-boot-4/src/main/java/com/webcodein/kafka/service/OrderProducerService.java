@@ -13,9 +13,9 @@ import java.util.UUID;
 public class OrderProducerService {
 
     private static final Logger log = LoggerFactory.getLogger(OrderProducerService.class);
-    private final KafkaTemplate<String, OrderEvent> kafkaTemplate;
+    private final KafkaTemplate<Object, Object> kafkaTemplate;
 
-    public OrderProducerService(KafkaTemplate<String, OrderEvent> kafkaTemplate) {
+    public OrderProducerService(KafkaTemplate<Object, Object> kafkaTemplate) {
         this.kafkaTemplate = kafkaTemplate;
     }
 

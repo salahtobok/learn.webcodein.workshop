@@ -15,8 +15,8 @@ public class OrderController {
     private static final Logger log = LoggerFactory.getLogger(OrderController.class);
     private final RestClient restClient;
 
-    public OrderController(RestClient restClient) {
-        this.restClient = restClient;
+    public OrderController() {
+        this.restClient = RestClient.create();
     }
 
     @GetMapping("/{id}")

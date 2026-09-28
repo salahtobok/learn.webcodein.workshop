@@ -12,8 +12,4 @@ public class ObservabilityApplication {
         SpringApplication.run(ObservabilityApplication.class, args);
     }
 
-    @Bean
-    public RestClient restClient(RestClient.Builder builder) {
-        return builder.build();
-    }
 }

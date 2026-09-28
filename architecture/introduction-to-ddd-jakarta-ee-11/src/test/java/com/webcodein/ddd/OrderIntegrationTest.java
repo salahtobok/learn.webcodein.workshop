@@ -16,10 +16,13 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.transaction.annotation.Transactional;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest
 @Testcontainers
+@Transactional
 class OrderIntegrationTest {
 
     @Container
@@ -42,7 +45,7 @@ class OrderIntegrationTest {
         order.addItem(new OrderItem("Mouse", 2, new BigDecimal("25.00")));
         
         // Act: Save Aggregate
-        orderRepository.insert(order);
+        orderRepository.save(order);
         
         // Act: Retrieve Aggregate
         Optional<Order> savedOrderOpt = orderRepository.findById(order.getId());
@@ -62,7 +65,7 @@ class OrderIntegrationTest {
         order.addItem(new OrderItem("Keyboard", 1, new BigDecimal("100.00")));
         order.confirm(); // Changes status to CONFIRMED
         
-        orderRepository.insert(order);
+        orderRepository.save(order);
         
         List<Order> confirmedOrders = orderRepository.findByStatus("CONFIRMED");
         assertThat(confirmedOrders).isNotEmpty();
