@@ -1,0 +1,59 @@
+pipeline {
+    // We use a dynamic Docker agent containing JDK 25 and GraalVM
+    agent {
+        docker {
+            image 'ghcr.io/graalvm/graalvm-ce:ol9-java17-22.3.1' // In reality, use GraalVM JDK 25 when available
+            // Crucial: Mount the host Docker socket so Testcontainers can spin up sibling containers (Docker-out-of-Docker)
+            args '-v /var/run/docker.sock:/var/run/docker.sock -v maven-repo:/root/.m2'
+        }
+    }
+
+    options {
+        timeout(time: 30, unit: 'MINUTES') // Native image builds can take time
+        disableConcurrentBuilds()
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+
+        stage('Verify & Testcontainers') {
+            steps {
+                echo 'Running Maven verify. Testcontainers will launch sibling containers on the host Docker daemon.'
+                sh './mvnw -B -ntp clean verify'
+            }
+            post {
+                always {
+                    junit 'target/surefire-reports/*.xml'
+                }
+            }
+        }
+
+        stage('Build GraalVM Native Image') {
+            steps {
+                echo 'Building Native Executable via Spring Boot plugin...'
+                // Requires high RAM allocation on the Jenkins Worker Node
+                sh './mvnw -B -ntp -Pnative native:compile'
+            }
+        }
+
+        stage('Package Container') {
+            steps {
+                echo 'Creating the final lightweight Docker image...'
+                sh './mvnw -B -ntp spring-boot:build-image'
+            }
+        }
+    }
+
+    post {
+        success {
+            echo "Pipeline succeeded! Native image is ready."
+        }
+        failure {
+            echo "Pipeline failed. Check the logs."
+        }
+    }
+}
