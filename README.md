@@ -41,9 +41,9 @@
 | architecture | DDD Mistakes | `content/wordpress-export/architecture/ddd-mistakes-beginners-how-to-avoid` | [workshop/architecture/ddd-mistakes-beginners-how-to-avoid](https://github.com/salahtobok/learn.werbcodein.workshop/tree/main/architecture/ddd-mistakes-beginners-how-to-avoid) |
 
 | architecture | Distributed Background Jobs in Java 25 with JobRunr & Spring Boot 4 | `content/wordpress-export/architecture/jobrunr-distributed-background-jobs-spring-boot-4` | [workshop/architecture/jobrunr-distributed-background-jobs-spring-boot-4](https://github.com/salahtobok/learn.werbcodein.workshop/tree/main/architecture/jobrunr-distributed-background-jobs-spring-boot-4) |
+| architecture | The Ultimate Masterclass: Strategy Pattern in Java 25 & Jakarta EE 11 | `content/wordpress-export/architecture/strategy-pattern-java-jakarta-ee-guide` | [workshop/architecture/strategy-pattern-java-jakarta-ee-guide](https://github.com/salahtobok/learn.werbcodein.workshop/tree/main/architecture/strategy-pattern-java-jakarta-ee-guide) |
+| security | Zero-Trust Architecture in Spring Boot 4 with Spring Security 7 | `content/wordpress-export/security/zero-trust-spring-security-7-ebpf-mesh` | [workshop/security/zero-trust-spring-security-7-ebpf-mesh](https://github.com/salahtobok/learn.werbcodein.workshop/tree/main/security/zero-trust-spring-security-7-ebpf-mesh) |
+| cloud-native | Jenkins Pipelines for Spring Boot 4 & GraalVM | `content/wordpress-export/cloud-native/jenkins-pipeline-spring-boot-4-graalvm` | [workshop/cloud-native/jenkins-pipeline-spring-boot-4-graalvm](https://github.com/salahtobok/learn.werbcodein.workshop/tree/main/cloud-native/jenkins-pipeline-spring-boot-4-graalvm) |
+
 ## CI
 `.github/workflows/build.yml` builds every project with `mvn verify` (JDK 25, Docker available for the Testcontainers projects). Add a matrix entry when adding a project.
-
-|   a r c h i t e c t u r e   |   ` a r c h i t e c t u r e / s t r a t e g y - p a t t e r n - j a v a - j a k a r t a - e e - g u i d e `   |   T B D   | 
- 
- 

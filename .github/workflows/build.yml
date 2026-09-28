@@ -50,6 +50,9 @@ jobs:
           - architecture/ddd-layers-explained-code-structure-spring-boot
           - architecture/ddd-concepts-java-developer-must-know
           - architecture/ddd-mistakes-beginners-how-to-avoid
+          - architecture/strategy-pattern-java-jakarta-ee-guide
+          - architecture/jobrunr-distributed-background-jobs-spring-boot-4
+          - cloud-native/jenkins-pipeline-spring-boot-4-graalvm
     steps:
       - uses: actions/checkout@v4
 
