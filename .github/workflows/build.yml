@@ -47,6 +47,8 @@ jobs:
           - architecture/bounded-context-ddd-explained-beginners
           - architecture/ubiquitous-language-ddd-naming-things
           - architecture/ddd-for-crud-developers-when-why-level-up
+          - architecture/refactoring-legacy-spring-boot-to-hexagonal-architecture
+          - architecture/hexagonal-vs-clean-vs-onion-architecture
           - architecture/ddd-layers-explained-code-structure-spring-boot
           - architecture/ddd-concepts-java-developer-must-know
           - architecture/ddd-mistakes-beginners-how-to-avoid
