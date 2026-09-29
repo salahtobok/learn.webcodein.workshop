@@ -1,11 +1,11 @@
 package com.webcodein.workshop.refactored.adapter.out;
 
 import com.webcodein.workshop.refactored.domain.User;
-import com.webcodein.workshop.refactored.domain.port.UserRepository;
+import com.webcodein.workshop.refactored.domain.port.UserRepositoryPort;
 import org.springframework.stereotype.Component;
 
 @Component
-public class UserRepositoryAdapter implements UserRepository {
+public class UserRepositoryAdapter implements UserRepositoryPort {
     private final SpringDataUserRepository repository;
 
     public UserRepositoryAdapter(SpringDataUserRepository repository) {
