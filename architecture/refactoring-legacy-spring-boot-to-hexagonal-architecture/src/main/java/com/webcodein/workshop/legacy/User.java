@@ -6,6 +6,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
+@jakarta.persistence.Table(name = "legacy_users")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
