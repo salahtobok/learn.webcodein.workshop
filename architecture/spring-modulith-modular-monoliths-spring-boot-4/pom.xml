@@ -66,6 +66,12 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+            <!-- Force newer ArchUnit for Java 25 compatibility -->
+            <dependency>
+                <groupId>com.tngtech.archunit</groupId>
+                <artifactId>archunit</artifactId>
+                <version>1.4.1</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
