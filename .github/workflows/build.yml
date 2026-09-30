@@ -24,6 +24,7 @@ jobs:
       matrix:
         project:
           - architecture/hexagonal-architecture-spring-boot-4
+          - architecture/spring-modulith-modular-monoliths-spring-boot-4
           - cloud-native/graalvm-native-image-spring-boot
           - cloud-native/cicd-github-actions-terraform-swarm
           - persistence/hibernate-7-spring-data-jpa-4          # Testcontainers (Docker)
