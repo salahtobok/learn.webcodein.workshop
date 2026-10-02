@@ -1,4 +1,4 @@
-# WebCodein Workshop
+﻿# WebCodein Workshop
 
 This repository contains the companion code projects for all articles published on [learn.webcodein.com](https://learn.webcodein.com).
 
