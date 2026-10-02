@@ -1,4 +1,4 @@
-﻿# WebCodein Workshop
+# WebCodein Workshop
 
 This repository contains the companion code projects for all articles published on [learn.webcodein.com](https://learn.webcodein.com).
 
@@ -29,6 +29,7 @@ This repository contains the companion code projects for all articles published 
 | architecture | `architecture/hexagonal-vs-clean-vs-onion-architecture` |
 | architecture | `architecture/introduction-to-ddd-jakarta-ee-11` |
 | architecture | `architecture/jobrunr-distributed-background-jobs-spring-boot-4` |
+| architecture | `architecture/master-archunit-custom-rules-spring-boot` |
 | architecture | `architecture/practical-ddd-jakarta-ee` |
 | architecture | `architecture/refactoring-legacy-spring-boot-to-hexagonal-architecture` |
 | architecture | `architecture/spring-modulith-modular-monoliths-spring-boot-4` |
