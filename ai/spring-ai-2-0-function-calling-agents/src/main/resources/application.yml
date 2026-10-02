@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: spring-ai-function-calling
+  ai:
+    openai:
+      api-key: ${OPENAI_API_KEY:demo-key}
+      chat:
+        options:
+          model: gpt-4o
+          temperature: 0.0
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
