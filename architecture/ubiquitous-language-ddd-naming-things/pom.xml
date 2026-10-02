@@ -13,7 +13,7 @@
     <artifactId>ubiquitous-language-ddd-naming-things</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <name>ubiquitous-language-ddd-naming-things</name>
-    <description>Workshop project demonstrating Ubiquitous Language in DDD for learn.werbcodein.workshop</description>
+    <description>Workshop project demonstrating Ubiquitous Language in DDD for learn.webcodein.workshop</description>
 
     <properties>
         <java.version>25</java.version>
