@@ -1,69 +1,55 @@
 package com.webcodein.workshop.archunit;
 
-import com.tngtech.archunit.core.domain.JavaClasses;
-import com.tngtech.archunit.core.importer.ClassFileImporter;
+import com.tngtech.archunit.core.domain.JavaClass;
 import com.tngtech.archunit.core.importer.ImportOption;
+import com.tngtech.archunit.junit.AnalyzeClasses;
+import com.tngtech.archunit.junit.ArchTest;
 import com.tngtech.archunit.lang.ArchCondition;
+import com.tngtech.archunit.lang.ArchRule;
 import com.tngtech.archunit.lang.ConditionEvents;
 import com.tngtech.archunit.lang.SimpleConditionEvent;
 import com.tngtech.archunit.lang.syntax.ArchRuleDefinition;
 import com.webcodein.workshop.archunit.annotation.UseCase;
-import org.junit.jupiter.api.Test;
 
-import java.time.LocalDateTime;
 import java.util.Date;
 
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.noClasses;
 
+@AnalyzeClasses(packagesOf = ArchUnitCustomRulesApplication.class, importOptions = {ImportOption.DoNotIncludeTests.class})
 class CustomArchUnitRulesTest {
 
-    private final JavaClasses importedClasses = new ClassFileImporter()
-            .withImportOption(ImportOption.Predefined.DO_NOT_INCLUDE_TESTS)
-            .importPackages("com.webcodein.workshop.archunit");
+    @ArchTest
+    static final ArchRule useCasesShouldNotDependOnWebLayer =
+            classes()
+                    .that().areAnnotatedWith(UseCase.class)
+                    .should().onlyDependOnClassesThat().resideOutsideOfPackage("..web..");
 
-    @Test
-    void useCasesShouldNotDependOnWebLayer() {
-        classes()
-                .that().areAnnotatedWith(UseCase.class)
-                .should().onlyDependOnClassesThat().resideOutsideOfPackage("..web..")
-                .check(importedClasses);
-    }
+    @ArchTest
+    static final ArchRule repositoriesShouldOnlyBeAccessedByServices =
+            classes()
+                    .that().resideInAPackage("..repository..")
+                    .and().haveSimpleNameEndingWith("Repository")
+                    .should().onlyBeAccessed().byAnyPackage("..service..", "..repository..");
 
-    @Test
-    void repositoriesShouldOnlyBeAccessedByServices() {
-        classes()
-                .that().resideInAPackage("..repository..")
-                .and().haveSimpleNameEndingWith("Repository")
-                .should().onlyBeAccessed().byAnyPackage("..service..", "..repository..")
-                .check(importedClasses);
-    }
+    @ArchTest
+    static final ArchRule dtosShouldNotLeakToDomainLayer =
+            noClasses()
+                    .that().resideInAPackage("..domain..")
+                    .should().dependOnClassesThat().resideInAPackage("..web..");
 
-    @Test
-    void dtosShouldNotLeakToDomainLayer() {
-        noClasses()
-                .that().resideInAPackage("..domain..")
-                .should().dependOnClassesThat().resideInAPackage("..web..")
-                .check(importedClasses);
-    }
-
-    @Test
-    void enforceJavaTimeOverJavaUtilDate() {
-        ArchCondition<com.tngtech.archunit.core.domain.JavaClass> notUseJavaUtilDate = 
-                new ArchCondition<>("not use java.util.Date") {
-            @Override
-            public void check(com.tngtech.archunit.core.domain.JavaClass item, ConditionEvents events) {
-                boolean usesDate = item.getDependenciesFromSelf().stream()
-                        .anyMatch(dependency -> dependency.getTargetClass().isEquivalentTo(Date.class));
-                if (usesDate) {
-                    events.add(SimpleConditionEvent.violated(item, "Class " + item.getName() + " uses java.util.Date"));
-                }
-            }
-        };
-
-        ArchRuleDefinition.classes()
-                .should(notUseJavaUtilDate)
-                .because("We use java.time API (e.g. LocalDateTime) instead of java.util.Date in modern Java")
-                .check(importedClasses);
-    }
+    @ArchTest
+    static final ArchRule enforceJavaTimeOverJavaUtilDate =
+            ArchRuleDefinition.classes()
+                    .should(new ArchCondition<JavaClass>("not use java.util.Date") {
+                        @Override
+                        public void check(JavaClass item, ConditionEvents events) {
+                            boolean usesDate = item.getDirectDependenciesFromSelf().stream()
+                                    .anyMatch(dependency -> dependency.getTargetClass().isEquivalentTo(Date.class));
+                            if (usesDate) {
+                                events.add(SimpleConditionEvent.violated(item, "Class " + item.getName() + " uses java.util.Date"));
+                            }
+                        }
+                    })
+                    .because("We use java.time API (e.g. LocalDateTime) instead of java.util.Date in modern Java");
 }

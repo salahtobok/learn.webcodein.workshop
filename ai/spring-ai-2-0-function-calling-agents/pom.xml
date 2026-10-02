@@ -15,7 +15,7 @@
     <description>Demo project for Spring AI 2.0 Function Calling Agents</description>
     <properties>
         <java.version>25</java.version>
-        <spring-ai.version>1.0.0-M3</spring-ai.version> <!-- Using M3 as stable proxy for the 2.0 concepts discussed -->
+        <spring-ai.version>2.0.1</spring-ai.version>
     </properties>
     <dependencies>
         <dependency>
@@ -24,7 +24,7 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.ai</groupId>
-            <artifactId>spring-ai-openai-spring-boot-starter</artifactId>
+            <artifactId>spring-ai-starter-model-openai</artifactId>
         </dependency>
         
         <!-- Observability for AI interactions -->
