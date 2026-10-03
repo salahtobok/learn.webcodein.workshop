@@ -1,0 +1,492 @@
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by org.fusesource.jansi.internal.JansiLoader in an unnamed module (file:/C:/Program%20Files/apache-maven-3.9.9/lib/jansi-2.4.1.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by com.google.common.util.concurrent.AbstractFuture$UnsafeAtomicHelper (file:/C:/Program%20Files/apache-maven-3.9.9/lib/guava-33.2.1-jre.jar)
+WARNING: Please consider reporting this to the maintainers of class com.google.common.util.concurrent.AbstractFuture$UnsafeAtomicHelper
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+WARNING: Final field _cipher in class org.sonatype.plexus.components.sec.dispatcher.DefaultSecDispatcher has been mutated reflectively by class org.eclipse.sisu.bean.BeanPropertyField in unnamed module @17c386de (file:/C:/Program%20Files/apache-maven-3.9.9/lib/org.eclipse.sisu.inject-0.9.0.M3.jar)
+WARNING: Use --enable-final-field-mutation=ALL-UNNAMED to avoid a warning
+WARNING: Mutating final fields will be blocked in a future release unless final field mutation is enabled
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] --------< com.webcodein.kafka:event-driven-kafka-spring-boot-4 >--------
+[INFO] Building event-driven-kafka-spring-boot-4 1.0.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.5.0:clean (default-clean) @ event-driven-kafka-spring-boot-4 ---
+[INFO] Deleting C:\Users\salaheddine.tobok\IdeaProjects\learn.webcodein.com\workshop\architecture\event-driven-kafka-spring-boot-4\target
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ event-driven-kafka-spring-boot-4 ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 0 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.14.1:compile (default-compile) @ event-driven-kafka-spring-boot-4 ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 6 source files with javac [debug parameters release 25] to target\classes
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ event-driven-kafka-spring-boot-4 ---
+[INFO] skip non existing resourceDirectory C:\Users\salaheddine.tobok\IdeaProjects\learn.webcodein.com\workshop\architecture\event-driven-kafka-spring-boot-4\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.14.1:testCompile (default-testCompile) @ event-driven-kafka-spring-boot-4 ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 1 source file with javac [debug parameters release 25] to target\test-classes
+[INFO] /C:/Users/salaheddine.tobok/IdeaProjects/learn.webcodein.com/workshop/architecture/event-driven-kafka-spring-boot-4/src/test/java/com/webcodein/kafka/KafkaDemoApplicationTests.java: C:\Users\salaheddine.tobok\IdeaProjects\learn.webcodein.com\workshop\architecture\event-driven-kafka-spring-boot-4\src\test\java\com\webcodein\kafka\KafkaDemoApplicationTests.java uses or overrides a deprecated API.
+[INFO] /C:/Users/salaheddine.tobok/IdeaProjects/learn.webcodein.com/workshop/architecture/event-driven-kafka-spring-boot-4/src/test/java/com/webcodein/kafka/KafkaDemoApplicationTests.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- surefire:3.5.4:test (default-test) @ event-driven-kafka-spring-boot-4 ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.webcodein.kafka.KafkaDemoApplicationTests
+23:39:40.461 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.webcodein.kafka.KafkaDemoApplicationTests]: KafkaDemoApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+23:39:40.671 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.webcodein.kafka.KafkaDemoApplication for test class com.webcodein.kafka.KafkaDemoApplicationTests
+23:39:40.920 [main] INFO org.testcontainers.images.PullPolicy -- Image pull policy will be performed by: DefaultPullPolicy()
+23:39:40.924 [main] INFO org.testcontainers.utility.ImageNameSubstitutor -- Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+23:39:40.999 [main] INFO org.testcontainers.DockerClientFactory -- Testcontainers version: 2.0.2
+23:39:41.323 [main] INFO org.testcontainers.dockerclient.DockerClientProviderStrategy -- Loaded org.testcontainers.dockerclient.NpipeSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
+23:39:41.873 [main] INFO org.testcontainers.dockerclient.DockerClientProviderStrategy -- Found Docker environment with local Npipe socket (npipe:////./pipe/docker_engine)
+23:39:41.875 [main] INFO org.testcontainers.DockerClientFactory -- Docker host IP address is localhost
+23:39:41.905 [main] INFO org.testcontainers.DockerClientFactory -- Connected to docker: 
+  Server Version: 29.7.2
+  API Version: 1.55
+  Operating System: Docker Desktop
+  Total Memory: 15841 MB
+  Labels: 
+    com.docker.desktop.address=npipe://\\.\pipe\docker_cli
+23:39:41.916 [main] INFO org.testcontainers.DockerClientFactory -- Checking the system...
+23:39:41.916 [main] INFO org.testcontainers.DockerClientFactory -- ?? Docker server version should be at least 1.6.0
+23:39:42.632 [main] INFO tc.confluentinc/cp-kafka:7.7.1 -- Creating container for image: confluentinc/cp-kafka:7.7.1
+23:39:42.889 [main] INFO org.testcontainers.utility.RegistryAuthLocator -- Credential helper/store (docker-credential-desktop) does not have credentials for https://index.docker.io/v1/
+23:39:42.900 [main] INFO tc.testcontainers/ryuk:0.13.0 -- Creating container for image: testcontainers/ryuk:0.13.0
+23:39:43.241 [main] INFO tc.testcontainers/ryuk:0.13.0 -- Container testcontainers/ryuk:0.13.0 is starting: 2965d72ee377825def83f166164d52ce66d8b25ca6d825f5454622739cab2160
+23:39:44.133 [main] INFO tc.testcontainers/ryuk:0.13.0 -- Container testcontainers/ryuk:0.13.0 started in PT1.2327298S
+23:39:44.369 [main] INFO tc.confluentinc/cp-kafka:7.7.1 -- Container confluentinc/cp-kafka:7.7.1 is starting: e49262159251212981e49f5b55415c89cf12a2a9aad97068857e53016abd9bc4
+23:39:51.841 [main] INFO tc.confluentinc/cp-kafka:7.7.1 -- Container confluentinc/cp-kafka:7.7.1 started in PT9.2083802S
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.0.0)
+
+2026-10-02T23:39:52.710+01:00  INFO 19600 --- [event-driven-kafka-demo] [           main] c.w.kafka.KafkaDemoApplicationTests      : Starting KafkaDemoApplicationTests using Java 27 with PID 19600 (started by salaheddine.tobok in C:\Users\salaheddine.tobok\IdeaProjects\learn.webcodein.com\workshop\architecture\event-driven-kafka-spring-boot-4)
+2026-10-02T23:39:52.713+01:00  INFO 19600 --- [event-driven-kafka-demo] [           main] c.w.kafka.KafkaDemoApplicationTests      : No active profile set, falling back to 1 default profile: "default"
+2026-10-02T23:39:55.328+01:00  INFO 19600 --- [event-driven-kafka-demo] [           main] o.a.kafka.common.config.AbstractConfig   : AdminClientConfig values: 
+	bootstrap.controllers = []
+	bootstrap.servers = [PLAINTEXT://localhost:64106]
+	client.dns.lookup = use_all_dns_ips
+	client.id = event-driven-kafka-demo-admin-0
+	connections.max.idle.ms = 300000
+	default.api.timeout.ms = 60000
+	enable.metrics.push = false
+	metadata.max.age.ms = 300000
+	metadata.recovery.rebootstrap.trigger.ms = 300000
+	metadata.recovery.strategy = rebootstrap
+	metric.reporters = [org.apache.kafka.common.metrics.JmxReporter]
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.assertion.algorithm = RS256
+	sasl.oauthbearer.assertion.claim.aud = null
+	sasl.oauthbearer.assertion.claim.exp.seconds = 300
+	sasl.oauthbearer.assertion.claim.iss = null
+	sasl.oauthbearer.assertion.claim.jti.include = false
+	sasl.oauthbearer.assertion.claim.nbf.seconds = 60
+	sasl.oauthbearer.assertion.claim.sub = null
+	sasl.oauthbearer.assertion.file = null
+	sasl.oauthbearer.assertion.private.key.file = null
+	sasl.oauthbearer.assertion.private.key.passphrase = null
+	sasl.oauthbearer.assertion.template.file = null
+	sasl.oauthbearer.client.credentials.client.id = null
+	sasl.oauthbearer.client.credentials.client.secret = null
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.jwt.retriever.class = class org.apache.kafka.common.security.oauthbearer.DefaultJwtRetriever
+	sasl.oauthbearer.jwt.validator.class = class org.apache.kafka.common.security.oauthbearer.DefaultJwtValidator
+	sasl.oauthbearer.scope = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+
+2026-10-02T23:39:55.749+01:00  INFO 19600 --- [event-driven-kafka-demo] [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 4.1.1
+2026-10-02T23:39:55.750+01:00  INFO 19600 --- [event-driven-kafka-demo] [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: be816b82d25370ce
+2026-10-02T23:39:55.750+01:00  INFO 19600 --- [event-driven-kafka-demo] [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1790980795745
+2026-10-02T23:39:56.898+01:00  INFO 19600 --- [event-driven-kafka-demo] [           main] o.apache.kafka.common.metrics.Metrics    : Metrics scheduler closed
+2026-10-02T23:39:56.899+01:00  INFO 19600 --- [event-driven-kafka-demo] [           main] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2026-10-02T23:39:56.899+01:00  INFO 19600 --- [event-driven-kafka-demo] [           main] o.apache.kafka.common.metrics.Metrics    : Metrics reporters closed
+2026-10-02T23:39:56.900+01:00  INFO 19600 --- [event-driven-kafka-demo] [ka-demo-admin-0] o.a.kafka.common.utils.AppInfoParser     : App info kafka.admin.client for event-driven-kafka-demo-admin-0 unregistered
+2026-10-02T23:39:56.910+01:00  INFO 19600 --- [event-driven-kafka-demo] [ka-demo-admin-0] o.apache.kafka.common.metrics.Metrics    : Metrics scheduler closed
+2026-10-02T23:39:56.911+01:00  INFO 19600 --- [event-driven-kafka-demo] [ka-demo-admin-0] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2026-10-02T23:39:56.911+01:00  INFO 19600 --- [event-driven-kafka-demo] [ka-demo-admin-0] o.apache.kafka.common.metrics.Metrics    : Metrics reporters closed
+2026-10-02T23:39:56.985+01:00  INFO 19600 --- [event-driven-kafka-demo] [           main] o.a.kafka.common.config.AbstractConfig   : ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.offset.reset = earliest
+	bootstrap.servers = [PLAINTEXT://localhost:64106]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-order-group-1
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = order-group
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metadata.recovery.rebootstrap.trigger.ms = 300000
+	metadata.recovery.strategy = rebootstrap
+	metric.reporters = [org.apache.kafka.common.metrics.JmxReporter]
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.assertion.algorithm = RS256
+	sasl.oauthbearer.assertion.claim.aud = null
+	sasl.oauthbearer.assertion.claim.exp.seconds = 300
+	sasl.oauthbearer.assertion.claim.iss = null
+	sasl.oauthbearer.assertion.claim.jti.include = false
+	sasl.oauthbearer.assertion.claim.nbf.seconds = 60
+	sasl.oauthbearer.assertion.claim.sub = null
+	sasl.oauthbearer.assertion.file = null
+	sasl.oauthbearer.assertion.private.key.file = null
+	sasl.oauthbearer.assertion.private.key.passphrase = null
+	sasl.oauthbearer.assertion.template.file = null
+	sasl.oauthbearer.client.credentials.client.id = null
+	sasl.oauthbearer.client.credentials.client.secret = null
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.jwt.retriever.class = class org.apache.kafka.common.security.oauthbearer.DefaultJwtRetriever
+	sasl.oauthbearer.jwt.validator.class = class org.apache.kafka.common.security.oauthbearer.DefaultJwtValidator
+	sasl.oauthbearer.scope = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	share.acknowledgement.mode = implicit
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.springframework.kafka.support.serializer.JsonDeserializer
+
+2026-10-02T23:39:57.075+01:00  INFO 19600 --- [event-driven-kafka-demo] [           main] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
+2026-10-02T23:39:57.316+01:00  INFO 19600 --- [event-driven-kafka-demo] [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 4.1.1
+2026-10-02T23:39:57.316+01:00  INFO 19600 --- [event-driven-kafka-demo] [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: be816b82d25370ce
+2026-10-02T23:39:57.316+01:00  INFO 19600 --- [event-driven-kafka-demo] [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1790980797316
+2026-10-02T23:39:57.321+01:00  INFO 19600 --- [event-driven-kafka-demo] [           main] o.a.k.c.c.i.ClassicKafkaConsumer         : [Consumer clientId=consumer-order-group-1, groupId=order-group] Subscribed to topic(s): orders-topic
+2026-10-02T23:39:57.353+01:00  INFO 19600 --- [event-driven-kafka-demo] [           main] c.w.kafka.KafkaDemoApplicationTests      : Started KafkaDemoApplicationTests in 5.322 seconds (process running for 18.141)
+2026-10-02T23:39:57.400+01:00  INFO 19600 --- [event-driven-kafka-demo] [ntainer#0-0-C-1] org.apache.kafka.clients.Metadata        : [Consumer clientId=consumer-order-group-1, groupId=order-group] Cluster ID: nrpB2F2tTj6rRid1RfUhQQ
+Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build as described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org.mockito/org/mockito/Mockito.html#0.3
+2026-10-02T23:39:57.576+01:00  INFO 19600 --- [event-driven-kafka-demo] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-order-group-1, groupId=order-group] Discovered group coordinator localhost:64106 (id: 2147483646 rack: null isFenced: false)
+2026-10-02T23:39:57.583+01:00  INFO 19600 --- [event-driven-kafka-demo] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-order-group-1, groupId=order-group] (Re-)joining group
+2026-10-02T23:39:57.645+01:00  INFO 19600 --- [event-driven-kafka-demo] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-order-group-1, groupId=order-group] Request joining group due to: need to re-join with the given member-id: consumer-order-group-1-94ed12f9-59d8-4d94-9a7f-0ac124e151b9
+2026-10-02T23:39:57.646+01:00  INFO 19600 --- [event-driven-kafka-demo] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-order-group-1, groupId=order-group] (Re-)joining group
+2026-10-02T23:39:57.678+01:00  INFO 19600 --- [event-driven-kafka-demo] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-order-group-1, groupId=order-group] Successfully joined group with generation Generation{generationId=1, memberId='consumer-order-group-1-94ed12f9-59d8-4d94-9a7f-0ac124e151b9', protocol='range'}
+2026-10-02T23:39:57.693+01:00  INFO 19600 --- [event-driven-kafka-demo] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-order-group-1, groupId=order-group] Finished assignment for group at generation 1: {consumer-order-group-1-94ed12f9-59d8-4d94-9a7f-0ac124e151b9=Assignment(partitions=[orders-topic-0, orders-topic-1, orders-topic-2])}
+2026-10-02T23:39:57.766+01:00  INFO 19600 --- [event-driven-kafka-demo] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-order-group-1, groupId=order-group] Successfully synced group in generation Generation{generationId=1, memberId='consumer-order-group-1-94ed12f9-59d8-4d94-9a7f-0ac124e151b9', protocol='range'}
+2026-10-02T23:39:57.768+01:00  INFO 19600 --- [event-driven-kafka-demo] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-order-group-1, groupId=order-group] Notifying assignor about the new Assignment(partitions=[orders-topic-0, orders-topic-1, orders-topic-2])
+2026-10-02T23:39:57.774+01:00  INFO 19600 --- [event-driven-kafka-demo] [ntainer#0-0-C-1] k.c.c.i.ConsumerRebalanceListenerInvoker : [Consumer clientId=consumer-order-group-1, groupId=order-group] Adding newly assigned partitions: [orders-topic-0, orders-topic-1, orders-topic-2]
+2026-10-02T23:39:57.803+01:00  INFO 19600 --- [event-driven-kafka-demo] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-order-group-1, groupId=order-group] Found no committed offset for partition orders-topic-1
+2026-10-02T23:39:57.804+01:00  INFO 19600 --- [event-driven-kafka-demo] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-order-group-1, groupId=order-group] Found no committed offset for partition orders-topic-2
+2026-10-02T23:39:57.804+01:00  INFO 19600 --- [event-driven-kafka-demo] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-order-group-1, groupId=order-group] Found no committed offset for partition orders-topic-0
+2026-10-02T23:39:57.840+01:00  INFO 19600 --- [event-driven-kafka-demo] [ntainer#0-0-C-1] o.a.k.c.c.internals.SubscriptionState    : [Consumer clientId=consumer-order-group-1, groupId=order-group] Resetting offset for partition orders-topic-1 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:64106 (id: 1 rack: null isFenced: false)], epoch=0}}.
+2026-10-02T23:39:57.842+01:00  INFO 19600 --- [event-driven-kafka-demo] [ntainer#0-0-C-1] o.a.k.c.c.internals.SubscriptionState    : [Consumer clientId=consumer-order-group-1, groupId=order-group] Resetting offset for partition orders-topic-2 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:64106 (id: 1 rack: null isFenced: false)], epoch=0}}.
+2026-10-02T23:39:57.843+01:00  INFO 19600 --- [event-driven-kafka-demo] [ntainer#0-0-C-1] o.a.k.c.c.internals.SubscriptionState    : [Consumer clientId=consumer-order-group-1, groupId=order-group] Resetting offset for partition orders-topic-0 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:64106 (id: 1 rack: null isFenced: false)], epoch=0}}.
+2026-10-02T23:39:57.845+01:00  INFO 19600 --- [event-driven-kafka-demo] [ntainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : order-group: partitions assigned: [orders-topic-0, orders-topic-1, orders-topic-2]
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+WARNING: A Java agent has been loaded dynamically (C:\Users\salaheddine.tobok\.m2\repository\net\bytebuddy\byte-buddy-agent\1.17.8\byte-buddy-agent-1.17.8.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+2026-10-02T23:39:58.791+01:00  INFO 19600 --- [event-driven-kafka-demo] [           main] o.a.kafka.common.config.AbstractConfig   : ProducerConfig values: 
+	acks = -1
+	batch.size = 16384
+	bootstrap.servers = [PLAINTEXT://localhost:64106]
+	buffer.memory = 33554432
+	client.dns.lookup = use_all_dns_ips
+	client.id = event-driven-kafka-demo-producer-1
+	compression.gzip.level = -1
+	compression.lz4.level = 9
+	compression.type = none
+	compression.zstd.level = 3
+	connections.max.idle.ms = 540000
+	delivery.timeout.ms = 120000
+	enable.idempotence = true
+	enable.metrics.push = true
+	interceptor.classes = []
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	linger.ms = 5
+	max.block.ms = 60000
+	max.in.flight.requests.per.connection = 5
+	max.request.size = 1048576
+	metadata.max.age.ms = 300000
+	metadata.max.idle.ms = 300000
+	metadata.recovery.rebootstrap.trigger.ms = 300000
+	metadata.recovery.strategy = rebootstrap
+	metric.reporters = [org.apache.kafka.common.metrics.JmxReporter]
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partitioner.adaptive.partitioning.enable = true
+	partitioner.availability.timeout.ms = 0
+	partitioner.class = null
+	partitioner.ignore.keys = false
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.assertion.algorithm = RS256
+	sasl.oauthbearer.assertion.claim.aud = null
+	sasl.oauthbearer.assertion.claim.exp.seconds = 300
+	sasl.oauthbearer.assertion.claim.iss = null
+	sasl.oauthbearer.assertion.claim.jti.include = false
+	sasl.oauthbearer.assertion.claim.nbf.seconds = 60
+	sasl.oauthbearer.assertion.claim.sub = null
+	sasl.oauthbearer.assertion.file = null
+	sasl.oauthbearer.assertion.private.key.file = null
+	sasl.oauthbearer.assertion.private.key.passphrase = null
+	sasl.oauthbearer.assertion.template.file = null
+	sasl.oauthbearer.client.credentials.client.id = null
+	sasl.oauthbearer.client.credentials.client.secret = null
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.jwt.retriever.class = class org.apache.kafka.common.security.oauthbearer.DefaultJwtRetriever
+	sasl.oauthbearer.jwt.validator.class = class org.apache.kafka.common.security.oauthbearer.DefaultJwtValidator
+	sasl.oauthbearer.scope = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	transaction.timeout.ms = 60000
+	transaction.two.phase.commit.enable = false
+	transactional.id = null
+	value.serializer = class org.springframework.kafka.support.serializer.JsonSerializer
+
+2026-10-02T23:39:58.793+01:00  INFO 19600 --- [event-driven-kafka-demo] [           main] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
+2026-10-02T23:39:58.815+01:00  INFO 19600 --- [event-driven-kafka-demo] [           main] o.a.k.clients.producer.KafkaProducer     : [Producer clientId=event-driven-kafka-demo-producer-1] Instantiated an idempotent producer.
+2026-10-02T23:39:58.844+01:00  INFO 19600 --- [event-driven-kafka-demo] [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 4.1.1
+2026-10-02T23:39:58.845+01:00  INFO 19600 --- [event-driven-kafka-demo] [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: be816b82d25370ce
+2026-10-02T23:39:58.845+01:00  INFO 19600 --- [event-driven-kafka-demo] [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1790980798844
+2026-10-02T23:39:58.863+01:00  INFO 19600 --- [event-driven-kafka-demo] [demo-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=event-driven-kafka-demo-producer-1] Cluster ID: nrpB2F2tTj6rRid1RfUhQQ
+2026-10-02T23:39:58.951+01:00  INFO 19600 --- [event-driven-kafka-demo] [           main] c.w.kafka.service.OrderProducerService   : Produced order event: 880adc6e-7059-43f9-9334-bc9011246f60
+2026-10-02T23:39:58.989+01:00  INFO 19600 --- [event-driven-kafka-demo] [demo-producer-1] o.a.k.c.p.internals.TransactionManager   : [Producer clientId=event-driven-kafka-demo-producer-1] ProducerId set to 0 with epoch 0
+2026-10-02T23:39:59.017+01:00  INFO 19600 --- [event-driven-kafka-demo] [ntainer#0-0-C-1] k.c.c.i.ConsumerRebalanceListenerInvoker : [Consumer clientId=consumer-order-group-1, groupId=order-group] Revoke previously assigned partitions [orders-topic-0, orders-topic-1, orders-topic-2]
+2026-10-02T23:39:59.018+01:00  INFO 19600 --- [event-driven-kafka-demo] [ntainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : order-group: partitions revoked: [orders-topic-0, orders-topic-1, orders-topic-2]
+2026-10-02T23:39:59.020+01:00  INFO 19600 --- [event-driven-kafka-demo] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-order-group-1, groupId=order-group] Member consumer-order-group-1-94ed12f9-59d8-4d94-9a7f-0ac124e151b9 sending LeaveGroup request to coordinator localhost:64106 (id: 2147483646 rack: null isFenced: false) due to the consumer unsubscribed from all topics
+2026-10-02T23:39:59.021+01:00  INFO 19600 --- [event-driven-kafka-demo] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-order-group-1, groupId=order-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2026-10-02T23:39:59.023+01:00  INFO 19600 --- [event-driven-kafka-demo] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-order-group-1, groupId=order-group] Request joining group due to: consumer pro-actively leaving the group
+2026-10-02T23:39:59.023+01:00  INFO 19600 --- [event-driven-kafka-demo] [ntainer#0-0-C-1] o.a.k.c.c.i.ClassicKafkaConsumer         : [Consumer clientId=consumer-order-group-1, groupId=order-group] Unsubscribed all topics or patterns and assigned partitions
+2026-10-02T23:39:59.029+01:00  INFO 19600 --- [event-driven-kafka-demo] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-order-group-1, groupId=order-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2026-10-02T23:39:59.029+01:00  INFO 19600 --- [event-driven-kafka-demo] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-order-group-1, groupId=order-group] Request joining group due to: consumer pro-actively leaving the group
+2026-10-02T23:39:59.066+01:00  INFO 19600 --- [event-driven-kafka-demo] [ntainer#0-0-C-1] o.apache.kafka.common.metrics.Metrics    : Metrics scheduler closed
+2026-10-02T23:39:59.067+01:00  INFO 19600 --- [event-driven-kafka-demo] [ntainer#0-0-C-1] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2026-10-02T23:39:59.067+01:00  INFO 19600 --- [event-driven-kafka-demo] [ntainer#0-0-C-1] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2026-10-02T23:39:59.067+01:00  INFO 19600 --- [event-driven-kafka-demo] [ntainer#0-0-C-1] o.apache.kafka.common.metrics.Metrics    : Metrics reporters closed
+2026-10-02T23:39:59.080+01:00  INFO 19600 --- [event-driven-kafka-demo] [ntainer#0-0-C-1] o.a.kafka.common.utils.AppInfoParser     : App info kafka.consumer for consumer-order-group-1 unregistered
+2026-10-02T23:39:59.080+01:00  INFO 19600 --- [event-driven-kafka-demo] [ntainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : order-group: Consumer stopped
+2026-10-02T23:39:59.084+01:00  INFO 19600 --- [event-driven-kafka-demo] [           main] o.a.k.clients.producer.KafkaProducer     : [Producer clientId=event-driven-kafka-demo-producer-1] Closing the Kafka producer with timeoutMillis = 30000 ms.
+2026-10-02T23:39:59.095+01:00  INFO 19600 --- [event-driven-kafka-demo] [           main] o.apache.kafka.common.metrics.Metrics    : Metrics scheduler closed
+2026-10-02T23:39:59.096+01:00  INFO 19600 --- [event-driven-kafka-demo] [           main] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2026-10-02T23:39:59.096+01:00  INFO 19600 --- [event-driven-kafka-demo] [           main] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2026-10-02T23:39:59.096+01:00  INFO 19600 --- [event-driven-kafka-demo] [           main] o.apache.kafka.common.metrics.Metrics    : Metrics reporters closed
+2026-10-02T23:39:59.097+01:00  INFO 19600 --- [event-driven-kafka-demo] [           main] o.a.kafka.common.utils.AppInfoParser     : App info kafka.producer for event-driven-kafka-demo-producer-1 unregistered
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 19.85 s -- in com.webcodein.kafka.KafkaDemoApplicationTests
+2026-10-02T23:40:00.218+01:00  INFO 19600 --- [event-driven-kafka-demo] [           main] GlobalEmbeddedKafkaTestExecutionListener : Stopped global Embedded Kafka.
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- jar:3.4.2:jar (default-jar) @ event-driven-kafka-spring-boot-4 ---
+[INFO] Building jar: C:\Users\salaheddine.tobok\IdeaProjects\learn.webcodein.com\workshop\architecture\event-driven-kafka-spring-boot-4\target\event-driven-kafka-spring-boot-4-1.0.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- spring-boot:4.0.0:repackage (repackage) @ event-driven-kafka-spring-boot-4 ---
+[INFO] Replacing main artifact C:\Users\salaheddine.tobok\IdeaProjects\learn.webcodein.com\workshop\architecture\event-driven-kafka-spring-boot-4\target\event-driven-kafka-spring-boot-4-1.0.0-SNAPSHOT.jar with repackaged archive, adding nested dependencies in BOOT-INF/.
+[INFO] The original artifact has been renamed to C:\Users\salaheddine.tobok\IdeaProjects\learn.webcodein.com\workshop\architecture\event-driven-kafka-spring-boot-4\target\event-driven-kafka-spring-boot-4-1.0.0-SNAPSHOT.jar.original
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  30.658 s
+[INFO] Finished at: 2026-10-02T23:40:02+01:00
+[INFO] ------------------------------------------------------------------------

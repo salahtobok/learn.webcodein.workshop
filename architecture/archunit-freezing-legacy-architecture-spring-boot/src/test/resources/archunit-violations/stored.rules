@@ -1,0 +1,4 @@
+#
+#Sat Oct 03 17:14:54 CET 2026
+Layered\ architecture\ considering\ all\ dependencies,\ consisting\ of\nlayer\ 'Controllers'\ ('..user..')\nlayer\ 'Services'\ ('..order..')\nlayer\ 'Utils'\ ('..util..')\nwhere\ layer\ 'Controllers'\ may\ not\ be\ accessed\ by\ any\ layer\nwhere\ layer\ 'Services'\ may\ only\ be\ accessed\ by\ layers\ ['Controllers']\nwhere\ layer\ 'Utils'\ may\ not\ access\ any\ layer=dd914367-772f-40c5-b7ce-c8c19c866c61
+no\ classes\ that\ reside\ in\ a\ package\ '..order..'\ should\ depend\ on\ classes\ that\ reside\ in\ a\ package\ '..user..'=641dddde-c81a-4929-814c-054a4566f67b

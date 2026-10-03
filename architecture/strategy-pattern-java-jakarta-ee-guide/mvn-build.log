@@ -1,0 +1,89 @@
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by org.fusesource.jansi.internal.JansiLoader in an unnamed module (file:/C:/Program%20Files/apache-maven-3.9.9/lib/jansi-2.4.1.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by com.google.common.util.concurrent.AbstractFuture$UnsafeAtomicHelper (file:/C:/Program%20Files/apache-maven-3.9.9/lib/guava-33.2.1-jre.jar)
+WARNING: Please consider reporting this to the maintainers of class com.google.common.util.concurrent.AbstractFuture$UnsafeAtomicHelper
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+WARNING: Final field _cipher in class org.sonatype.plexus.components.sec.dispatcher.DefaultSecDispatcher has been mutated reflectively by class org.eclipse.sisu.bean.BeanPropertyField in unnamed module @5ef60048 (file:/C:/Program%20Files/apache-maven-3.9.9/lib/org.eclipse.sisu.inject-0.9.0.M3.jar)
+WARNING: Use --enable-final-field-mutation=ALL-UNNAMED to avoid a warning
+WARNING: Mutating final fields will be blocked in a future release unless final field mutation is enabled
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ---< com.webcodein.workshop:strategy-pattern-java-jakarta-ee-guide >----
+[INFO] Building strategy-pattern-java-jakarta-ee-guide 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.5.0:clean (default-clean) @ strategy-pattern-java-jakarta-ee-guide ---
+[INFO] Deleting C:\Users\salaheddine.tobok\IdeaProjects\learn.webcodein.com\workshop\architecture\strategy-pattern-java-jakarta-ee-guide\target
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ strategy-pattern-java-jakarta-ee-guide ---
+[INFO] skip non existing resourceDirectory C:\Users\salaheddine.tobok\IdeaProjects\learn.webcodein.com\workshop\architecture\strategy-pattern-java-jakarta-ee-guide\src\main\resources
+[INFO] skip non existing resourceDirectory C:\Users\salaheddine.tobok\IdeaProjects\learn.webcodein.com\workshop\architecture\strategy-pattern-java-jakarta-ee-guide\src\main\resources
+[INFO] 
+[INFO] --- compiler:3.14.0:compile (default-compile) @ strategy-pattern-java-jakarta-ee-guide ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 9 source files with javac [debug parameters release 25] to target\classes
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ strategy-pattern-java-jakarta-ee-guide ---
+[INFO] skip non existing resourceDirectory C:\Users\salaheddine.tobok\IdeaProjects\learn.webcodein.com\workshop\architecture\strategy-pattern-java-jakarta-ee-guide\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.14.0:testCompile (default-testCompile) @ strategy-pattern-java-jakarta-ee-guide ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 1 source file with javac [debug parameters release 25] to target\test-classes
+[INFO] 
+[INFO] --- surefire:3.5.3:test (default-test) @ strategy-pattern-java-jakarta-ee-guide ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.webcodein.workshop.strategy.presentation.PaymentControllerTest
+23:44:43.754 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.webcodein.workshop.strategy.presentation.PaymentControllerTest]: PaymentControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+23:44:44.000 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.webcodein.workshop.strategy.StrategyApplication for test class com.webcodein.workshop.strategy.presentation.PaymentControllerTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::             (v4.0.0-M1)
+
+2026-10-02T23:44:44.711+01:00  INFO 26264 --- [           main] c.w.w.s.p.PaymentControllerTest          : Starting PaymentControllerTest using Java 27 with PID 26264 (started by salaheddine.tobok in C:\Users\salaheddine.tobok\IdeaProjects\learn.webcodein.com\workshop\architecture\strategy-pattern-java-jakarta-ee-guide)
+2026-10-02T23:44:44.715+01:00  INFO 26264 --- [           main] c.w.w.s.p.PaymentControllerTest          : No active profile set, falling back to 1 default profile: "default"
+2026-10-02T23:44:46.636+01:00  INFO 26264 --- [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-10-02T23:44:46.636+01:00  INFO 26264 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-10-02T23:44:46.639+01:00  INFO 26264 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2026-10-02T23:44:46.723+01:00  INFO 26264 --- [           main] c.w.w.s.p.PaymentControllerTest          : Started PaymentControllerTest in 2.482 seconds (process running for 4.144)
+Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build as described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org.mockito/org/mockito/Mockito.html#0.3
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+WARNING: A Java agent has been loaded dynamically (C:\Users\salaheddine.tobok\.m2\repository\net\bytebuddy\byte-buddy-agent\1.17.6\byte-buddy-agent-1.17.6.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+2026-10-02T23:44:48.216+01:00  INFO 26264 --- [           main] c.w.w.s.i.PayPalPaymentStrategy          : Redirecting to PayPal for amount $50.00 for customer CUST-456
+2026-10-02T23:44:48.391+01:00  INFO 26264 --- [           main] c.w.w.s.i.CreditCardPaymentStrategy      : Processing Credit Card payment of $100.00 for customer CUST-123
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.911 s -- in com.webcodein.workshop.strategy.presentation.PaymentControllerTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- jar:3.4.2:jar (default-jar) @ strategy-pattern-java-jakarta-ee-guide ---
+[INFO] Building jar: C:\Users\salaheddine.tobok\IdeaProjects\learn.webcodein.com\workshop\architecture\strategy-pattern-java-jakarta-ee-guide\target\strategy-pattern-java-jakarta-ee-guide-0.0.1-SNAPSHOT.jar
+[INFO] 
+[INFO] --- spring-boot:4.0.0-M1:repackage (repackage) @ strategy-pattern-java-jakarta-ee-guide ---
+[INFO] Replacing main artifact C:\Users\salaheddine.tobok\IdeaProjects\learn.webcodein.com\workshop\architecture\strategy-pattern-java-jakarta-ee-guide\target\strategy-pattern-java-jakarta-ee-guide-0.0.1-SNAPSHOT.jar with repackaged archive, adding nested dependencies in BOOT-INF/.
+[INFO] The original artifact has been renamed to C:\Users\salaheddine.tobok\IdeaProjects\learn.webcodein.com\workshop\architecture\strategy-pattern-java-jakarta-ee-guide\target\strategy-pattern-java-jakarta-ee-guide-0.0.1-SNAPSHOT.jar.original
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  11.636 s
+[INFO] Finished at: 2026-10-02T23:44:49+01:00
+[INFO] ------------------------------------------------------------------------

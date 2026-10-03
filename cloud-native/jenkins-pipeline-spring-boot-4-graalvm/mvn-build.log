@@ -1,0 +1,73 @@
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by org.fusesource.jansi.internal.JansiLoader in an unnamed module (file:/C:/Program%20Files/apache-maven-3.9.9/lib/jansi-2.4.1.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by com.google.common.util.concurrent.AbstractFuture$UnsafeAtomicHelper (file:/C:/Program%20Files/apache-maven-3.9.9/lib/guava-33.2.1-jre.jar)
+WARNING: Please consider reporting this to the maintainers of class com.google.common.util.concurrent.AbstractFuture$UnsafeAtomicHelper
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+WARNING: Final field _cipher in class org.sonatype.plexus.components.sec.dispatcher.DefaultSecDispatcher has been mutated reflectively by class org.eclipse.sisu.bean.BeanPropertyField in unnamed module @780cb77 (file:/C:/Program%20Files/apache-maven-3.9.9/lib/org.eclipse.sisu.inject-0.9.0.M3.jar)
+WARNING: Use --enable-final-field-mutation=ALL-UNNAMED to avoid a warning
+WARNING: Mutating final fields will be blocked in a future release unless final field mutation is enabled
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ---< com.webcodein.workshop:jenkins-pipeline-spring-boot-4-graalvm >----
+[INFO] Building jenkins-pipeline-spring-boot-4-graalvm 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.5.0:clean (default-clean) @ jenkins-pipeline-spring-boot-4-graalvm ---
+[INFO] Deleting C:\Users\salaheddine.tobok\IdeaProjects\learn.webcodein.com\workshop\cloud-native\jenkins-pipeline-spring-boot-4-graalvm\target
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ jenkins-pipeline-spring-boot-4-graalvm ---
+[INFO] skip non existing resourceDirectory C:\Users\salaheddine.tobok\IdeaProjects\learn.webcodein.com\workshop\cloud-native\jenkins-pipeline-spring-boot-4-graalvm\src\main\resources
+[INFO] skip non existing resourceDirectory C:\Users\salaheddine.tobok\IdeaProjects\learn.webcodein.com\workshop\cloud-native\jenkins-pipeline-spring-boot-4-graalvm\src\main\resources
+[INFO] 
+[INFO] --- compiler:3.14.1:compile (default-compile) @ jenkins-pipeline-spring-boot-4-graalvm ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 1 source file with javac [debug parameters release 25] to target\classes
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ jenkins-pipeline-spring-boot-4-graalvm ---
+[INFO] skip non existing resourceDirectory C:\Users\salaheddine.tobok\IdeaProjects\learn.webcodein.com\workshop\cloud-native\jenkins-pipeline-spring-boot-4-graalvm\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.14.1:testCompile (default-testCompile) @ jenkins-pipeline-spring-boot-4-graalvm ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 1 source file with javac [debug parameters release 25] to target\test-classes
+[INFO] 
+[INFO] --- surefire:3.5.4:test (default-test) @ jenkins-pipeline-spring-boot-4-graalvm ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.webcodein.jenkins.JenkinsApplicationTests
+23:45:25.242 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.webcodein.jenkins.JenkinsApplicationTests]: JenkinsApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+23:45:25.573 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.webcodein.jenkins.JenkinsApplication for test class com.webcodein.jenkins.JenkinsApplicationTests
+23:45:25.764 [main] INFO org.testcontainers.images.PullPolicy -- Image pull policy will be performed by: DefaultPullPolicy()
+23:45:25.767 [main] INFO org.testcontainers.utility.ImageNameSubstitutor -- Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+23:45:25.819 [main] INFO org.testcontainers.DockerClientFactory -- Testcontainers version: 1.20.1
+23:45:26.107 [main] INFO org.testcontainers.dockerclient.DockerClientProviderStrategy -- Loaded org.testcontainers.dockerclient.NpipeSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
+23:45:26.361 [main] INFO org.testcontainers.dockerclient.DockerMachineClientProviderStrategy -- docker-machine executable was not found on PATH ([C:/Users/salaheddine.tobok/.gemini/antigravity-cli/bin, C:\Program Files\Amazon Corretto\jdk27.0.0_35\bin, C:\Program Files\Amazon Corretto\jdk25.0.0_36\bin, C:\Program Files\Amazon Corretto\jdk21.0.6_7\bin, C:\WINDOWS\system32, C:\WINDOWS, C:\WINDOWS\System32\Wbem, C:\WINDOWS\System32\WindowsPowerShell\v1.0\, C:\WINDOWS\System32\OpenSSH\, C:\Program Files\dotnet\, C:\Program Files\OpenSSL-Win64\bin, C:\Program Files\apache-maven-3.9.9\bin, C:\ProgramData\chocolatey\bin, C:\Program Files (x86)\PDFtk\bin\, C:\Program Files\MongoDB\Server\8.0\bin, C:\Program Files\SafeNet\Authentication\SAC\x64, C:\Program Files\SafeNet\Authentication\SAC\x32, C:\Program Files\PostgreSQL\17\bin, C:\Program Files\nodejs\, C:\Program Files\PuTTY\, C:\Program Files\Docker\Docker\resources\bin, C:\Program Files\Git\cmd, C:\Users\salaheddine.tobok\AppData\Local\agy\bin, C:\Users\salaheddine.tobok\AppData\Local\pnpm, C:\Users\salaheddine.tobok\AppData\Local\Microsoft\WindowsApps, C:\Program Files\JetBrains\IntelliJ IDEA 2026.1.3\bin, C:\Program Files\OpenSSL-Win64\bin, C:\Users\salaheddine.tobok\AppData\Local\Programs\Microsoft VS Code\bin, C:\Program Files\mongosh\, C:\Program Files\JetBrains\WebStorm 2026.2\bin, C:\Users\salaheddine.tobok\AppData\Roaming\npm, C:\Users\salaheddine.tobok\AppData\Local\Python\bin, C:\Program Files\JetBrains\PyCharm 2026.2.0.1\bin, C:\Users\salaheddine.tobok\AppData\Local\Microsoft\WinGet\Packages\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\ffmpeg-9.0-full_build\bin])
+23:45:26.362 [main] ERROR org.testcontainers.dockerclient.DockerClientProviderStrategy -- Could not find a valid Docker environment. Please check configuration. Attempted configurations were:
+	NpipeSocketClientProviderStrategy: failed with exception BadRequestException (Status 400: {"ID":"","Containers":0,"ContainersRunning":0,"ContainersPaused":0,"ContainersStopped":0,"Images":0,"Driver":"","DriverStatus":null,"Plugins":{"Volume":null,"Network":null,"Authorization":null,"Log":null},"MemoryLimit":false,"SwapLimit":false,"CpuCfsPeriod":false,"CpuCfsQuota":false,"CPUShares":false,"CPUSet":false,"PidsLimit":false,"IPv4Forwarding":false,"Debug":false,"NFd":0,"OomKillDisable":false,"NGoroutines":0,"SystemTime":"","LoggingDriver":"","CgroupDriver":"","NEventsListener":0,"KernelVersion":"","OperatingSystem":"","OSVersion":"","OSType":"","Architecture":"","IndexServerAddress":"","RegistryConfig":null,"NCPU":0,"MemTotal":0,"GenericResources":null,"DockerRootDir":"","HttpProxy":"","HttpsProxy":"","NoProxy":"","Name":"","Labels":["com.docker.desktop.address=npipe://\\\\.\\pipe\\docker_cli"],"ExperimentalBuild":false,"ServerVersion":"","Runtimes":null,"DefaultRuntime":"","Swarm":{"NodeID":"","NodeAddr":"","LocalNodeState":"","ControlAvailable":false,"Error":"","RemoteManagers":null},"LiveRestoreEnabled":false,"Isolation":"","InitBinary":"","ContainerdCommit":{"ID":""},"RuncCommit":{"ID":""},"InitCommit":{"ID":""},"SecurityOptions":null,"CDISpecDirs":null,"Warnings":null})As no valid configuration was found, execution cannot continue.
+See https://java.testcontainers.org/on_failure.html for more details.
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.526 s -- in com.webcodein.jenkins.JenkinsApplicationTests
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- jar:3.4.2:jar (default-jar) @ jenkins-pipeline-spring-boot-4-graalvm ---
+[INFO] Building jar: C:\Users\salaheddine.tobok\IdeaProjects\learn.webcodein.com\workshop\cloud-native\jenkins-pipeline-spring-boot-4-graalvm\target\jenkins-pipeline-spring-boot-4-graalvm-0.0.1-SNAPSHOT.jar
+[INFO] 
+[INFO] --- spring-boot:4.0.0:repackage (repackage) @ jenkins-pipeline-spring-boot-4-graalvm ---
+[INFO] Replacing main artifact C:\Users\salaheddine.tobok\IdeaProjects\learn.webcodein.com\workshop\cloud-native\jenkins-pipeline-spring-boot-4-graalvm\target\jenkins-pipeline-spring-boot-4-graalvm-0.0.1-SNAPSHOT.jar with repackaged archive, adding nested dependencies in BOOT-INF/.
+[INFO] The original artifact has been renamed to C:\Users\salaheddine.tobok\IdeaProjects\learn.webcodein.com\workshop\cloud-native\jenkins-pipeline-spring-boot-4-graalvm\target\jenkins-pipeline-spring-boot-4-graalvm-0.0.1-SNAPSHOT.jar.original
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  7.282 s
+[INFO] Finished at: 2026-10-02T23:45:27+01:00
+[INFO] ------------------------------------------------------------------------

@@ -1,0 +1,177 @@
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by org.fusesource.jansi.internal.JansiLoader in an unnamed module (file:/C:/Program%20Files/apache-maven-3.9.9/lib/jansi-2.4.1.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by com.google.common.util.concurrent.AbstractFuture$UnsafeAtomicHelper (file:/C:/Program%20Files/apache-maven-3.9.9/lib/guava-33.2.1-jre.jar)
+WARNING: Please consider reporting this to the maintainers of class com.google.common.util.concurrent.AbstractFuture$UnsafeAtomicHelper
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+WARNING: Final field _cipher in class org.sonatype.plexus.components.sec.dispatcher.DefaultSecDispatcher has been mutated reflectively by class org.eclipse.sisu.bean.BeanPropertyField in unnamed module @5ef60048 (file:/C:/Program%20Files/apache-maven-3.9.9/lib/org.eclipse.sisu.inject-0.9.0.M3.jar)
+WARNING: Use --enable-final-field-mutation=ALL-UNNAMED to avoid a warning
+WARNING: Mutating final fields will be blocked in a future release unless final field mutation is enabled
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -----< com.webcodein.jobrunr:jobrunr-distributed-background-jobs >------
+[INFO] Building jobrunr-distributed-background-jobs 1.0.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.5.0:clean (default-clean) @ jobrunr-distributed-background-jobs ---
+[INFO] Deleting C:\Users\salaheddine.tobok\IdeaProjects\learn.webcodein.com\workshop\architecture\jobrunr-distributed-background-jobs-spring-boot-4\target
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ jobrunr-distributed-background-jobs ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 0 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.14.1:compile (default-compile) @ jobrunr-distributed-background-jobs ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 3 source files with javac [debug parameters release 21] to target\classes
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ jobrunr-distributed-background-jobs ---
+[INFO] skip non existing resourceDirectory C:\Users\salaheddine.tobok\IdeaProjects\learn.webcodein.com\workshop\architecture\jobrunr-distributed-background-jobs-spring-boot-4\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.14.1:testCompile (default-testCompile) @ jobrunr-distributed-background-jobs ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 1 source file with javac [debug parameters release 21] to target\test-classes
+[INFO] /C:/Users/salaheddine.tobok/IdeaProjects/learn.webcodein.com/workshop/architecture/jobrunr-distributed-background-jobs-spring-boot-4/src/test/java/com/webcodein/jobrunr/JobRunrApplicationTests.java: C:\Users\salaheddine.tobok\IdeaProjects\learn.webcodein.com\workshop\architecture\jobrunr-distributed-background-jobs-spring-boot-4\src\test\java\com\webcodein\jobrunr\JobRunrApplicationTests.java uses or overrides a deprecated API.
+[INFO] /C:/Users/salaheddine.tobok/IdeaProjects/learn.webcodein.com/workshop/architecture/jobrunr-distributed-background-jobs-spring-boot-4/src/test/java/com/webcodein/jobrunr/JobRunrApplicationTests.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- surefire:3.5.4:test (default-test) @ jobrunr-distributed-background-jobs ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.webcodein.jobrunr.JobRunrApplicationTests
+23:42:15.391 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.webcodein.jobrunr.JobRunrApplicationTests]: JobRunrApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+23:42:15.584 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.webcodein.jobrunr.JobRunrApplication for test class com.webcodein.jobrunr.JobRunrApplicationTests
+23:42:15.701 [main] INFO org.testcontainers.images.PullPolicy -- Image pull policy will be performed by: DefaultPullPolicy()
+23:42:15.705 [main] INFO org.testcontainers.utility.ImageNameSubstitutor -- Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+23:42:15.754 [main] INFO org.testcontainers.DockerClientFactory -- Testcontainers version: 2.0.2
+23:42:16.016 [main] INFO org.testcontainers.dockerclient.DockerClientProviderStrategy -- Loaded org.testcontainers.dockerclient.NpipeSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
+23:42:16.654 [main] INFO org.testcontainers.dockerclient.DockerClientProviderStrategy -- Found Docker environment with local Npipe socket (npipe:////./pipe/docker_engine)
+23:42:16.656 [main] INFO org.testcontainers.DockerClientFactory -- Docker host IP address is localhost
+23:42:16.686 [main] INFO org.testcontainers.DockerClientFactory -- Connected to docker: 
+  Server Version: 29.7.2
+  API Version: 1.55
+  Operating System: Docker Desktop
+  Total Memory: 15841 MB
+  Labels: 
+    com.docker.desktop.address=npipe://\\.\pipe\docker_cli
+23:42:16.696 [main] INFO org.testcontainers.DockerClientFactory -- Checking the system...
+23:42:16.696 [main] INFO org.testcontainers.DockerClientFactory -- ?? Docker server version should be at least 1.6.0
+23:42:17.410 [main] INFO tc.postgres:16-alpine -- Creating container for image: postgres:16-alpine
+23:42:17.663 [main] INFO org.testcontainers.utility.RegistryAuthLocator -- Credential helper/store (docker-credential-desktop) does not have credentials for https://index.docker.io/v1/
+23:42:17.681 [main] INFO tc.testcontainers/ryuk:0.13.0 -- Creating container for image: testcontainers/ryuk:0.13.0
+23:42:18.005 [main] INFO tc.testcontainers/ryuk:0.13.0 -- Container testcontainers/ryuk:0.13.0 is starting: 3b8d37fc29dfeb636ac1326b8d87ba7c5d613667ced2bb2689fbd8eaaf34655c
+23:42:18.766 [main] INFO tc.testcontainers/ryuk:0.13.0 -- Container testcontainers/ryuk:0.13.0 started in PT1.084548S
+23:42:19.000 [main] INFO tc.postgres:16-alpine -- Container postgres:16-alpine is starting: 3b942c8e7806990c2de357da3c10bd1bcb0ce2fb3d6f751554c9f13268d47d1e
+23:42:21.671 [main] INFO tc.postgres:16-alpine -- Container postgres:16-alpine started in PT4.2616572S
+23:42:21.673 [main] INFO tc.postgres:16-alpine -- Container is started (JDBC URL: jdbc:postgresql://localhost:51310/jobrunrdb?loggerLevel=OFF)
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.0.0)
+
+2026-10-02T23:42:22.748+01:00  INFO 32400 --- [           main] c.w.jobrunr.JobRunrApplicationTests      : Starting JobRunrApplicationTests using Java 27 with PID 32400 (started by salaheddine.tobok in C:\Users\salaheddine.tobok\IdeaProjects\learn.webcodein.com\workshop\architecture\jobrunr-distributed-background-jobs-spring-boot-4)
+2026-10-02T23:42:22.753+01:00  INFO 32400 --- [           main] c.w.jobrunr.JobRunrApplicationTests      : No active profile set, falling back to 1 default profile: "default"
+2026-10-02T23:42:23.986+01:00  INFO 32400 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-10-02T23:42:24.021+01:00  INFO 32400 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 25 ms. Found 0 JPA repository interfaces.
+2026-10-02T23:42:24.730+01:00  INFO 32400 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-10-02T23:42:24.865+01:00  INFO 32400 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 7.1.8.Final
+2026-10-02T23:42:25.910+01:00  INFO 32400 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-10-02T23:42:25.978+01:00  INFO 32400 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-10-02T23:42:26.237+01:00  INFO 32400 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@65a8c306
+2026-10-02T23:42:26.239+01:00  INFO 32400 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-10-02T23:42:26.322+01:00  INFO 32400 --- [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:51310/jobrunrdb?loggerLevel=OFF]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 16.15
+	Default catalog/schema: jobrunrdb/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DatasourceConnectionProviderImpl
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-10-02T23:42:27.628+01:00  INFO 32400 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-10-02T23:42:27.671+01:00  INFO 32400 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-10-02T23:42:28.019+01:00  INFO 32400 --- [           main] o.j.storage.sql.common.DatabaseCreator   : Running migration MigrationByPath{path=/org/jobrunr/storage/sql/common/migrations/v000__create_migrations_table.sql}
+2026-10-02T23:42:28.124+01:00  INFO 32400 --- [           main] o.j.storage.sql.common.DatabaseCreator   : Running migration MigrationByPath{path=/org/jobrunr/storage/sql/common/migrations/v001__create_job_table.sql}
+2026-10-02T23:42:28.244+01:00  INFO 32400 --- [           main] o.j.storage.sql.common.DatabaseCreator   : Running migration MigrationByPath{path=/org/jobrunr/storage/sql/common/migrations/v002__create_recurring_job_table.sql}
+2026-10-02T23:42:28.279+01:00  INFO 32400 --- [           main] o.j.storage.sql.common.DatabaseCreator   : Running migration MigrationByPath{path=/org/jobrunr/storage/sql/common/migrations/v003__create_background_job_server_table.sql}
+2026-10-02T23:42:28.327+01:00  INFO 32400 --- [           main] o.j.storage.sql.common.DatabaseCreator   : Running migration MigrationByPath{path=/org/jobrunr/storage/sql/common/migrations/v004__create_job_stats_view.sql}
+2026-10-02T23:42:28.481+01:00  INFO 32400 --- [           main] o.j.storage.sql.common.DatabaseCreator   : Running migration MigrationByPath{path=/org/jobrunr/storage/sql/common/migrations/v005__update_job_stats_view.sql}
+2026-10-02T23:42:28.512+01:00  INFO 32400 --- [           main] o.j.storage.sql.common.DatabaseCreator   : Running migration MigrationByPath{path=/org/jobrunr/storage/sql/common/migrations/v006__alter_table_jobs_add_recurringjob.sql}
+2026-10-02T23:42:28.550+01:00  INFO 32400 --- [           main] o.j.storage.sql.common.DatabaseCreator   : Running migration MigrationByPath{path=/org/jobrunr/storage/sql/common/migrations/v007__alter_table_backgroundjobserver_add_delete_config.sql}
+2026-10-02T23:42:28.570+01:00  INFO 32400 --- [           main] o.j.storage.sql.common.DatabaseCreator   : Running migration MigrationByPath{path=/org/jobrunr/storage/sql/common/migrations/v008__alter_table_jobs_increase_jobAsJson_size.sql}
+2026-10-02T23:42:28.585+01:00  INFO 32400 --- [           main] o.j.storage.sql.common.DatabaseCreator   : Running migration MigrationByPath{path=/org/jobrunr/storage/sql/common/migrations/v009__change_jobrunr_job_counters_to_jobrunr_metadata.sql}
+2026-10-02T23:42:28.642+01:00  INFO 32400 --- [           main] o.j.storage.sql.common.DatabaseCreator   : Running migration MigrationByPath{path=/org/jobrunr/storage/sql/common/migrations/v010__change_job_stats.sql}
+2026-10-02T23:42:28.672+01:00  INFO 32400 --- [           main] o.j.storage.sql.common.DatabaseCreator   : Running migration MigrationByPath{path=/org/jobrunr/storage/sql/common/migrations/v011__change_sqlserver_text_to_varchar.sql}
+2026-10-02T23:42:28.684+01:00  INFO 32400 --- [           main] o.j.storage.sql.common.DatabaseCreator   : Running migration MigrationByPath{path=/org/jobrunr/storage/sql/common/migrations/v012__change_oracle_alter_jobrunr_metadata_column_size.sql}
+2026-10-02T23:42:28.696+01:00  INFO 32400 --- [           main] o.j.storage.sql.common.DatabaseCreator   : Running migration MigrationByPath{path=/org/jobrunr/storage/sql/common/migrations/v013__alter_table_recurring_job_add_createdAt.sql}
+2026-10-02T23:42:28.737+01:00  INFO 32400 --- [           main] o.j.storage.sql.common.DatabaseCreator   : Running migration MigrationByPath{path=/org/jobrunr/storage/sql/postgres/migrations/v014__improve_job_stats.sql}
+2026-10-02T23:42:28.785+01:00  INFO 32400 --- [           main] o.j.storage.sql.common.DatabaseCreator   : Running migration MigrationByPath{path=/org/jobrunr/storage/sql/common/migrations/v015__alter_table_backgroundjobserver_add_name.sql}
+2026-10-02T23:42:29.209+01:00  INFO 32400 --- [           main] o.j.s.t.VirtualThreadJobRunrExecutor     : ThreadManager of type 'VirtualThreadPerTask' started
+2026-10-02T23:42:29.306+01:00  INFO 32400 --- [           main] o.j.dashboard.JobRunrDashboardWebServer  : JobRunr Dashboard using PostgresStorageProvider started at http://localhost:8000/dashboard
+2026-10-02T23:42:29.693+01:00  WARN 32400 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-10-02T23:42:31.600+01:00  INFO 32400 --- [pool-4-thread-1] org.jobrunr.server.BackgroundJobServer   : JobRunr BackgroundJobServer (776f0deb-34c4-425e-b07f-555024e0569b) using PostgresStorageProvider and 192 BackgroundJobPerformers started successfully
+2026-10-02T23:42:31.729+01:00  INFO 32400 --- [           main] c.w.jobrunr.JobRunrApplicationTests      : Started JobRunrApplicationTests in 9.958 seconds (process running for 17.5)
+Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build as described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org.mockito/org/mockito/Mockito.html#0.3
+2026-10-02T23:42:32.012+01:00  INFO 32400 --- [pool-4-thread-1] org.jobrunr.server.ServerZooKeeper       : Server 776f0deb-34c4-425e-b07f-555024e0569b is master (this BackgroundJobServer)
+2026-10-02T23:42:32.147+01:00  INFO 32400 --- [pool-6-thread-1] o.j.s.t.startup.MigrateFromV5toV6Task    : Start migration of scheduled jobs from v5 to v6
+2026-10-02T23:42:32.173+01:00  INFO 32400 --- [pool-6-thread-1] o.j.s.t.startup.MigrateFromV5toV6Task    : Found 0 scheduled jobs to migrate.
+2026-10-02T23:42:32.173+01:00  INFO 32400 --- [pool-6-thread-1] o.j.s.t.startup.MigrateFromV5toV6Task    : Finished migration of scheduled jobs from v5 to v6
+WARNING: A Java agent has been loaded dynamically (C:\Users\salaheddine.tobok\.m2\repository\net\bytebuddy\byte-buddy-agent\1.17.8\byte-buddy-agent-1.17.8.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+2026-10-02T23:42:33.718+01:00  INFO 32400 --- [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-10-02T23:42:33.719+01:00  INFO 32400 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-10-02T23:42:33.723+01:00  INFO 32400 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 3 ms
+2026-10-02T23:42:34.396+01:00  INFO 32400 --- [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-10-02T23:42:34.396+01:00  INFO 32400 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-10-02T23:42:34.400+01:00  INFO 32400 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 4 ms
+2026-10-02T23:42:34.431+01:00  INFO 32400 --- [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-10-02T23:42:34.431+01:00  INFO 32400 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-10-02T23:42:34.433+01:00  INFO 32400 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 20.29 s -- in com.webcodein.jobrunr.JobRunrApplicationTests
+2026-10-02T23:42:35.601+01:00  INFO 32400 --- [extShutdownHook] org.jobrunr.server.BackgroundJobServer   : BackgroundJobServer - stopping (may take about PT10S)
+2026-10-02T23:42:35.601+01:00  INFO 32400 --- [extShutdownHook] org.jobrunr.server.BackgroundJobServer   : BackgroundJobPerformers - stopping (waiting at most PT10S for jobs to finish)
+2026-10-02T23:42:35.712+01:00  WARN 32400 --- [extShutdownHook] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@65a8c306 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-10-02T23:42:35.715+01:00  WARN 32400 --- [extShutdownHook] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@25ad6b51 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-10-02T23:42:35.717+01:00  WARN 32400 --- [extShutdownHook] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@3b5ccc22 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-10-02T23:42:35.718+01:00  WARN 32400 --- [extShutdownHook] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@6fc0a113 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-10-02T23:42:35.720+01:00  WARN 32400 --- [extShutdownHook] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@4685659a (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-10-02T23:42:35.720+01:00  WARN 32400 --- [extShutdownHook] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@8bc69f8 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-10-02T23:42:35.721+01:00  WARN 32400 --- [extShutdownHook] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@55dc8911 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-10-02T23:42:35.721+01:00  WARN 32400 --- [extShutdownHook] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@3f7e7280 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-10-02T23:42:35.723+01:00  WARN 32400 --- [extShutdownHook] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@523a6940 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-10-02T23:42:35.725+01:00  WARN 32400 --- [extShutdownHook] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@39222956 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+[ERROR] Surefire is going to kill self fork JVM. The exit has elapsed 30 seconds after System.exit(0).
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- jar:3.4.2:jar (default-jar) @ jobrunr-distributed-background-jobs ---
+[INFO] Building jar: C:\Users\salaheddine.tobok\IdeaProjects\learn.webcodein.com\workshop\architecture\jobrunr-distributed-background-jobs-spring-boot-4\target\jobrunr-distributed-background-jobs-1.0.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- spring-boot:4.0.0:repackage (repackage) @ jobrunr-distributed-background-jobs ---
+[INFO] Replacing main artifact C:\Users\salaheddine.tobok\IdeaProjects\learn.webcodein.com\workshop\architecture\jobrunr-distributed-background-jobs-spring-boot-4\target\jobrunr-distributed-background-jobs-1.0.0-SNAPSHOT.jar with repackaged archive, adding nested dependencies in BOOT-INF/.
+[INFO] The original artifact has been renamed to C:\Users\salaheddine.tobok\IdeaProjects\learn.webcodein.com\workshop\architecture\jobrunr-distributed-background-jobs-spring-boot-4\target\jobrunr-distributed-background-jobs-1.0.0-SNAPSHOT.jar.original
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  55.781 s
+[INFO] Finished at: 2026-10-02T23:43:06+01:00
+[INFO] ------------------------------------------------------------------------

@@ -1,0 +1,172 @@
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by org.fusesource.jansi.internal.JansiLoader in an unnamed module (file:/C:/Program%20Files/apache-maven-3.9.9/lib/jansi-2.4.1.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by com.google.common.util.concurrent.AbstractFuture$UnsafeAtomicHelper (file:/C:/Program%20Files/apache-maven-3.9.9/lib/guava-33.2.1-jre.jar)
+WARNING: Please consider reporting this to the maintainers of class com.google.common.util.concurrent.AbstractFuture$UnsafeAtomicHelper
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+WARNING: Final field _cipher in class org.sonatype.plexus.components.sec.dispatcher.DefaultSecDispatcher has been mutated reflectively by class org.eclipse.sisu.bean.BeanPropertyField in unnamed module @5af97850 (file:/C:/Program%20Files/apache-maven-3.9.9/lib/org.eclipse.sisu.inject-0.9.0.M3.jar)
+WARNING: Use --enable-final-field-mutation=ALL-UNNAMED to avoid a warning
+WARNING: Mutating final fields will be blocked in a future release unless final field mutation is enabled
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] --------< com.webcodein.workshop:testcontainers-docker-compose >--------
+[INFO] Building testcontainers-docker-compose 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.5.0:clean (default-clean) @ testcontainers-docker-compose ---
+[INFO] Deleting C:\Users\salaheddine.tobok\IdeaProjects\learn.webcodein.com\workshop\testing\testcontainers-docker-compose-spring-boot-4\target
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ testcontainers-docker-compose ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 0 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.14.1:compile (default-compile) @ testcontainers-docker-compose ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 3 source files with javac [debug parameters release 25] to target\classes
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ testcontainers-docker-compose ---
+[INFO] skip non existing resourceDirectory C:\Users\salaheddine.tobok\IdeaProjects\learn.webcodein.com\workshop\testing\testcontainers-docker-compose-spring-boot-4\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.14.1:testCompile (default-testCompile) @ testcontainers-docker-compose ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 3 source files with javac [debug parameters release 25] to target\test-classes
+[INFO] 
+[INFO] --- surefire:3.5.4:test (default-test) @ testcontainers-docker-compose ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.webcodein.workshop.employee.EmployeeRepositoryIntegrationTest
+23:48:16.619 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.webcodein.workshop.employee.EmployeeRepositoryIntegrationTest]: EmployeeRepositoryIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+23:48:16.739 [main] INFO org.testcontainers.images.PullPolicy -- Image pull policy will be performed by: DefaultPullPolicy()
+23:48:16.744 [main] INFO org.testcontainers.utility.ImageNameSubstitutor -- Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+23:48:16.827 [main] INFO org.testcontainers.DockerClientFactory -- Testcontainers version: 2.0.2
+23:48:17.136 [main] INFO org.testcontainers.dockerclient.DockerClientProviderStrategy -- Loaded org.testcontainers.dockerclient.NpipeSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
+23:48:17.817 [main] INFO org.testcontainers.dockerclient.DockerClientProviderStrategy -- Found Docker environment with local Npipe socket (npipe:////./pipe/docker_engine)
+23:48:17.818 [main] INFO org.testcontainers.DockerClientFactory -- Docker host IP address is localhost
+23:48:17.848 [main] INFO org.testcontainers.DockerClientFactory -- Connected to docker: 
+  Server Version: 29.7.2
+  API Version: 1.55
+  Operating System: Docker Desktop
+  Total Memory: 15841 MB
+  Labels: 
+    com.docker.desktop.address=npipe://\\.\pipe\docker_cli
+23:48:17.861 [main] INFO org.testcontainers.DockerClientFactory -- Checking the system...
+23:48:17.862 [main] INFO org.testcontainers.DockerClientFactory -- ?? Docker server version should be at least 1.6.0
+23:48:18.554 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.webcodein.workshop.WorkshopApplication for test class com.webcodein.workshop.employee.EmployeeRepositoryIntegrationTest
+23:48:18.678 [main] INFO tc.postgres:16-alpine -- Creating container for image: postgres:16-alpine
+23:48:18.870 [main] INFO org.testcontainers.utility.RegistryAuthLocator -- Credential helper/store (docker-credential-desktop) does not have credentials for https://index.docker.io/v1/
+23:48:18.884 [main] INFO tc.testcontainers/ryuk:0.13.0 -- Creating container for image: testcontainers/ryuk:0.13.0
+23:48:19.125 [main] INFO tc.testcontainers/ryuk:0.13.0 -- Container testcontainers/ryuk:0.13.0 is starting: 926f8a9dbd6593a76335f74cd2b5ce5aa9ae803018fd4f96117552d214cf7ef2
+23:48:19.914 [main] INFO tc.testcontainers/ryuk:0.13.0 -- Container testcontainers/ryuk:0.13.0 started in PT1.0294508S
+23:48:20.113 [main] INFO tc.postgres:16-alpine -- Container postgres:16-alpine is starting: af4260216fc074762e2b74382af0517f33103d83055df5962b0b107a450f45ff
+23:48:21.941 [main] INFO tc.postgres:16-alpine -- Container postgres:16-alpine started in PT3.2632502S
+23:48:21.942 [main] INFO tc.postgres:16-alpine -- Container is started (JDBC URL: jdbc:postgresql://localhost:50986/test?loggerLevel=OFF)
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.0.0)
+
+2026-10-02T23:48:22.275+01:00  INFO 32232 --- [           main] .w.w.e.EmployeeRepositoryIntegrationTest : Starting EmployeeRepositoryIntegrationTest using Java 27 with PID 32232 (started by salaheddine.tobok in C:\Users\salaheddine.tobok\IdeaProjects\learn.webcodein.com\workshop\testing\testcontainers-docker-compose-spring-boot-4)
+2026-10-02T23:48:22.277+01:00  INFO 32232 --- [           main] .w.w.e.EmployeeRepositoryIntegrationTest : No active profile set, falling back to 1 default profile: "default"
+2026-10-02T23:48:22.757+01:00  INFO 32232 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-10-02T23:48:22.845+01:00  INFO 32232 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 60 ms. Found 1 JPA repository interface.
+2026-10-02T23:48:23.263+01:00  INFO 32232 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-10-02T23:48:23.350+01:00  INFO 32232 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 7.1.8.Final
+2026-10-02T23:48:24.101+01:00  INFO 32232 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-10-02T23:48:24.140+01:00  INFO 32232 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-10-02T23:48:24.391+01:00  INFO 32232 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@1b96d447
+2026-10-02T23:48:24.392+01:00  INFO 32232 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-10-02T23:48:24.466+01:00  INFO 32232 --- [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:50986/test?loggerLevel=OFF]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 16.15
+	Default catalog/schema: test/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DatasourceConnectionProviderImpl
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-10-02T23:48:25.653+01:00  INFO 32232 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-10-02T23:48:25.734+01:00  INFO 32232 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-10-02T23:48:25.989+01:00  INFO 32232 --- [           main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-10-02T23:48:26.254+01:00  INFO 32232 --- [           main] .w.w.e.EmployeeRepositoryIntegrationTest : Started EmployeeRepositoryIntegrationTest in 4.251 seconds (process running for 10.874)
+Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build as described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org.mockito/org/mockito/Mockito.html#0.3
+WARNING: A Java agent has been loaded dynamically (C:\Users\salaheddine.tobok\.m2\repository\net\bytebuddy\byte-buddy-agent\1.17.8\byte-buddy-agent-1.17.8.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 12.45 s -- in com.webcodein.workshop.employee.EmployeeRepositoryIntegrationTest
+[INFO] Running com.webcodein.workshop.employee.EmployeeSingletonContainerTest
+2026-10-02T23:48:28.838+01:00  INFO 32232 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.webcodein.workshop.employee.EmployeeSingletonContainerTest]: EmployeeSingletonContainerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-02T23:48:28.843+01:00  INFO 32232 --- [           main] tc.postgres:16-alpine                    : Creating container for image: postgres:16-alpine
+2026-10-02T23:48:29.008+01:00  INFO 32232 --- [           main] tc.postgres:16-alpine                    : Container postgres:16-alpine is starting: aa4ac8e3ddc61f73b19ec073b7830b3808f55f4d1ca0686ee7c05b38778570e8
+2026-10-02T23:48:31.413+01:00  INFO 32232 --- [           main] tc.postgres:16-alpine                    : Container postgres:16-alpine started in PT2.5700366S
+2026-10-02T23:48:31.414+01:00  INFO 32232 --- [           main] tc.postgres:16-alpine                    : Container is started (JDBC URL: jdbc:postgresql://localhost:51000/test?loggerLevel=OFF)
+2026-10-02T23:48:31.419+01:00  INFO 32232 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.webcodein.workshop.WorkshopApplication for test class com.webcodein.workshop.employee.EmployeeSingletonContainerTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.0.0)
+
+2026-10-02T23:48:31.507+01:00  INFO 32232 --- [           main] c.w.w.e.EmployeeSingletonContainerTest   : Starting EmployeeSingletonContainerTest using Java 27 with PID 32232 (started by salaheddine.tobok in C:\Users\salaheddine.tobok\IdeaProjects\learn.webcodein.com\workshop\testing\testcontainers-docker-compose-spring-boot-4)
+2026-10-02T23:48:31.508+01:00  INFO 32232 --- [           main] c.w.w.e.EmployeeSingletonContainerTest   : No active profile set, falling back to 1 default profile: "default"
+2026-10-02T23:48:31.673+01:00  INFO 32232 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-10-02T23:48:31.694+01:00  INFO 32232 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 17 ms. Found 1 JPA repository interface.
+2026-10-02T23:48:31.901+01:00  INFO 32232 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-10-02T23:48:31.930+01:00  INFO 32232 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-10-02T23:48:31.931+01:00  INFO 32232 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2026-10-02T23:48:31.975+01:00  INFO 32232 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection org.postgresql.jdbc.PgConnection@24cf1abf
+2026-10-02T23:48:31.976+01:00  INFO 32232 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2026-10-02T23:48:31.999+01:00  INFO 32232 --- [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:51000/test?loggerLevel=OFF]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 16.15
+	Default catalog/schema: test/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DatasourceConnectionProviderImpl
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-10-02T23:48:32.041+01:00  INFO 32232 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-10-02T23:48:32.070+01:00  INFO 32232 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-10-02T23:48:32.161+01:00  INFO 32232 --- [           main] c.w.w.e.EmployeeSingletonContainerTest   : Started EmployeeSingletonContainerTest in 0.718 seconds (process running for 16.781)
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.438 s -- in com.webcodein.workshop.employee.EmployeeSingletonContainerTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- jar:3.4.2:jar (default-jar) @ testcontainers-docker-compose ---
+[INFO] Building jar: C:\Users\salaheddine.tobok\IdeaProjects\learn.webcodein.com\workshop\testing\testcontainers-docker-compose-spring-boot-4\target\testcontainers-docker-compose-0.0.1-SNAPSHOT.jar
+[INFO] 
+[INFO] --- spring-boot:4.0.0:repackage (repackage) @ testcontainers-docker-compose ---
+[INFO] Replacing main artifact C:\Users\salaheddine.tobok\IdeaProjects\learn.webcodein.com\workshop\testing\testcontainers-docker-compose-spring-boot-4\target\testcontainers-docker-compose-0.0.1-SNAPSHOT.jar with repackaged archive, adding nested dependencies in BOOT-INF/.
+[INFO] The original artifact has been renamed to C:\Users\salaheddine.tobok\IdeaProjects\learn.webcodein.com\workshop\testing\testcontainers-docker-compose-spring-boot-4\target\testcontainers-docker-compose-0.0.1-SNAPSHOT.jar.original
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  22.228 s
+[INFO] Finished at: 2026-10-02T23:48:33+01:00
+[INFO] ------------------------------------------------------------------------

@@ -1,0 +1,142 @@
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by org.fusesource.jansi.internal.JansiLoader in an unnamed module (file:/C:/Program%20Files/apache-maven-3.9.9/lib/jansi-2.4.1.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by com.google.common.util.concurrent.AbstractFuture$UnsafeAtomicHelper (file:/C:/Program%20Files/apache-maven-3.9.9/lib/guava-33.2.1-jre.jar)
+WARNING: Please consider reporting this to the maintainers of class com.google.common.util.concurrent.AbstractFuture$UnsafeAtomicHelper
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+WARNING: Final field _cipher in class org.sonatype.plexus.components.sec.dispatcher.DefaultSecDispatcher has been mutated reflectively by class org.eclipse.sisu.bean.BeanPropertyField in unnamed module @17c386de (file:/C:/Program%20Files/apache-maven-3.9.9/lib/org.eclipse.sisu.inject-0.9.0.M3.jar)
+WARNING: Use --enable-final-field-mutation=ALL-UNNAMED to avoid a warning
+WARNING: Mutating final fields will be blocked in a future release unless final field mutation is enabled
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ----------< com.webcodein.shop:hibernate-7-spring-data-jpa-4 >----------
+[INFO] Building hibernate-7-spring-data-jpa-4 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.5.0:clean (default-clean) @ hibernate-7-spring-data-jpa-4 ---
+[INFO] Deleting C:\Users\salaheddine.tobok\IdeaProjects\learn.webcodein.com\workshop\persistence\hibernate-7-spring-data-jpa-4\target
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ hibernate-7-spring-data-jpa-4 ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 0 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.14.1:compile (default-compile) @ hibernate-7-spring-data-jpa-4 ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 14 source files with javac [debug parameters release 25] to target\classes
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ hibernate-7-spring-data-jpa-4 ---
+[INFO] skip non existing resourceDirectory C:\Users\salaheddine.tobok\IdeaProjects\learn.webcodein.com\workshop\persistence\hibernate-7-spring-data-jpa-4\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.14.1:testCompile (default-testCompile) @ hibernate-7-spring-data-jpa-4 ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 1 source file with javac [debug parameters release 25] to target\test-classes
+[INFO] 
+[INFO] --- surefire:3.5.4:test (default-test) @ hibernate-7-spring-data-jpa-4 ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.webcodein.shop.ShopRepositoriesIntegrationTest
+23:46:56.241 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.webcodein.shop.ShopRepositoriesIntegrationTest]: ShopRepositoriesIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+23:46:56.336 [main] INFO org.testcontainers.images.PullPolicy -- Image pull policy will be performed by: DefaultPullPolicy()
+23:46:56.339 [main] INFO org.testcontainers.utility.ImageNameSubstitutor -- Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+23:46:56.429 [main] INFO org.testcontainers.DockerClientFactory -- Testcontainers version: 2.0.2
+23:46:56.723 [main] INFO org.testcontainers.dockerclient.DockerClientProviderStrategy -- Loaded org.testcontainers.dockerclient.NpipeSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
+23:46:57.222 [main] INFO org.testcontainers.dockerclient.DockerClientProviderStrategy -- Found Docker environment with local Npipe socket (npipe:////./pipe/docker_engine)
+23:46:57.224 [main] INFO org.testcontainers.DockerClientFactory -- Docker host IP address is localhost
+23:46:57.252 [main] INFO org.testcontainers.DockerClientFactory -- Connected to docker: 
+  Server Version: 29.7.2
+  API Version: 1.55
+  Operating System: Docker Desktop
+  Total Memory: 15841 MB
+  Labels: 
+    com.docker.desktop.address=npipe://\\.\pipe\docker_cli
+23:46:57.262 [main] INFO org.testcontainers.DockerClientFactory -- Checking the system...
+23:46:57.263 [main] INFO org.testcontainers.DockerClientFactory -- ?? Docker server version should be at least 1.6.0
+23:46:57.983 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.webcodein.shop.ShopApplication for test class com.webcodein.shop.ShopRepositoriesIntegrationTest
+23:46:58.107 [main] INFO tc.postgres:16-alpine -- Creating container for image: postgres:16-alpine
+23:46:58.395 [main] INFO org.testcontainers.utility.RegistryAuthLocator -- Credential helper/store (docker-credential-desktop) does not have credentials for https://index.docker.io/v1/
+23:46:58.403 [main] INFO tc.testcontainers/ryuk:0.13.0 -- Creating container for image: testcontainers/ryuk:0.13.0
+23:46:58.568 [main] INFO tc.testcontainers/ryuk:0.13.0 -- Container testcontainers/ryuk:0.13.0 is starting: ea6d5a82f32efcd6b3225d16df61501d94a4b87bf47c449ad77f03ff3efdf8f6
+23:46:59.272 [main] INFO tc.testcontainers/ryuk:0.13.0 -- Container testcontainers/ryuk:0.13.0 started in PT0.8691257S
+23:46:59.509 [main] INFO tc.postgres:16-alpine -- Container postgres:16-alpine is starting: a886c576cabafeb9287038d4854126f96e33c69dec21e417852ef0af14e0ba0a
+23:47:01.282 [main] INFO tc.postgres:16-alpine -- Container postgres:16-alpine started in PT3.1742149S
+23:47:01.284 [main] INFO tc.postgres:16-alpine -- Container is started (JDBC URL: jdbc:postgresql://localhost:55819/test?loggerLevel=OFF)
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.0.0)
+
+2026-10-02T23:47:01.856+01:00  INFO 21732 --- [           main] c.w.s.ShopRepositoriesIntegrationTest    : Starting ShopRepositoriesIntegrationTest using Java 27 with PID 21732 (started by salaheddine.tobok in C:\Users\salaheddine.tobok\IdeaProjects\learn.webcodein.com\workshop\persistence\hibernate-7-spring-data-jpa-4)
+2026-10-02T23:47:01.857+01:00  INFO 21732 --- [           main] c.w.s.ShopRepositoriesIntegrationTest    : No active profile set, falling back to 1 default profile: "default"
+2026-10-02T23:47:02.340+01:00  INFO 21732 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-10-02T23:47:02.535+01:00  INFO 21732 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 176 ms. Found 4 JPA repository interfaces.
+2026-10-02T23:47:03.091+01:00  INFO 21732 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-10-02T23:47:03.211+01:00  INFO 21732 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 7.1.8.Final
+2026-10-02T23:47:03.908+01:00  INFO 21732 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-10-02T23:47:03.940+01:00  INFO 21732 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-10-02T23:47:04.133+01:00  INFO 21732 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@4271b748
+2026-10-02T23:47:04.134+01:00  INFO 21732 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-10-02T23:47:04.227+01:00  INFO 21732 --- [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:55819/test?loggerLevel=OFF]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 16.15
+	Default catalog/schema: test/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DatasourceConnectionProviderImpl
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-10-02T23:47:06.044+01:00  INFO 21732 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-10-02T23:47:06.181+01:00  INFO 21732 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-10-02T23:47:06.402+01:00  INFO 21732 --- [           main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-10-02T23:47:07.456+01:00  INFO 21732 --- [           main] c.w.s.ShopRepositoriesIntegrationTest    : Started ShopRepositoriesIntegrationTest in 6.009 seconds (process running for 12.557)
+Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build as described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org.mockito/org/mockito/Mockito.html#0.3
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+WARNING: A Java agent has been loaded dynamically (C:\Users\salaheddine.tobok\.m2\repository\net\bytebuddy\byte-buddy-agent\1.17.8\byte-buddy-agent-1.17.8.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 13.42 s -- in com.webcodein.shop.ShopRepositoriesIntegrationTest
+2026-10-02T23:47:09.525+01:00  INFO 21732 --- [ionShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-10-02T23:47:09.536+01:00  WARN 21732 --- [ionShutdownHook] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@4271b748 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-10-02T23:47:09.539+01:00  WARN 21732 --- [ionShutdownHook] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@461c7dab (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-10-02T23:47:09.541+01:00  WARN 21732 --- [ionShutdownHook] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@265f5cc6 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-10-02T23:47:09.542+01:00  WARN 21732 --- [ionShutdownHook] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@43f15700 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-10-02T23:47:09.543+01:00  WARN 21732 --- [ionShutdownHook] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@1ae9c190 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-10-02T23:47:09.544+01:00  WARN 21732 --- [ionShutdownHook] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@3fbd1643 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-10-02T23:47:09.545+01:00  WARN 21732 --- [ionShutdownHook] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@6358d41e (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-10-02T23:47:09.546+01:00  WARN 21732 --- [ionShutdownHook] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@2a58d622 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-10-02T23:47:09.548+01:00  WARN 21732 --- [ionShutdownHook] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@7ee967b8 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-10-02T23:47:09.549+01:00  WARN 21732 --- [ionShutdownHook] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@29b17928 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+[ERROR] Surefire is going to kill self fork JVM. The exit has elapsed 30 seconds after System.exit(0).
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- jar:3.4.2:jar (default-jar) @ hibernate-7-spring-data-jpa-4 ---
+[INFO] Building jar: C:\Users\salaheddine.tobok\IdeaProjects\learn.webcodein.com\workshop\persistence\hibernate-7-spring-data-jpa-4\target\hibernate-7-spring-data-jpa-4-0.0.1-SNAPSHOT.jar
+[INFO] 
+[INFO] --- spring-boot:4.0.0:repackage (repackage) @ hibernate-7-spring-data-jpa-4 ---
+[INFO] Replacing main artifact C:\Users\salaheddine.tobok\IdeaProjects\learn.webcodein.com\workshop\persistence\hibernate-7-spring-data-jpa-4\target\hibernate-7-spring-data-jpa-4-0.0.1-SNAPSHOT.jar with repackaged archive, adding nested dependencies in BOOT-INF/.
+[INFO] The original artifact has been renamed to C:\Users\salaheddine.tobok\IdeaProjects\learn.webcodein.com\workshop\persistence\hibernate-7-spring-data-jpa-4\target\hibernate-7-spring-data-jpa-4-0.0.1-SNAPSHOT.jar.original
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  49.803 s
+[INFO] Finished at: 2026-10-02T23:47:40+01:00
+[INFO] ------------------------------------------------------------------------
