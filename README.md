@@ -49,6 +49,7 @@ This repository contains the companion code projects for all articles published 
 | persistence | `persistence/jakarta-data-1-0-vs-spring-data` |
 | security | `security/zero-trust-oauth2-keycloak-java25` |
 | security | `security/zero-trust-spring-security-7-ebpf-mesh` |
+| security | `security/spring-security-acl-domain-object-security-spring-boot-4` |
 | testing | `testing/testcontainers-docker-compose-spring-boot-4` |
 
 
