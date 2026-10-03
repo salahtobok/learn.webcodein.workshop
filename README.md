@@ -50,6 +50,7 @@ This repository contains the companion code projects for all articles published 
 | security | `security/zero-trust-oauth2-keycloak-java25` |
 | security | `security/zero-trust-spring-security-7-ebpf-mesh` |
 | security | `security/spring-security-acl-domain-object-security-spring-boot-4` |
+| security | `security/postgresql-row-level-security-spring-boot-4` |
 | testing | `testing/testcontainers-docker-compose-spring-boot-4` |
 
 
