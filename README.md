@@ -25,6 +25,7 @@ This repository contains the companion code projects for all articles published 
 | architecture | `architecture/first-ddd-application-spring-boot-4-tutorial` |
 | architecture | `architecture/hexagonal-architecture-ddd-jakarta-ee-11` |
 
+| architecture | `architecture/archunit-enforce-ddd-tactical-patterns-spring-boot` |
 | architecture | `architecture/archunit-hexagonal-architecture-spring-boot` | 100471 |
 | architecture | `architecture/hexagonal-vs-clean-vs-onion-architecture` |
 | architecture | `architecture/introduction-to-ddd-jakarta-ee-11` |
