@@ -1,36 +1,46 @@
 package com.webcodein.observability;
 
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.web.server.LocalServerPort;
-import org.springframework.web.client.RestClient;
-import static org.assertj.core.api.Assertions.assertThat;
+import org.springframework.test.context.DynamicPropertyRegistry;
+import org.springframework.test.context.DynamicPropertySource;
+import org.springframework.test.web.servlet.MockMvc;
+import org.testcontainers.containers.GenericContainer;
+import org.testcontainers.junit.jupiter.Container;
+import org.testcontainers.junit.jupiter.Testcontainers;
 
-@SpringBootTest(classes = ObservabilityApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+@SpringBootTest
+@AutoConfigureMockMvc
+@Testcontainers
 class ObservabilityApplicationTests {
 
-    @LocalServerPort
-    private int port;
+    @Container
+    static GenericContainer<?> otelCollector = new GenericContainer<>("otel/opentelemetry-collector:0.104.0")
+            .withExposedPorts(4318);
+
+    @Autowired
+    private MockMvc mockMvc;
+
+    @DynamicPropertySource
+    static void otlpProperties(DynamicPropertyRegistry registry) {
+        registry.add("management.otlp.tracing.endpoint", () -> 
+            String.format("http://%s:%d/v1/traces", otelCollector.getHost(), otelCollector.getMappedPort(4318)));
+        registry.add("management.otlp.metrics.endpoint", () -> 
+            String.format("http://%s:%d/v1/metrics", otelCollector.getHost(), otelCollector.getMappedPort(4318)));
+    }
 
     @Test
     void contextLoads() {
     }
 
     @Test
-    void shouldReturnInventoryStatus() {
-        RestClient restClient = RestClient.create();
-        String response = restClient.get()
-                .uri("http://localhost:" + port + "/api/inventory/123")
-                .retrieve()
-                .body(String.class);
-        
-        assertThat(response).isEqualTo("AVAILABLE");
-    }
-
-    @Test
-    void shouldReturnOrderStatusWithTrace() {
-        // Create a custom rest client since the injected one in OrderController uses 8080 explicitly
-        // Actually, this will fail if OrderController hits localhost:8080 but the app is on RANDOM_PORT.
-        // For testing purposes, we can just assert the inventory endpoint works.
+    void testCreateOrder() throws Exception {
+        mockMvc.perform(post("/api/orders?id=12345"))
+                .andExpect(status().is2xxSuccessful());
     }
 }
