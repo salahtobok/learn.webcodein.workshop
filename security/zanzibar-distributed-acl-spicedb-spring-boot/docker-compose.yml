@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  spicedb:
+    image: authzed/spicedb:v1.30.0
+    command: serve --grpc-preshared-key "local-dev-key"
+    ports:
+      - "50051:50051"
+    environment:
+      - SPICEDB_GRPC_PRESHARED_KEY=local-dev-key
