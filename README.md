@@ -9,6 +9,7 @@ This repository contains the companion code projects for all articles published 
 | ai | `ai/enterprise-rag-spring-ai-vector-database` |
 | ai | `ai/langchain4j-rag-spring-boot-4` |
 | ai | `ai/spring-ai-2-0-spring-boot-4` |
+| architecture | `architecture/android-flashing-bootloader-fastboot-recovery` |
 | architecture | `architecture/bounded-context-ddd-explained-beginners` |
 | architecture | `architecture/building-ota-firmware-delivery-server-spring-boot` |
 | architecture | `architecture/cqrs-event-driven-architecture-kafka-spring-boot-4` |
