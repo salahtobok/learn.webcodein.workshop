@@ -46,6 +46,7 @@ This repository contains the companion code projects for all articles published 
 | observability | `observability/opentelemetry-grafana-spring-boot-4` |
 | persistence | `persistence/hibernate-7-spring-data-jpa-4` |
 | persistence | `persistence/jakarta-data-1-0-vs-spring-data` |
+| persistence | `persistence/zero-downtime-database-migrations-spring-boot-flyway` |
 | security | `security/zero-trust-oauth2-keycloak-java25` |
 | security | `security/zero-trust-spring-security-7-ebpf-mesh` |
 | security | `security/spring-security-acl-domain-object-security-spring-boot-4` |

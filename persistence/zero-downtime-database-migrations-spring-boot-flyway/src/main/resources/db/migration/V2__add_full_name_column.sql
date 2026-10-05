@@ -1,0 +1,1 @@
+ALTER TABLE customer ADD COLUMN full_name VARCHAR(255);
