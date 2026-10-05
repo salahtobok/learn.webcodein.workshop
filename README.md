@@ -1,4 +1,4 @@
-﻿# WebCodein Workshop
+# WebCodein Workshop
 
 This repository contains the companion code projects for all articles published on [learn.webcodein.com](https://learn.webcodein.com).
 
@@ -10,6 +10,7 @@ This repository contains the companion code projects for all articles published 
 | ai | `ai/langchain4j-rag-spring-boot-4` |
 | ai | `ai/spring-ai-2-0-spring-boot-4` |
 | architecture | `architecture/bounded-context-ddd-explained-beginners` |
+| architecture | `architecture/building-ota-firmware-delivery-server-spring-boot` |
 | architecture | `architecture/cqrs-event-driven-architecture-kafka-spring-boot-4` |
 | architecture | `architecture/cqrs-event-sourcing-spring-boot-4` |
 | architecture | `architecture/data-oriented-programming-spring-boot-4` |
