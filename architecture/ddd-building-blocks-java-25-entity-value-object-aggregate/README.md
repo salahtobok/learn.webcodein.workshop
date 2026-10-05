@@ -1,13 +1,25 @@
-# ddd-building-blocks-java-25-entity-value-object-aggregate
+# DDD Building Blocks with Java 25
 
-This is the companion code for the Webcodein article on Domain-Driven Design.
+This project demonstrates Domain-Driven Design building blocks (Entity, Value Object, Aggregate) using Java 25 and Spring Boot 4.
 
 ## Prerequisites
 - Java 25
+- Maven (or use wrapper)
 - Docker
 
-## Running Locally
-You can run this project locally using Maven:
+## Build and Run
+
+To add Maven wrapper:
 ```bash
-./mvnw spring-boot:run
+mvn wrapper:wrapper
+```
+
+To run tests:
+```bash
+./mvnw clean verify
+```
+
+To run with Docker Compose:
+```bash
+docker-compose up --build
 ```

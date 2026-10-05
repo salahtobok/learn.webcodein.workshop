@@ -1,38 +1,35 @@
 package com.webcodein.ecommerce.domain;
 
-import java.util.UUID;
-import java.util.Objects;
+import jakarta.persistence.*;
 
-// This is an Entity, but it is NOT an Aggregate Root.
-// It only makes sense within the context of an Order.
+@Entity
+@Table(name = "order_items")
 public class OrderItem {
-    private final UUID orderItemId;
-    private final UUID productId;
-    private String productName;
-    private Money unitPrice;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String productId;
+
+    @Embedded
+    @AttributeOverrides({
+        @AttributeOverride(name = "amount", column = @Column(name = "price_amount")),
+        @AttributeOverride(name = "currency", column = @Column(name = "price_currency"))
+    })
+    private Money price;
+
     private int quantity;
 
-    public OrderItem(UUID orderItemId, UUID productId, String productName, Money unitPrice, int quantity) {
-        this.orderItemId = Objects.requireNonNull(orderItemId);
-        this.productId = Objects.requireNonNull(productId);
-        this.productName = productName;
-        this.unitPrice = unitPrice;
-        setQuantity(quantity);
-    }
+    protected OrderItem() {}
 
-    public void setQuantity(int quantity) {
-        if (quantity <= 0) throw new IllegalArgumentException("Quantity must be at least 1");
+    public OrderItem(String productId, Money price, int quantity) {
+        this.productId = productId;
+        this.price = price;
         this.quantity = quantity;
     }
 
-    public Money calculateTotal() {
-        // Multiply unit price by quantity
-        return Money.of(
-            unitPrice.amount().multiply(java.math.BigDecimal.valueOf(quantity)).toString(), 
-            unitPrice.currencyCode()
-        );
-    }
-
-    public UUID getOrderItemId() { return orderItemId; }
+    public String getProductId() { return productId; }
+    public Money getPrice() { return price; }
     public int getQuantity() { return quantity; }
 }
