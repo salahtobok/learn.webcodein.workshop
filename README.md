@@ -54,5 +54,6 @@ This repository contains the companion code projects for all articles published 
 | security | `security/zanzibar-distributed-acl-spicedb-spring-boot` |
 | testing | `testing/tdd-spring-boot-4-testcontainers-zero-mocking` |
 | testing | `testing/testcontainers-docker-compose-spring-boot-4` |
+| testing | `testing/chaos-engineering-spring-boot-4-toxiproxy` |
 
 
