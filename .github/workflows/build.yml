@@ -57,6 +57,8 @@ jobs:
           - architecture/strategy-pattern-java-jakarta-ee-guide
           - architecture/jobrunr-distributed-background-jobs-spring-boot-4
           - cloud-native/jenkins-pipeline-spring-boot-4-graalvm
+          - architecture/delta-firmware-update-service-spring-boot-4
+          - architecture/managing-ota-canary-rollouts-spring-boot-redis
     steps:
       - uses: actions/checkout@v4
 

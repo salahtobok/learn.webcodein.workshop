@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: delta-firmware-update-service
+  datasource:
+    url: jdbc:postgresql://localhost:5432/ota
+    username: user
+    password: password
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
