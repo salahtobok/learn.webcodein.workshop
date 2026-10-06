@@ -59,6 +59,7 @@ jobs:
           - cloud-native/jenkins-pipeline-spring-boot-4-graalvm
           - architecture/delta-firmware-update-service-spring-boot-4
           - architecture/managing-ota-canary-rollouts-spring-boot-redis
+          - architecture/transactional-outbox-pattern-spring-boot-4-kafka-debezium
     steps:
       - uses: actions/checkout@v4
 

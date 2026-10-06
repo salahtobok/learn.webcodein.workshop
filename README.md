@@ -63,3 +63,4 @@ This repository contains the companion code projects for all articles published 
 
 | architecture | `architecture/delta-firmware-update-service-spring-boot-4` |
 | architecture | `architecture/managing-ota-canary-rollouts-spring-boot-redis` |
+| architecture | `architecture/transactional-outbox-pattern-spring-boot-4-kafka-debezium` |
