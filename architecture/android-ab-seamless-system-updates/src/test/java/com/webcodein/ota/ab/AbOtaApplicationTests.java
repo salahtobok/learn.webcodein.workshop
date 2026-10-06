@@ -1,17 +1,18 @@
 package com.webcodein.ota.ab;
 
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.web.client.TestRestTemplate;
-import org.springframework.http.ResponseEntity;
+import org.springframework.boot.test.web.server.LocalServerPort;
 import org.testcontainers.containers.PostgreSQLContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
 
-import java.util.Map;
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -29,53 +30,74 @@ class AbOtaApplicationTests {
         registry.add("spring.datasource.password", postgres::getPassword);
     }
 
-    @Autowired
-    private TestRestTemplate restTemplate;
+    @LocalServerPort
+    private int port;
 
-    @Test
-    void testSuccessfulUpdateLifecycle() {
-        String deviceId = "device-123";
+    private final HttpClient httpClient = HttpClient.newHttpClient();
 
-        // 1. Initial State (Slot A is active and successful)
-        ResponseEntity<DeviceSlotState> response = restTemplate.getForEntity("/api/devices/" + deviceId + "/state", DeviceSlotState.class);
-        assertThat(response.getStatusCode().is2xxSuccessful()).isTrue();
-        assertThat(response.getBody().getActiveSlot()).isEqualTo("A");
-        assertThat(response.getBody().isSuccessfulA()).isTrue();
-
-        // 2. Stage Update
-        response = restTemplate.postForEntity("/api/devices/" + deviceId + "/stage-update", Map.of("version", "2.0.0"), DeviceSlotState.class);
-        assertThat(response.getStatusCode().is2xxSuccessful()).isTrue();
-        assertThat(response.getBody().getActiveSlot()).isEqualTo("A");
-        assertThat(response.getBody().isBootableB()).isTrue();
-        assertThat(response.getBody().isSuccessfulB()).isFalse();
-
-        // 3. Reboot
-        response = restTemplate.postForEntity("/api/devices/" + deviceId + "/reboot", null, DeviceSlotState.class);
-        assertThat(response.getStatusCode().is2xxSuccessful()).isTrue();
-        assertThat(response.getBody().getActiveSlot()).isEqualTo("B");
-        assertThat(response.getBody().isSuccessfulB()).isFalse();
-
-        // 4. Mark Successful
-        response = restTemplate.postForEntity("/api/devices/" + deviceId + "/mark-successful", null, DeviceSlotState.class);
-        assertThat(response.getStatusCode().is2xxSuccessful()).isTrue();
-        assertThat(response.getBody().getActiveSlot()).isEqualTo("B");
-        assertThat(response.getBody().isSuccessfulB()).isTrue();
+    private String getBaseUrl() {
+        return "http://localhost:" + port + "/api/devices";
     }
 
     @Test
-    void testFailedUpdateLifecycle() {
+    void testSuccessfulUpdateLifecycle() throws Exception {
+        String deviceId = "device-123";
+
+        // 1. Initial State
+        HttpRequest request = HttpRequest.newBuilder().uri(URI.create(getBaseUrl() + "/" + deviceId + "/state")).GET().build();
+        HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+        assertThat(response.statusCode()).isEqualTo(200);
+        assertThat(response.body()).contains("\"activeSlot\":\"A\"");
+        assertThat(response.body()).contains("\"successfulA\":true");
+
+        // 2. Stage Update
+        request = HttpRequest.newBuilder().uri(URI.create(getBaseUrl() + "/" + deviceId + "/stage-update"))
+                .header("Content-Type", "application/json")
+                .POST(HttpRequest.BodyPublishers.ofString("{\"version\":\"2.0.0\"}")).build();
+        response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+        assertThat(response.statusCode()).isEqualTo(200);
+        assertThat(response.body()).contains("\"activeSlot\":\"A\"");
+        assertThat(response.body()).contains("\"bootableB\":true");
+        assertThat(response.body()).contains("\"successfulB\":false");
+
+        // 3. Reboot
+        request = HttpRequest.newBuilder().uri(URI.create(getBaseUrl() + "/" + deviceId + "/reboot"))
+                .POST(HttpRequest.BodyPublishers.noBody()).build();
+        response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+        assertThat(response.statusCode()).isEqualTo(200);
+        assertThat(response.body()).contains("\"activeSlot\":\"B\"");
+        assertThat(response.body()).contains("\"successfulB\":false");
+
+        // 4. Mark Successful
+        request = HttpRequest.newBuilder().uri(URI.create(getBaseUrl() + "/" + deviceId + "/mark-successful"))
+                .POST(HttpRequest.BodyPublishers.noBody()).build();
+        response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+        assertThat(response.statusCode()).isEqualTo(200);
+        assertThat(response.body()).contains("\"activeSlot\":\"B\"");
+        assertThat(response.body()).contains("\"successfulB\":true");
+    }
+
+    @Test
+    void testFailedUpdateLifecycle() throws Exception {
         String deviceId = "device-fail";
 
         // 1. Stage Update to B
-        restTemplate.postForEntity("/api/devices/" + deviceId + "/stage-update", Map.of("version", "2.0.0"), DeviceSlotState.class);
+        HttpRequest request = HttpRequest.newBuilder().uri(URI.create(getBaseUrl() + "/" + deviceId + "/stage-update"))
+                .header("Content-Type", "application/json")
+                .POST(HttpRequest.BodyPublishers.ofString("{\"version\":\"2.0.0\"}")).build();
+        httpClient.send(request, HttpResponse.BodyHandlers.discarding());
 
         // 2. Reboot switches to B
-        ResponseEntity<DeviceSlotState> response = restTemplate.postForEntity("/api/devices/" + deviceId + "/reboot", null, DeviceSlotState.class);
-        assertThat(response.getBody().getActiveSlot()).isEqualTo("B");
+        request = HttpRequest.newBuilder().uri(URI.create(getBaseUrl() + "/" + deviceId + "/reboot"))
+                .POST(HttpRequest.BodyPublishers.noBody()).build();
+        HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+        assertThat(response.body()).contains("\"activeSlot\":\"B\"");
 
         // 3. Fallback to A
-        response = restTemplate.postForEntity("/api/devices/" + deviceId + "/fallback", null, DeviceSlotState.class);
-        assertThat(response.getBody().getActiveSlot()).isEqualTo("A");
-        assertThat(response.getBody().isBootableB()).isFalse();
+        request = HttpRequest.newBuilder().uri(URI.create(getBaseUrl() + "/" + deviceId + "/fallback"))
+                .POST(HttpRequest.BodyPublishers.noBody()).build();
+        response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+        assertThat(response.body()).contains("\"activeSlot\":\"A\"");
+        assertThat(response.body()).contains("\"bootableB\":false");
     }
 }

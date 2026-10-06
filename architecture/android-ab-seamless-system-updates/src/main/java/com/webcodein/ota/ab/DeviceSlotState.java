@@ -10,6 +10,9 @@ public class DeviceSlotState {
     @Id
     private String deviceId;
 
+    @jakarta.persistence.Version
+    private Long version;
+
     private String activeSlot = "A";
 
     private boolean bootableA = true;
@@ -28,6 +31,8 @@ public class DeviceSlotState {
 
     public String getDeviceId() { return deviceId; }
     public void setDeviceId(String deviceId) { this.deviceId = deviceId; }
+
+    public Long getVersion() { return version; }
     
     public String getActiveSlot() { return activeSlot; }
     public void setActiveSlot(String activeSlot) { this.activeSlot = activeSlot; }
