@@ -60,6 +60,7 @@ jobs:
           - architecture/delta-firmware-update-service-spring-boot-4
           - architecture/managing-ota-canary-rollouts-spring-boot-redis
           - architecture/transactional-outbox-pattern-spring-boot-4-kafka-debezium
+          - architecture/saga-pattern-spring-boot-4-temporal
     steps:
       - uses: actions/checkout@v4
 
@@ -75,4 +76,5 @@ jobs:
       # This runs the JVM build and tests; the native image build is not part of CI.
       - name: Build and test
         run: mvn -B -ntp -f "${{ matrix.project }}/pom.xml" verify
+
 
