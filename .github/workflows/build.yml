@@ -61,6 +61,7 @@ jobs:
           - architecture/managing-ota-canary-rollouts-spring-boot-redis
           - architecture/transactional-outbox-pattern-spring-boot-4-kafka-debezium
           - architecture/saga-pattern-spring-boot-4-temporal
+          - architecture/multi-tenant-saas-hibernate-7-spring-boot
     steps:
       - uses: actions/checkout@v4
 
