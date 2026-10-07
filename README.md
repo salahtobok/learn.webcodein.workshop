@@ -65,3 +65,4 @@ This repository contains the companion code projects for all articles published 
 | architecture | `architecture/managing-ota-canary-rollouts-spring-boot-redis` |
 | architecture | `architecture/transactional-outbox-pattern-spring-boot-4-kafka-debezium` |
 | \rchitecture/saga-pattern-spring-boot-4-temporal\ | Implementing the Saga Pattern with Spring Boot 4 and Temporal |
+| architecture | "architecture/idempotent-webhook-consumers-spring-boot-4" | Building Highly Reliable & Idempotent Webhook Consumers in Spring Boot 4 |
