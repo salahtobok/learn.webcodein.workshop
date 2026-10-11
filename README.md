@@ -64,5 +64,6 @@ This repository contains the companion code projects for all articles published 
 | architecture | `architecture/delta-firmware-update-service-spring-boot-4` |
 | architecture | `architecture/managing-ota-canary-rollouts-spring-boot-redis` |
 | architecture | `architecture/transactional-outbox-pattern-spring-boot-4-kafka-debezium` |
+| architecture | `architecture/multi-tenant-saas-hibernate-7-spring-boot` |
 | \rchitecture/saga-pattern-spring-boot-4-temporal\ | Implementing the Saga Pattern with Spring Boot 4 and Temporal |
 | architecture | "architecture/idempotent-webhook-consumers-spring-boot-4" | Building Highly Reliable & Idempotent Webhook Consumers in Spring Boot 4 |
