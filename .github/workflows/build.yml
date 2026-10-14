@@ -63,6 +63,7 @@ jobs:
           - architecture/saga-pattern-spring-boot-4-temporal
           - architecture/multi-tenant-saas-hibernate-7-spring-boot
           - architecture/building-ota-firmware-delivery-server-spring-boot
+          - architecture/high-concurrency-mobile-flash-sale-spring-boot-redis
           - architecture/android-ab-seamless-system-updates
           - architecture/android-flashing-bootloader-fastboot-recovery
     steps:

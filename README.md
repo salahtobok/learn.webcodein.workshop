@@ -31,6 +31,7 @@ This repository contains the companion code projects for all articles published 
 | architecture | `architecture/archunit-freezing-legacy-architecture-spring-boot` |
 | architecture | `architecture/archunit-hexagonal-architecture-spring-boot` |
 | architecture | `architecture/hexagonal-vs-clean-vs-onion-architecture` |
+| architecture | `architecture/high-concurrency-mobile-flash-sale-spring-boot-redis` |
 | architecture | `architecture/introduction-to-ddd-jakarta-ee-11` |
 | architecture | `architecture/jobrunr-distributed-background-jobs-spring-boot-4` |
 | architecture | `architecture/master-archunit-custom-rules-spring-boot` |
