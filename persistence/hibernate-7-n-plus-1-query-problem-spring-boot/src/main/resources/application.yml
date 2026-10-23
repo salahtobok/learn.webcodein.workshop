@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: hibernate-7-n-plus-1-query-problem-spring-boot
+  datasource:
+    url: jdbc:postgresql://localhost:5432/nplusonedb
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        session_factory:
+          statement_inspector: com.webcodein.nplusone.inspector.SqlStatementCountInspector

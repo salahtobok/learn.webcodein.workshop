@@ -52,6 +52,7 @@ This repository contains the companion code projects for all articles published 
 | persistence | `persistence/jakarta-data-1-0-vs-spring-data` |
 | persistence | `persistence/zero-downtime-database-migrations-spring-boot-flyway` |
 | persistence | `persistence/hikaricp-connection-pool-tuning-spring-boot` |
+| persistence | `persistence/hibernate-7-n-plus-1-query-problem-spring-boot` |
 | security | `security/zero-trust-oauth2-keycloak-java25` |
 | security | `security/zero-trust-spring-security-7-ebpf-mesh` |
 | security | `security/spring-security-acl-domain-object-security-spring-boot-4` |
