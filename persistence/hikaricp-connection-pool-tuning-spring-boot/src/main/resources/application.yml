@@ -1,0 +1,48 @@
+spring:
+  application:
+    name: hikaricp-connection-pool-tuning-spring-boot
+  datasource:
+    url: jdbc:postgresql://localhost:5432/hikaridb
+    username: postgres
+    password: postgrespassword
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      pool-name: ProductionHikariPool
+      # Formula: ((core_count * 2) + effective_spindle_count)
+      # For a 4-core database server with SSD storage: (4 * 2) + 1 = 9 ~ 10 connections
+      maximum-pool-size: 10
+      # Fixed-size pool avoids connection creation latency during traffic spikes
+      minimum-idle: 10
+      # Fail-fast timeout: 3 seconds prevents cascading thread pool exhaustion
+      connection-timeout: 3000
+      # Keep-alive timeout: must be shorter than DB firewall or ALB timeout
+      max-lifetime: 1800000
+      # Idle timeout: time connection can remain idle in pool
+      idle-timeout: 600000
+      # Leak detection threshold: 2 seconds logs stack trace of unclosed connections
+      leak-detection-threshold: 2000
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        format_sql: false
+        show_sql: false
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: always
+  metrics:
+    enable:
+      hikaricp: true
+
+logging:
+  level:
+    com.zaxxer.hikari: DEBUG
+    com.zaxxer.hikari.pool.ProxyLeakTask: WARN
+    com.webcodein.hikaricp: INFO
