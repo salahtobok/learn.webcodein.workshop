@@ -32,6 +32,7 @@ jobs:
           - persistence/zero-downtime-database-migrations-spring-boot-flyway
           - persistence/hikaricp-connection-pool-tuning-spring-boot
           - persistence/hibernate-7-n-plus-1-query-problem-spring-boot
+          - persistence/optimistic-pessimistic-locking-spring-boot
           - security/jakarta-security-4-vs-spring-security-7/spring-security
           - security/jakarta-security-4-vs-spring-security-7/jakarta-security
           - security/zero-trust-spring-security-7-ebpf-mesh
