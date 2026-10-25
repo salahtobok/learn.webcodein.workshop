@@ -1,0 +1,13 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: structured-concurrency-scoped-values-demo
+  threads:
+    virtual:
+      enabled: true
+
+logging:
+  level:
+    com.webcodein: DEBUG

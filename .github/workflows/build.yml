@@ -43,6 +43,7 @@ jobs:
           - architecture/event-driven-kafka-spring-boot-4
           - observability/opentelemetry-grafana-spring-boot-4
           - java-core/virtual-threads-spring-boot-4
+          - java-core/structured-concurrency-scoped-values-java-25
           - architecture/hexagonal-architecture-ddd-jakarta-ee-11
           - architecture/introduction-to-ddd-jakarta-ee-11
           - architecture/domain-driven-design-explained-beginners-guide

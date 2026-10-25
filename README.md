@@ -46,6 +46,7 @@ This repository contains the companion code projects for all articles published 
 | fullstack | `fullstack/angular22-springboot4-signals` |
 | java-core | `java-core/project-valhalla-value-types-java-25` |
 | java-core | `java-core/virtual-threads-spring-boot-4` |
+| java-core | `java-core/structured-concurrency-scoped-values-java-25` |
 | kotlin | `kotlin/kotlin-spring-boot-4-backend-guide` |
 | observability | `observability/opentelemetry-grafana-spring-boot-4` |
 | persistence | `persistence/hibernate-7-spring-data-jpa-4` |
