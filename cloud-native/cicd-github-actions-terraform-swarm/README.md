@@ -1,6 +1,6 @@
 # CI/CD DevOps: Zero-Downtime Deployments with GitHub Actions, Terraform, and Docker Swarm
 
-This project is the companion code for the article **"CI/CD DevOps: Zero-Downtime Deployments with GitHub Actions, Terraform, and Docker Swarm"** on [Webcodein](https://learn.webcodein.com).
+This project is the companion code for the article **"CI/CD DevOps: Zero-Downtime Deployments with GitHub Actions, Terraform, and Docker Swarm"** on [Webcodein](https://learn.webcodein.com/post/cicd-github-actions-terraform-swarm).
 
 ## Prerequisites
 - Java 25 (e.g., Temurin or Corretto)
