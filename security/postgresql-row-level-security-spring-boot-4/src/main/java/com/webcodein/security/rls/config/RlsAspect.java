@@ -20,11 +20,8 @@ public class RlsAspect {
     public void setTenantContext() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (authentication != null && authentication.isAuthenticated()) {
-            // For simplicity, we use the username as the tenant ID. 
-            // In a real SaaS, you would extract a custom claim (e.g., 'tenant_id') from a JWT token.
             String tenantId = authentication.getName();
-            
-            // Set the PostgreSQL session variable. RLS policies will read this.
+            entityManager.createNativeQuery("SET LOCAL ROLE app_user").executeUpdate();
             entityManager.createNativeQuery("SET LOCAL rls.tenant_id = '" + tenantId + "'").executeUpdate();
         }
     }

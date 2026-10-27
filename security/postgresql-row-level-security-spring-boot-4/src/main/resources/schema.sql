@@ -12,6 +12,11 @@ ALTER TABLE documents ENABLE ROW LEVEL SECURITY;
 CREATE POLICY tenant_isolation_policy ON documents
     USING (tenant_id = current_setting('rls.tenant_id', true));
 
--- The default Postgres user (myuser) is a superuser in testcontainers or owner
 -- Owners bypass RLS by default. To force RLS even for the owner, use FORCE ROW LEVEL SECURITY.
 ALTER TABLE documents FORCE ROW LEVEL SECURITY;
+
+-- Create an application role that is not a superuser for RLS enforcement
+CREATE ROLE app_user;
+
+GRANT ALL PRIVILEGES ON TABLE documents TO app_user;
+GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO app_user;

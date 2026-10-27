@@ -1,5 +1,7 @@
 # PostgreSQL Row-Level Security in Spring Boot 4
 
+Companion code repository for the article: [High-Performance Multi-Tenant ACLs: PostgreSQL 16 Row-Level Security with Spring Boot 4](https://learn.webcodein.com/post/postgresql-row-level-security-spring-boot-4).
+
 This workshop project demonstrates how to push Access Control (ACL) down to the PostgreSQL database engine using Row-Level Security (RLS) in a Spring Boot application.
 
 ## Prerequisites
