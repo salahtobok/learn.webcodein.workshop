@@ -1,6 +1,6 @@
 # Zanzibar-style Distributed ACL in Java with SpiceDB and Spring Boot 4
 
-This is the companion code for the Webcodein article on implementing Google Zanzibar-style ReBAC (Relationship-Based Access Control) using SpiceDB and Spring Boot 4.
+This is the companion code for the article **[Zanzibar-Style Distributed ACL in Java with SpiceDB and Spring Boot 4](https://learn.webcodein.com/post/zanzibar-distributed-acl-spicedb-spring-boot)** on Webcodein.
 
 ## Prerequisites
 - Java 25

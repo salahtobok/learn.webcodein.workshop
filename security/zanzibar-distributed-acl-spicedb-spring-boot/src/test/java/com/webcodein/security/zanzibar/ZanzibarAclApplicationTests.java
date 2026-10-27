@@ -68,7 +68,7 @@ public class ZanzibarAclApplicationTests {
                 .build();
 
         RelationshipUpdate update = RelationshipUpdate.newBuilder()
-                .setOperation(RelationshipUpdate.Operation.OPERATION_CREATE)
+                .setOperation(RelationshipUpdate.Operation.OPERATION_TOUCH)
                 .setRelationship(relationship)
                 .build();
 
