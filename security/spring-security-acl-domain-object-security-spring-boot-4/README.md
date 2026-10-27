@@ -1,6 +1,9 @@
 # Spring Security ACL Demo
 
-This project demonstrates how to implement Domain Object Security (row-level security) in Spring Boot 4 using the Spring Security ACL module and PostgreSQL.
+This project demonstrates how to implement Domain Object Security (row-level access control) in Spring Boot 4 using the Spring Security ACL module and PostgreSQL 16.
+
+For the full detailed walkthrough and architectural explanations, see the companion guide:  
+**[Mastering Spring Security ACL: Domain Object Security in Spring Boot 4](https://learn.webcodein.com/post/spring-security-acl-domain-object-security-spring-boot-4)**
 
 ## Prerequisites
 - Java 25
@@ -21,7 +24,7 @@ docker compose up --build
 ```
 
 ## Testing
-To run the integration tests (which verify ACL permission constraints):
+To run the integration tests (which verify ACL permission constraints and multi-user isolation):
 
 ```bash
 ./mvnw clean verify

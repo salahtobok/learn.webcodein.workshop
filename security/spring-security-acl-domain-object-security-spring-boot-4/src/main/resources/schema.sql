@@ -16,7 +16,7 @@ CREATE TABLE IF NOT EXISTS acl_class (
 CREATE TABLE IF NOT EXISTS acl_object_identity (
     id BIGSERIAL PRIMARY KEY,
     object_id_class BIGINT NOT NULL,
-    object_id_identity BIGINT NOT NULL,
+    object_id_identity VARCHAR(36) NOT NULL,
     parent_object BIGINT,
     owner_sid BIGINT,
     entries_inheriting BOOLEAN NOT NULL,
@@ -38,4 +38,9 @@ CREATE TABLE IF NOT EXISTS acl_entry (
     CONSTRAINT unique_acl_entry UNIQUE (acl_object_identity, ace_order),
     CONSTRAINT fk_acl_entry_object FOREIGN KEY (acl_object_identity) REFERENCES acl_object_identity (id),
     CONSTRAINT fk_acl_entry_acl FOREIGN KEY (sid) REFERENCES acl_sid (id)
+);
+
+CREATE TABLE IF NOT EXISTS documents (
+    id BIGSERIAL PRIMARY KEY,
+    content TEXT NOT NULL
 );

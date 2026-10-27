@@ -37,6 +37,7 @@ jobs:
           - security/jakarta-security-4-vs-spring-security-7/jakarta-security
           - security/zero-trust-spring-security-7-ebpf-mesh
           - security/postgresql-row-level-security-spring-boot-4  # Testcontainers (Docker)
+          - security/spring-security-acl-domain-object-security-spring-boot-4  # Testcontainers (Docker)
           - security/zanzibar-distributed-acl-spicedb-spring-boot  # Testcontainers (Docker)
           - testing/testcontainers-docker-compose-spring-boot-4  # Testcontainers (Docker)
           - ai/spring-ai-2-0-spring-boot-4
