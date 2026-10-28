@@ -2,10 +2,16 @@
   "id": "webcodein-realm",
   "realm": "webcodein-realm",
   "enabled": true,
+  "verifyEmail": false,
   "users": [
     {
       "username": "testuser",
       "enabled": true,
+      "emailVerified": true,
+      "email": "testuser@webcodein.com",
+      "firstName": "Test",
+      "lastName": "User",
+      "requiredActions": [],
       "credentials": [
         {
           "type": "password",
@@ -16,6 +22,25 @@
       "realmRoles": [
         "USER",
         "ADMIN"
+      ]
+    },
+    {
+      "username": "regularuser",
+      "enabled": true,
+      "emailVerified": true,
+      "email": "regularuser@webcodein.com",
+      "firstName": "Regular",
+      "lastName": "User",
+      "requiredActions": [],
+      "credentials": [
+        {
+          "type": "password",
+          "value": "password",
+          "temporary": false
+        }
+      ],
+      "realmRoles": [
+        "USER"
       ]
     }
   ],

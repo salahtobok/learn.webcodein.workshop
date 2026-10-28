@@ -1,74 +1,117 @@
-# Zero-Trust OAuth2 with Keycloak (Java 25 / Spring Boot 4)
+# Zero-Trust OAuth2 with Keycloak (Java 25 & Spring Boot 4)
 
-This repository contains the companion workshop code for the Webcodein article: **Mastering Zero-Trust Architecture**.
+Companion workshop project for the tutorial: [Mastering Zero-Trust Architecture: Implementing OAuth2 and Keycloak in Java 25](https://learn.webcodein.com/post/zero-trust-oauth2-keycloak-java25).
+
+This repository demonstrates how to implement a perimeterless Zero-Trust security model for Java 25 microservices using Spring Boot 4.0.0, Spring Security 7, and Keycloak 26 as the OpenID Connect (OIDC) identity provider.
+
+## Architecture Highlights
+- **Zero-Trust Paradigm**: Continuous cryptographic validation of JSON Web Tokens (JWT) for every inbound HTTP transaction.
+- **Spring Security 7 Resource Server**: Custom `KeycloakGrantedAuthoritiesConverter` parsing both `realm_access.roles` and standard OIDC scopes into Spring `GrantedAuthority` objects.
+- **Role-Based Authorization**: Granular RBAC enforcing `ROLE_USER` and `ROLE_ADMIN` on protected API endpoints.
+- **Automated Verification**: End-to-end integration tests using Testcontainers running an ephemeral Keycloak 26 instance with automated realm import.
 
 ## Prerequisites
-- Docker & Docker Compose
-- Maven 3.9+
-- Java 25 (or Java 21 LTS)
+- Docker Engine & Docker Compose
+- JDK 25
+- Maven 3.9+ (or use included `./mvnw`)
 
-## Running Guide
+---
+
+## Running the Automated Test Suite
+
+Run the full automated test suite (including Testcontainers Keycloak integration tests):
+
+```bash
+./mvnw clean verify
+```
+
+---
+
+## Local Development Running Guide
 
 ### 1. Start Keycloak
 
-We use Docker Compose to start a pre-configured Keycloak instance.
+Start the pre-configured Keycloak instance with Docker Compose:
 
 ```bash
-docker-compose up -d keycloak
+docker compose up -d keycloak
 ```
 
-This will start Keycloak on `http://localhost:8080`.
-- Admin console: `http://localhost:8080/admin` (admin/admin)
-- It automatically imports `webcodein-realm` and a test user (`testuser` / `password`).
+Keycloak will start on `http://localhost:8080`.
+- Admin console: `http://localhost:8080/admin` (admin / admin)
+- Pre-imported realm: `webcodein-realm`
+- Seeded users:
+  - `testuser` / `password` (roles: `USER`, `ADMIN`)
+  - `regularuser` / `password` (roles: `USER`)
 
-### 2. Start the Spring Boot App
+### 2. Start the Spring Boot Application
 
-You can run the app locally using Maven:
+Run the application locally:
 
 ```bash
-mvn spring-boot:run
+./mvnw spring-boot:run
 ```
 
-Alternatively, you can run the entire stack (App + Keycloak) using Docker Compose:
+The resource server listens on `http://localhost:8081`.
 
+---
+
+### 3. Testing the Endpoints via cURL
+
+#### Step A: Test Public Endpoint
 ```bash
-docker-compose up -d
+curl -i http://localhost:8081/api/public/hello
+```
+*Expected: HTTP 200 OK*
+```json
+{"message":"Hello, this is a public endpoint."}
 ```
 
-The app will be available on `http://localhost:8081`.
-
-### 3. Testing the Zero-Trust API
-
-**Step A: Test Public Endpoint**
+#### Step B: Test Protected Endpoint without Token
 ```bash
-curl http://localhost:8081/api/public/hello
+curl -i http://localhost:8081/api/secure/hello
 ```
-Expected: `{"message": "Hello, this is a public endpoint."}`
+*Expected: HTTP 401 Unauthorized*
 
-**Step B: Test Secure Endpoint (Without Token)**
-```bash
-curl http://localhost:8081/api/secure/hello
-```
-Expected: `401 Unauthorized`
-
-**Step C: Get a Token from Keycloak**
+#### Step C: Obtain JWT Access Token from Keycloak
 ```bash
 TOKEN=$(curl -s -X POST "http://localhost:8080/realms/webcodein-realm/protocol/openid-connect/token" \
- -H "Content-Type: application/x-www-form-urlencoded" \
- -d "username=testuser" \
- -d "password=password" \
- -d "grant_type=password" \
- -d "client_id=spring-boot-client" | jq -r .access_token)
+  -H "Content-Type: application/x-www-form-urlencoded" \
+  -d "grant_type=password" \
+  -d "client_id=spring-boot-client" \
+  -d "username=testuser" \
+  -d "password=password" | jq -r .access_token)
 ```
 
-**Step D: Access Secure Endpoint**
+#### Step D: Access User Endpoint with Token
 ```bash
-curl -H "Authorization: Bearer $TOKEN" http://localhost:8081/api/secure/hello
+curl -i -H "Authorization: Bearer $TOKEN" http://localhost:8081/api/secure/hello
 ```
-Expected: `{"message": "Hello testuser, you are authenticated via Zero-Trust OAuth2."}`
+*Expected: HTTP 200 OK*
+```json
+{"message":"Hello testuser, you are authenticated via Zero-Trust OAuth2."}
+```
+
+#### Step E: Access Admin Dashboard with Admin Token
+```bash
+curl -i -H "Authorization: Bearer $TOKEN" http://localhost:8081/api/admin/dashboard
+```
+*Expected: HTTP 200 OK*
+```json
+{"message":"Welcome to the Admin Dashboard."}
+```
+
+---
 
 ## Clean Up
-To stop and remove the containers:
+
+Stop and remove running containers:
+
 ```bash
-docker-compose down
+docker compose down -v
 ```
+
+## Related Resources
+- [Mastering Zero-Trust Architecture Article](https://learn.webcodein.com/post/zero-trust-oauth2-keycloak-java25)
+- [Spring Security Reference](https://docs.spring.io/spring-security/reference/)
+- [Keycloak Documentation](https://www.keycloak.org/documentation)
