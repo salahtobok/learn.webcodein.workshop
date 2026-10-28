@@ -39,6 +39,7 @@ jobs:
           - security/postgresql-row-level-security-spring-boot-4  # Testcontainers (Docker)
           - security/spring-security-acl-domain-object-security-spring-boot-4  # Testcontainers (Docker)
           - security/zanzibar-distributed-acl-spicedb-spring-boot  # Testcontainers (Docker)
+          - testing/chaos-engineering-spring-boot-4-toxiproxy  # Testcontainers (Docker)
           - testing/testcontainers-docker-compose-spring-boot-4  # Testcontainers (Docker)
           - ai/spring-ai-2-0-spring-boot-4
           - ai/enterprise-rag-spring-ai-vector-database
