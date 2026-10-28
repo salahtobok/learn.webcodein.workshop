@@ -1,38 +1,51 @@
 # Zero-Trust Microservices with Spring Security 7 & eBPF Service Meshes
 
-Companion project for the Webcodein article on building Zero-Trust microservices architectures using Java 25, Spring Boot 4.0, and ambient eBPF meshes without sidecar proxies.
+Companion workshop project for the tutorial: [Zero-Trust Architecture in Spring Boot 4 with Spring Security 7](https://learn.webcodein.com/post/zero-trust-spring-security-7-ebpf-mesh).
 
-## Stack
-- Java 25
-- Spring Boot 4.0.0
-- Spring Security 7 (OAuth2 Resource Server)
-- Spring Boot Test & MockMvc (Testing)
+This repository demonstrates how to architect a defense-in-depth Zero-Trust microservice using Java 25, Spring Boot 4.0.0, Spring Security 7, and sidecarless eBPF service meshes (such as Cilium or Istio Ambient Mesh).
 
-## Architecture Overview
-This project simulates a secure microservice (Finance Service) deployed in an environment protected by an eBPF mesh (like Istio Ambient or Cilium).
-- The **eBPF Mesh** handles Layer 4 Mutual TLS (mTLS) transparently across nodes.
-- **Spring Security 7** handles Layer 7 authorization by inspecting the incoming JSON Web Token (JWT).
+## Architectural Model: Defense in Depth
+- **Layer 4 / Network Layer (eBPF Kernel Hooks)**: Transparent, sidecarless Mutual TLS (mTLS) encryption, packet filtering, and identity verification performed at the Linux kernel socket layer (`sockops` / `tc`).
+- **Layer 7 / Application Layer (Spring Security 7)**: Continuous verification of JSON Web Tokens (JWT), extracting delegated scopes (`SCOPE_finance:read`) and evaluating fine-grained method security (`@PreAuthorize`) against the authenticated subject.
 
-## Running the Application
+---
 
-### Local Development (Maven)
-You can run the application directly using the Maven wrapper:
-```bash
-./mvnw spring-boot:run
-```
-*Note: Since this is a Resource Server expecting a valid JWT signature from an Identity Provider (like Keycloak), accessing the endpoints directly without a valid token will result in a 401 Unauthorized.*
+## Prerequisites
+- JDK 25
+- Maven 3.9+ (or use included `./mvnw`)
+- Docker & Docker Compose (optional, for local Keycloak)
 
-### Running via Docker
-To containerize the application:
-```bash
-docker build -t webcodein/zero-trust-finance:latest .
-docker run -p 8080:8080 webcodein/zero-trust-finance:latest
-```
+---
 
-## Testing
-We use Spring Security Test with MockMvc to assert that fine-grained authorization rules (method-level `@PreAuthorize`) evaluate the JWT payload correctly without needing a real Identity Provider during unit testing.
+## Running the Automated Test Suite
 
-To run the test suite:
+Run the full automated test suite verifying both unit logic and security filter chain enforcement:
+
 ```bash
 ./mvnw clean verify
 ```
+
+### Verified Test Contracts:
+1. `healthEndpointPermitAll`: Unauthenticated access to `/actuator/health` returns `HTTP 200 OK` (`{"status":"UP"}`).
+2. `balanceEndpointRejectsUnauthenticated`: Unauthenticated access to protected `/api/v1/accounts/{accountId}/balance` returns `HTTP 401 Unauthorized`.
+3. `balanceEndpointRejectsMissingScope`: Requests with valid JWT lacking `SCOPE_finance:read` return `HTTP 403 Forbidden`.
+4. `balanceEndpointRejectsNonOwner`: Requests where JWT subject does not match the `{accountId}` URL parameter return `HTTP 403 Forbidden`.
+5. `balanceEndpointAllowsOwnerWithFinanceScope`: Requests where JWT has both `SCOPE_finance:read` and matching owner subject return `HTTP 200 OK` with balance payload.
+
+---
+
+## Running the Application Locally
+
+```bash
+./mvnw spring-boot:run
+```
+
+The service runs on `http://localhost:8080`.
+
+---
+
+## Related Resources
+- [Zero-Trust Architecture in Spring Boot 4 & Spring Security 7 Article](https://learn.webcodein.com/post/zero-trust-spring-security-7-ebpf-mesh)
+- [Mastering Zero-Trust Architecture: Keycloak in Java 25](https://learn.webcodein.com/post/zero-trust-oauth2-keycloak-java25)
+- [Spring Security Reference](https://docs.spring.io/spring-security/reference/)
+- [eBPF Foundation](https://ebpf.io/)
