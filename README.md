@@ -25,6 +25,7 @@ This repository contains the companion code projects for all articles published 
 | architecture | `architecture/ddd-vs-crud-visual-guide-java-developers` |
 | architecture | `architecture/domain-driven-design-explained-beginners-guide` |
 | architecture | `architecture/event-driven-kafka-spring-boot-4` |
+| architecture | `architecture/kafka-transactional-outbox-spring-boot-4` |
 | architecture | `architecture/first-ddd-application-spring-boot-4-tutorial` |
 | architecture | `architecture/hexagonal-architecture-ddd-jakarta-ee-11` |
 | architecture | `architecture/archunit-enforce-ddd-tactical-patterns-spring-boot` |
