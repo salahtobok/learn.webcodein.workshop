@@ -47,6 +47,7 @@ jobs:
           - java-core/project-valhalla-value-types-java-25
           - architecture/event-driven-kafka-spring-boot-4
           - architecture/kafka-transactional-outbox-spring-boot-4  # Testcontainers (Docker)
+          - architecture/cqrs-event-sourcing-spring-boot-4  # Testcontainers (Docker)
           - observability/opentelemetry-grafana-spring-boot-4
           - java-core/virtual-threads-spring-boot-4
           - java-core/structured-concurrency-scoped-values-java-25
