@@ -8,12 +8,12 @@ import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Component;
 
 @Component
-class AccountPersistenceAdapter implements LoadAccountPort, UpdateAccountStatePort {
+public class AccountPersistenceAdapter implements LoadAccountPort, UpdateAccountStatePort {
 
     private final SpringDataAccountRepository repository;
     private final AccountMapper mapper;
 
-    AccountPersistenceAdapter(SpringDataAccountRepository repository, AccountMapper mapper) {
+    public AccountPersistenceAdapter(SpringDataAccountRepository repository, AccountMapper mapper) {
         this.repository = repository;
         this.mapper = mapper;
     }
@@ -21,7 +21,7 @@ class AccountPersistenceAdapter implements LoadAccountPort, UpdateAccountStatePo
     @Override
     public Account loadAccount(AccountId id) {
         AccountJpaEntity entity = repository.findById(id.getValue())
-            .orElseThrow(EntityNotFoundException::new);
+            .orElseThrow(() -> new EntityNotFoundException("Account not found with ID: " + id.getValue()));
         return mapper.mapToDomainEntity(entity);
     }
 

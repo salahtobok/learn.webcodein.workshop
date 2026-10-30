@@ -7,10 +7,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-class DomainConfig {
+public class DomainConfig {
 
     @Bean
-    TransferMoneyService transferMoneyService(
+    public TransferMoneyService transferMoneyService(
             LoadAccountPort loadAccountPort,
             UpdateAccountStatePort updateAccountStatePort) {
 
