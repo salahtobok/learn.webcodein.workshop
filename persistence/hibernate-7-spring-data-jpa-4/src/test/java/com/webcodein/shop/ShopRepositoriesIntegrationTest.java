@@ -42,14 +42,17 @@ class ShopRepositoriesIntegrationTest {
         products.save(new Product(1L, "Laptop", new ProductMetadata("Acme", 2, List.of("pc"))));
 
         assertThat(products.findByManufacturer("Acme")).hasSize(1);
+        assertThat(products.findByManufacturer("UnknownBrand")).isEmpty();
     }
 
     @Test
     void ranksEmployeesWithWindowFunction() {
         employees.save(new Employee(1L, "Ada", "R&D", new BigDecimal("200")));
         employees.save(new Employee(2L, "Grace", "R&D", new BigDecimal("300")));
+        employees.save(new Employee(3L, "Bob", "Sales", new BigDecimal("400")));
 
-        assertThat(employees.findEmployeesWithDepartmentRank()).hasSize(2);
+        List<Object[]> ranks = employees.findEmployeesWithDepartmentRank();
+        assertThat(ranks).hasSize(3);
     }
 
     @Test
