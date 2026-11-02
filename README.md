@@ -61,6 +61,7 @@ This repository contains the companion code projects for all articles published 
 | security | `security/spring-security-acl-domain-object-security-spring-boot-4` |
 | security | `security/postgresql-row-level-security-spring-boot-4` |
 | security | `security/zanzibar-distributed-acl-spicedb-spring-boot` |
+| security | `security/jakarta-security-4-vs-spring-security-7` |
 | testing | `testing/tdd-spring-boot-4-testcontainers-zero-mocking` |
 | testing | `testing/testcontainers-docker-compose-spring-boot-4` |
 | testing | `testing/chaos-engineering-spring-boot-4-toxiproxy` |
