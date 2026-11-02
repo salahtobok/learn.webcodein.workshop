@@ -14,7 +14,15 @@ public interface EmployeeRepository extends CrudRepository<Employee, Long> {
     @Find
     List<Employee> activeInDepartment(@By("department") String department, @By("active") boolean active);
 
-    // Custom query
+    // Custom JPQL query with parameter binding
     @Query("SELECT e FROM Employee e WHERE e.salary > ?1 ORDER BY e.lastName ASC")
     List<Employee> findHighEarners(double minSalary);
+
+    // DTO projection query returning Java 25 record
+    @Query("SELECT new com.webcodein.data.DepartmentSummary(e.department, count(e), avg(e.salary)) FROM Employee e GROUP BY e.department ORDER BY e.department ASC")
+    List<DepartmentSummary> summarizeDepartments();
+
+    // Find by department
+    @Find
+    List<Employee> findByDepartment(@By("department") String department);
 }
