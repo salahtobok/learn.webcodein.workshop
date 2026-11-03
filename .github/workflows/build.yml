@@ -43,7 +43,9 @@ jobs:
           - testing/chaos-engineering-spring-boot-4-toxiproxy  # Testcontainers (Docker)
           - testing/testcontainers-docker-compose-spring-boot-4  # Testcontainers (Docker)
           - ai/spring-ai-2-0-spring-boot-4
-          - ai/enterprise-rag-spring-ai-vector-database
+          - ai/spring-ai-2-0-function-calling-agents
+          - ai/enterprise-rag-spring-ai-vector-database  # Testcontainers (Docker)
+          - ai/langchain4j-rag-spring-boot-4  # Testcontainers (Docker)
           - java-core/project-valhalla-value-types-java-25
           - architecture/event-driven-kafka-spring-boot-4
           - architecture/kafka-transactional-outbox-spring-boot-4  # Testcontainers (Docker)
