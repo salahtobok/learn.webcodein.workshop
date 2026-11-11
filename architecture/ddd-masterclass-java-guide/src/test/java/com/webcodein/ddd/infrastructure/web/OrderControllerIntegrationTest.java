@@ -3,10 +3,11 @@ package com.webcodein.ddd.infrastructure.web;
 import com.webcodein.ddd.domain.model.order.Order;
 import com.webcodein.ddd.domain.model.order.OrderStatus;
 import com.webcodein.ddd.domain.repository.OrderRepository;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc;
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
 import org.springframework.test.web.servlet.MockMvc;
@@ -42,6 +43,7 @@ class OrderControllerIntegrationTest {
     private OrderRepository orderRepository;
 
     @Test
+    @DisplayName("Should successfully execute complete order lifecycle: create, add items, confirm, and verify persistence")
     void shouldCompleteOrderFlow() throws Exception {
         UUID customerId = UUID.randomUUID();
         
@@ -68,5 +70,6 @@ class OrderControllerIntegrationTest {
         Order savedOrder = orderRepository.findById(orderId).orElseThrow();
         assertEquals(OrderStatus.CONFIRMED, savedOrder.getStatus());
         assertEquals(1, savedOrder.getItems().size());
+        assertEquals(199.98, savedOrder.getTotalAmount(), 0.001);
     }
 }
