@@ -1,9 +1,15 @@
 spring:
+  application:
+    name: ddd-vs-crud-workshop
   datasource:
     url: jdbc:postgresql://localhost:5432/workshopdb
     username: user
     password: password
+    driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
       ddl-auto: update
-    show-sql: true
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true

@@ -15,7 +15,7 @@
     <artifactId>ddd-vs-crud-visual-guide-java-developers</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <name>ddd-vs-crud-visual-guide-java-developers</name>
-    <description>DDD vs CRUD Workshop</description>
+    <description>DDD vs CRUD Visual Guide Workshop Companion</description>
 
     <properties>
         <java.version>25</java.version>
@@ -32,19 +32,17 @@
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
 
-        <!-- Database -->
+        <!-- Database Drivers -->
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <scope>runtime</scope>
+        </dependency>
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
             <scope>runtime</scope>
         </dependency>
-        <dependency>
-            <groupId>org.hibernate.orm</groupId>
-            <artifactId>hibernate-core</artifactId>
-            <version>7.1.0.Final</version>
-        </dependency>
-
-        <!-- Tools -->
 
         <!-- Testing -->
         <dependency>
@@ -54,19 +52,13 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-testcontainers</artifactId>
+            <artifactId>spring-boot-starter-webmvc-test</artifactId>
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>org.testcontainers</groupId>
-            <artifactId>junit-jupiter</artifactId>
-            <version>1.20.1</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.testcontainers</groupId>
-            <artifactId>postgresql</artifactId>
-            <version>1.20.1</version>
+            <groupId>com.tngtech.archunit</groupId>
+            <artifactId>archunit-junit5</artifactId>
+            <version>1.4.1</version>
             <scope>test</scope>
         </dependency>
     </dependencies>

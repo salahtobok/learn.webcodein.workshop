@@ -1,3 +1,8 @@
 package com.webcodein.workshop.crud;
+
 import org.springframework.data.jpa.repository.JpaRepository;
-public interface OrderRepository extends JpaRepository<OrderEntity, Long> {}
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface OrderRepository extends JpaRepository<OrderEntity, Long> {
+}

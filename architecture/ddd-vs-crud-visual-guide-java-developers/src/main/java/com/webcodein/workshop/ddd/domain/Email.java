@@ -5,8 +5,10 @@ public record Email(String value) {
         if (value == null || value.isBlank()) {
             throw new IllegalArgumentException("Email cannot be empty");
         }
-        if (!value.contains("@") || !value.contains(".")) {
-            throw new IllegalArgumentException("Email format is invalid");
+        String trimmed = value.trim();
+        if (!trimmed.contains("@") || !trimmed.contains(".")) {
+            throw new IllegalArgumentException("Email format is invalid: " + value);
         }
+        value = trimmed.toLowerCase();
     }
 }
