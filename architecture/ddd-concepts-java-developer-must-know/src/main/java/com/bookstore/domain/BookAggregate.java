@@ -18,9 +18,38 @@ public class BookAggregate {
     private List<Chapter> chapters = new ArrayList<>();
 
     public BookAggregate(UUID id, String title, Money price) {
+        this(id, title, price, false, 0, 0);
+    }
+
+    public BookAggregate(UUID id, String title, Money price, boolean clearance, int salesCount, int stock) {
         this.id = id;
         this.title = title;
         this.price = price;
+        this.clearance = clearance;
+        this.salesCount = salesCount;
+        this.stock = stock;
+    }
+
+    public UUID getId() {
+        return id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void markClearance(boolean clearance) {
+        this.clearance = clearance;
+    }
+
+    public void recordSales(int count) {
+        if (count < 0) throw new IllegalArgumentException("Sales count cannot be negative");
+        this.salesCount += count;
+    }
+
+    public void restock(int quantity) {
+        if (quantity < 0) throw new IllegalArgumentException("Quantity cannot be negative");
+        this.stock += quantity;
     }
 
     // Business logic enforced by the Root
