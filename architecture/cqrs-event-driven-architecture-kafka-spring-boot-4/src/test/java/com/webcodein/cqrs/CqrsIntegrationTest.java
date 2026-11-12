@@ -4,8 +4,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.webcodein.cqrs.command.OrderRequest;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
@@ -16,11 +16,12 @@ import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 import org.testcontainers.utility.DockerImageName;
 
+import static java.util.concurrent.TimeUnit.SECONDS;
+import static org.awaitility.Awaitility.await;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -45,40 +46,30 @@ class CqrsIntegrationTest {
     @Autowired
     private MockMvc mockMvc;
 
-    @Autowired
-    private ObjectMapper objectMapper;
+    private final ObjectMapper objectMapper = new ObjectMapper();
 
     @Test
     void testCqrsFlow() throws Exception {
-        // 1. Send Command (Write)
+        // 1. Send Command (Write Model)
         OrderRequest request = new OrderRequest();
         request.setCustomerId("USER-999");
         request.setTotalAmount(499.99);
 
         mockMvc.perform(post("/api/orders")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(objectMapper.writeValueAsString(request)))
-                .andExpect(status().isOk());
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(request)))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.customerId").value("USER-999"))
+                .andExpect(jsonPath("$.totalAmount").value(499.99))
+                .andExpect(jsonPath("$.status").value("CREATED"));
 
-        // 2. Wait for Kafka event processing
-        boolean success = false;
-        for (int i = 0; i < 15; i++) {
-            Thread.sleep(1000);
-
-            // 3. Send Query (Read)
-            try {
-                String responseBody = mockMvc.perform(get("/api/orders/summary/USER-999"))
-                        .andReturn().getResponse().getContentAsString();
-
-                if (responseBody.contains("499.99") && responseBody.contains("Pending Fulfillment")) {
-                    success = true;
-                    break;
-                }
-            } catch (Exception ignored) {
-            }
-        }
-
-        assertTrue(success, "CQRS Query did not return the expected projected view in time");
+        // 2. Wait for Kafka event processing & Read Model Projection via Awaitility
+        await().atMost(15, SECONDS).untilAsserted(() -> {
+            mockMvc.perform(get("/api/orders/summary/USER-999"))
+                    .andExpect(status().isOk())
+                    .andExpect(jsonPath("$[0].customerId").value("USER-999"))
+                    .andExpect(jsonPath("$[0].totalAmount").value(499.99))
+                    .andExpect(jsonPath("$[0].displayStatus").value("Pending Fulfillment"));
+        });
     }
 }
-
