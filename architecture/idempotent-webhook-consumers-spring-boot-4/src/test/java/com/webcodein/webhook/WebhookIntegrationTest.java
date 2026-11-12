@@ -70,6 +70,38 @@ public class WebhookIntegrationTest {
         // Still only one event in DB
         assertThat(repository.count()).isEqualTo(1);
     }
+
+    @Test
+    void testInvalidSignatureReturnsUnauthorized() throws Exception {
+        String payload = "{\"id\":\"evt_unauthorized_1\", \"type\":\"payment_intent.succeeded\"}";
+        HttpClient client = HttpClient.newHttpClient();
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create("http://localhost:" + port + "/api/webhooks/stripe"))
+                .header("Stripe-Signature", "wrong_signature_hex_value")
+                .header("Content-Type", "application/json")
+                .POST(HttpRequest.BodyPublishers.ofString(payload))
+                .build();
+
+        HttpResponse<Void> response = client.send(request, HttpResponse.BodyHandlers.discarding());
+        assertThat(response.statusCode()).isEqualTo(401);
+    }
+
+    @Test
+    void testMissingIdReturnsBadRequest() throws Exception {
+        String payload = "{\"type\":\"payment_intent.succeeded\"}";
+        String signature = generateSignature(payload, secret);
+
+        HttpClient client = HttpClient.newHttpClient();
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create("http://localhost:" + port + "/api/webhooks/stripe"))
+                .header("Stripe-Signature", signature)
+                .header("Content-Type", "application/json")
+                .POST(HttpRequest.BodyPublishers.ofString(payload))
+                .build();
+
+        HttpResponse<Void> response = client.send(request, HttpResponse.BodyHandlers.discarding());
+        assertThat(response.statusCode()).isEqualTo(400);
+    }
     
     private String generateSignature(String payload, String secret) throws Exception {
         Mac sha256HMAC = Mac.getInstance("HmacSHA256");

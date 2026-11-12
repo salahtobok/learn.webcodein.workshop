@@ -33,7 +33,7 @@ public class WebhookController {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
         }
         
-        String eventId = "unknown";
+        String eventId = null;
         try {
             Matcher matcher = Pattern.compile("\"id\"\\s*:\\s*\"([^\"]+)\"").matcher(rawPayload);
             if (matcher.find()) {
@@ -43,11 +43,20 @@ public class WebhookController {
             return ResponseEntity.badRequest().build();
         }
 
+        if (eventId == null || eventId.isBlank()) {
+            return ResponseEntity.badRequest().build();
+        }
+
+        // Idempotency check: if event has already been received, return 200 OK to acknowledge upstream provider
+        if (repository.existsById(eventId)) {
+            return ResponseEntity.ok().build();
+        }
+
         try {
             WebhookEvent event = new WebhookEvent(eventId, rawPayload);
             repository.save(event);
         } catch (DataIntegrityViolationException e) {
-            // Event already exists. We must return 200 OK to stop retries.
+            // Concurrent duplicate insertion conflict. Return 200 OK to stop retries.
             return ResponseEntity.ok().build();
         }
 
