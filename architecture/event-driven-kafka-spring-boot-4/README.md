@@ -23,9 +23,13 @@ curl -X POST "http://localhost:8080/api/orders?amount=99.99"
 curl "http://localhost:8080/api/orders"
 ```
 
-## Running via Docker Compose
-To run both the Kafka broker and the Spring Boot application in containers:
+## Testing Suite
+The repository includes comprehensive automated tests running on Java 25:
+- **Testcontainers Integration Testing (`KafkaDemoApplicationTests`)**: Boots an ephemeral Kafka broker in Docker using `confluentinc/cp-kafka:7.7.1` and verifies producer-to-consumer event streams.
+- **Controller Unit Tests (`OrderControllerTest`)**: Mocks services with Mockito to validate REST request parsing and payload responses.
+- **ArchUnit Architectural Rules (`KafkaArchitectureTest`)**: Uses ArchUnit 1.4.1 to enforce clean layer isolation, service packaging, and component naming conventions.
 
+Run the test suite with:
 ```bash
-docker-compose up -d --build
+./mvnw clean test
 ```
