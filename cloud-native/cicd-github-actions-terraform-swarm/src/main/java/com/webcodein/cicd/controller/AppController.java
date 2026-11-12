@@ -1,33 +1,35 @@
 package com.webcodein.cicd.controller;
 
+import com.webcodein.cicd.model.DeploymentStatus;
+import com.webcodein.cicd.service.DeploymentHealthService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.beans.factory.annotation.Value;
 
-import java.net.InetAddress;
-import java.net.UnknownHostException;
 import java.util.Map;
 
 @RestController
 public class AppController {
 
-    @Value("${app.version:1.0.0}")
-    private String version;
+    private final DeploymentHealthService deploymentHealthService;
+
+    public AppController(DeploymentHealthService deploymentHealthService) {
+        this.deploymentHealthService = deploymentHealthService;
+    }
 
     @GetMapping("/api/status")
-    public Map<String, String> getStatus() {
-        String hostname = "unknown";
-        try {
-            hostname = InetAddress.getLocalHost().getHostName();
-        } catch (UnknownHostException e) {
-            // Ignore
-        }
-        
-        return Map.of(
-            "status", "UP",
-            "version", version,
-            "hostname", hostname,
-            "message", "Zero-downtime deployment successful!"
-        );
+    public ResponseEntity<Map<String, String>> getStatus() {
+        DeploymentStatus status = deploymentHealthService.getCurrentStatus();
+        return ResponseEntity.ok(Map.of(
+                "status", status.status(),
+                "version", status.version(),
+                "hostname", status.hostname(),
+                "message", status.message()
+        ));
+    }
+
+    @GetMapping("/api/status/details")
+    public ResponseEntity<DeploymentStatus> getStatusDetails() {
+        return ResponseEntity.ok(deploymentHealthService.getCurrentStatus());
     }
 }
