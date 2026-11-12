@@ -31,6 +31,10 @@ Run the full automated test suite verifying both unit logic and security filter 
 3. `balanceEndpointRejectsMissingScope`: Requests with valid JWT lacking `SCOPE_finance:read` return `HTTP 403 Forbidden`.
 4. `balanceEndpointRejectsNonOwner`: Requests where JWT subject does not match the `{accountId}` URL parameter return `HTTP 403 Forbidden`.
 5. `balanceEndpointAllowsOwnerWithFinanceScope`: Requests where JWT has both `SCOPE_finance:read` and matching owner subject return `HTTP 200 OK` with balance payload.
+6. `controllers_should_be_annotated_and_named`: ArchUnit enforces all controller classes in `..controller..` have `@RestController` and `Controller` suffix.
+7. `services_should_be_annotated_and_named`: ArchUnit enforces all service classes in `..service..` have `@Service` and `Service` suffix.
+8. `controllers_should_not_depend_on_repositories`: ArchUnit isolates controller dependencies to domain boundaries.
+9. `no_standard_streams` & `no_java_util_logging`: ArchUnit enforces production logging hygiene across the entire codebase.
 
 ---
 
