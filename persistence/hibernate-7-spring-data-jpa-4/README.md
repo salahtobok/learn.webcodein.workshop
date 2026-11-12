@@ -44,7 +44,7 @@ com.webcodein.shop
 
 ## Test Suite Breakdown
 
-The repository contains an exhaustive 11-test suite combining unit tests, web slice tests, and containerized PostgreSQL integration tests:
+The repository contains an exhaustive 15-test suite combining unit tests, web slice tests, containerized PostgreSQL integration tests, and ArchUnit architectural fitness functions:
 
 | Test Class | Scope / Target | Tests | Description |
 |---|---|---|---|
@@ -52,6 +52,7 @@ The repository contains an exhaustive 11-test suite combining unit tests, web sl
 | `UserSummaryTest` | Unit / Record | 1 | Verifies Record projection accessors, immutability, and equality invariants. |
 | `ShopControllerTest` | Web Slice (`@WebMvcTest`) | 4 | Verifies GET endpoints for product search, employee department ranking, active users, and orders. |
 | `ShopRepositoriesIntegrationTest` | Testcontainers (`PostgreSQL 16`) | 4 | Verifies live JSONB `json_value()` queries, JPQL window function partitions, `@EntityGraph` dual-set joins, and record projections against PostgreSQL 16. |
+| `ShopArchitectureTest` | ArchUnit 1.4.1 Architecture Rules | 4 | Enforces `@RestController` in web package, interface design for repositories, `@Entity` annotations on domain models, and web layer residency. |
 
 ---
 
