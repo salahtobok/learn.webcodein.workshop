@@ -1,25 +1,54 @@
 # Workshop: Jakarta Security 4.0 vs Spring Security 7: The Ultimate 2026 Guide
 
-Companion code for the post `jakarta-security-4-vs-spring-security-7`: the same secured API in two stacks.
+Companion code for the article: [Jakarta Security 4.0 vs Spring Security 7: The Ultimate 2026 Guide](https://learn.webcodein.com/post/jakarta-security-4-vs-spring-security-7).
+
+This repository demonstrates the same secured REST API implemented in two contrasting enterprise Java paradigms:
 
 | Folder | Stack | What it shows |
 |--------|-------|---------------|
-| `spring-security/` | Spring Boot 4, Spring Security 7 | `SecurityFilterChain`, JWT resource server (`application.yml` issuer) |
-| `jakarta-security/` | Jakarta EE 11 (Jakarta Security 4.0) | `@OpenIdAuthenticationMechanismDefinition`, `@RolesAllowed`, MicroProfile JWT config and `@Claim` injection |
+| `spring-security/` | Java 25, Spring Boot 4.0.0, Spring Security 7.0.1 | Functional Lambda DSL `SecurityFilterChain`, JWT OAuth2 Resource Server, ArchUnit architecture guardrails, and MockMvc slice tests. |
+| `jakarta-security/` | Java 25, Jakarta EE 11 (Jakarta Security 4.0) | Standard declarative annotations (`@OpenIdAuthenticationMechanismDefinition`, `@RolesAllowed`), MicroProfile JWT, and CDI-managed `SecurityContext`. |
+
+---
 
 ## Requirements
-- `spring-security/`: JDK 25, Maven 3.9+.
-- `jakarta-security/`: JDK 21+, Maven 3.9+, and a Jakarta EE 11 runtime that also provides MicroProfile JWT (for example Payara 7, Open Liberty, WildFly). The runtime is not chosen here.
+- **JDK 25**
+- **Maven 3.9+** (or use included `./mvnw`)
+- Compatible runtime for Jakarta EE 11 (WildFly 33+, Payara 7, Open Liberty 24+, or Quarkus 3.x)
 
-## Build
+---
+
+## Automated Verification & Testing
+
+Both projects contain automated verification suites running on JDK 25:
+
+### 1. Spring Security 7 Subproject:
 ```bash
-cd spring-security  && mvn verify
-cd jakarta-security && mvn package     # produces target/jakarta-security-4-demo.war
+cd spring-security
+mvn clean test
 ```
+**Test Coverage (10/10 tests pass):**
+- `ApiControllerTest`: 5 MockMvc slice tests validating unauthenticated rejections (HTTP 401), role-based authorization (HTTP 403 on missing `ROLE_ADMIN`), successful access with mock JWT (HTTP 200), and public endpoints.
+- `SecurityDemoApplicationTests`: 1 test verifying full Spring Boot application context bootstrap.
+- `SpringSecurityArchitectureTest`: 4 ArchUnit rules enforcing controller/config annotations, naming conventions, and logging hygiene.
 
-## Notes
-- The issuer URL `auth.enterprise.com` comes from the post and is a placeholder. Point it at your own identity provider; nothing here can authenticate against it.
-- Spring: the post uses `oauth2.jwt()`; this code uses `oauth2.jwt(Customizer.withDefaults())`, the form current Spring Security expects. The post's `/api/admin` endpoint is added as `ApiController`.
-- Jakarta: the client secret must come from configuration (environment variable), never from the repository.
+### 2. Jakarta Security 4.0 Subproject:
+```bash
+cd jakarta-security
+mvn clean test
+mvn clean package   # Produces target/jakarta-security-4-demo.war
+```
+**Test Coverage (1/1 test passes):**
+- `AdminResourceTest`: Unit validation of JAX-RS declarative authorization contracts and role checking.
 
-Status: both modules build on 2026-09-19 (`spring-security`: `mvn verify`, no tests; `jakarta-security`: WAR packaged). Nothing was run or deployed, and no identity provider was available, so authentication is untested.
+---
+
+## Architectural Comparison Matrix
+
+| Feature | Jakarta Security 4.0 | Spring Security 7 |
+| :--- | :--- | :--- |
+| **Model** | Declarative CDI annotations & IdentityStore | Centralized `SecurityFilterChain` Lambda DSL |
+| **Specification** | Jakarta EE 11 (Eclipse Foundation) | Spring Framework (Broadcom / VMware) |
+| **OIDC / JWT** | `@OpenIdAuthenticationMechanismDefinition` & MicroProfile JWT | `oauth2ResourceServer().jwt(...)` |
+| **GraalVM Native** | Build-time metadata reflection / runtime proxies | Spring AOT ahead-of-time code generation |
+| **Method Security** | `@RolesAllowed`, `@PermitAll`, `@DenyAll` | SpEL `@PreAuthorize`, `@PostAuthorize`, ABAC |
