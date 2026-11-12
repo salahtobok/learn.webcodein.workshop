@@ -19,7 +19,18 @@ This project implements **Command Query Responsibility Segregation (CQRS)** and 
 - **Framework:** Spring Boot 4.0.0
 - **Database:** PostgreSQL 16 (via Testcontainers and Docker Compose)
 - **JSON Processing:** Jackson 2.x with JavaTimeModule
-- **Testing:** JUnit 5, AssertJ, Mockito, Spring MockMvc, Testcontainers 2.0.2
+- **Testing:** JUnit 5, AssertJ, Mockito, Spring MockMvc, Testcontainers 2.0.2, ArchUnit 1.4.1
+
+---
+
+## Architectural Guardrails (ArchUnit 1.4.1)
+
+This workshop implements automated architecture tests using ArchUnit 1.4.1 to ensure architectural conventions are strictly adhered to:
+1. **Command Packaging & Stereotypes:** All classes ending with `CommandService` must reside in the `..command..` package and be annotated with `@Service`.
+2. **Projector Packaging & Stereotypes:** All classes ending with `Projector` must reside in the `..query..` package and be annotated with `@Service`.
+3. **Decoupled Layers (Command to Query):** The command layer must never depend on or import classes from the query layer.
+4. **Decoupled Layers (Query to Command):** The query layer must never depend on or import classes from the command layer.
+5. **Domain Event Packaging:** All domain events ending with `Event` must reside in the `..event..` package.
 
 ---
 
