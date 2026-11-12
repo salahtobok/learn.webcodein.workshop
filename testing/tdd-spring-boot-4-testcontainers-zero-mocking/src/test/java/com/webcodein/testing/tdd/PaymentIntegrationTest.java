@@ -58,4 +58,25 @@ class PaymentIntegrationTest {
                 .andExpect(status().isBadRequest())
                 .andExpect(jsonPath("$.error").value("Amount must be greater than zero"));
     }
+
+    @Test
+    void shouldRejectDuplicateReference() throws Exception {
+        String payload = """
+                {
+                  "reference": "TXN-DUP-001",
+                  "amount": 200.00
+                }
+                """;
+
+        mockMvc.perform(post("/api/payments")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(payload))
+                .andExpect(status().isOk());
+
+        mockMvc.perform(post("/api/payments")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(payload))
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.error").value("Payment reference already exists"));
+    }
 }
