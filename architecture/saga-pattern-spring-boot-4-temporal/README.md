@@ -28,6 +28,7 @@ workshop/architecture/saga-pattern-spring-boot-4-temporal/
 │   │       └── application.properties           # Spring Boot & Temporal configuration
 │   └── test/
 │       └── java/com/webcodein/workshop/saga/
+│           ├── SagaArchitectureTest.java        # ArchUnit 1.4.1 architecture tests (4 rules)
 │           ├── OrderActivitiesTest.java         # Activity unit tests (5 tests)
 │           ├── OrderControllerTest.java         # WebMvc MockMvc API tests (3 tests)
 │           └── OrderFulfillmentWorkflowTest.java# Temporal TestWorkflowEnvironment tests (3 tests)
@@ -48,7 +49,7 @@ workshop/architecture/saga-pattern-spring-boot-4-temporal/
 
 ## Building and Testing
 
-Execute the comprehensive 11-test suite:
+Execute the comprehensive 15-test suite (ArchUnit architecture rules, unit tests, WebMvc slice tests, and Temporal in-memory tests):
 
 ```bash
 ./mvnw clean verify
