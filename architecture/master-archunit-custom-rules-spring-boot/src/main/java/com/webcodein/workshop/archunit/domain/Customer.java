@@ -10,23 +10,35 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "customers")
 public class Customer {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
+
     private String name;
-    
-    // We want to enforce java.time usage over java.util.Date
+
+    // Enforce java.time usage over java.util.Date
     private LocalDateTime createdAt;
 
     protected Customer() {}
 
     public Customer(String name) {
+        if (name == null || name.isBlank()) {
+            throw new IllegalArgumentException("Customer name cannot be blank");
+        }
         this.name = name;
         this.createdAt = LocalDateTime.now();
     }
 
-    public Long getId() { return id; }
-    public String getName() { return name; }
-    public LocalDateTime getCreatedAt() { return createdAt; }
+    public Long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
 }
