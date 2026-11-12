@@ -35,7 +35,7 @@ com.webcodein.data
 
 ## Test Suite Breakdown
 
-The repository contains an exhaustive 13-test suite verifying entity contracts, record immutability, repository lifecycle operations, and annotation-processor-generated implementations:
+The repository contains an exhaustive 17-test suite verifying entity contracts, record immutability, repository lifecycle operations, annotation-processor-generated implementations, and ArchUnit architecture constraints:
 
 | Test Class | Scope / Target | Tests | Description |
 |---|---|---|---|
@@ -44,8 +44,9 @@ The repository contains an exhaustive 13-test suite verifying entity contracts, 
 | `EmployeeRepositoryTest` | Persistence / H2 | 4 | Verifies CrudRepository `insert`/`findById`, `@Find` with `@By` matching, `@Query` high earners, and JPQL DTO projection into `DepartmentSummary`. |
 | `ProductRepositoryTest` | Persistence / H2 | 3 | Verifies `PageRequest` pagination with `Order`, declarative `@OrderBy` sorting, and CRUD mutation lifecycles. |
 | `JakartaDataRepositoriesTest` | Integration / H2 | 2 | Verifies multi-repository interactions against Hibernate `StatelessSession`. |
+| `JakartaDataArchitectureTest` | ArchUnit 1.4.1 | 4 | Enforces `@Repository` annotations, interface typing, `@Entity` domain annotations, and immutable Record DTO projections. |
 
-**Total: 13 tests run, 0 failures, 0 errors, 100% success.**
+**Total: 17 tests run, 0 failures, 0 errors, 100% success.**
 
 ---
 
