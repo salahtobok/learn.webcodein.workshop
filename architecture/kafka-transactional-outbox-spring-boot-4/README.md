@@ -21,7 +21,7 @@ This project implements the **Transactional Outbox Pattern** in Spring Boot 4 an
 - **Framework:** Spring Boot 4.0.0
 - **Database:** PostgreSQL 16 (via Testcontainers and Docker Compose)
 - **Message Broker:** Apache Kafka 3.8.0 Native (via Testcontainers and Docker Compose)
-- **Testing:** JUnit 5, AssertJ, Mockito, Awaitility, Testcontainers 2.0.2
+- **Testing:** JUnit 5, AssertJ, Mockito, Awaitility, ArchUnit 1.4.1, Testcontainers 2.0.2
 
 ---
 
@@ -60,6 +60,7 @@ Run the complete test suite (unit tests and containerized integration tests):
 ```
 
 ### Included Test Suites
+- **`OutboxArchitectureTest`:** ArchUnit 1.4.1 architectural fitness rules enforcing controller isolation, entity domain boundaries, and event-publisher decoupling.
 - **`OrderServiceTest`:** Fast Mockito unit tests validating transactional boundaries and JSON serialization failure handling.
 - **`OutboxApplicationTests`:** Context loading verification with containerized PostgreSQL and Kafka instances.
 - **`TransactionalOutboxIntegrationTest`:** End-to-end integration tests using Testcontainers validating single-transaction persistence, polling publisher event transmission, and Kafka consumer delivery.
