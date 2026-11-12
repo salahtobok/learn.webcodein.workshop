@@ -30,7 +30,8 @@ workshop/cloud-native/graalvm-native-image-spring-boot/
 │       └── java/com/webcodein/nativedemo/
 │           ├── GreetingControllerTest.java    # Web-layer MockMvc test
 │           ├── NativeDemoApplicationTests.java# Spring context initialization test
-│           └── MyHintsTest.java               # RuntimeHintsPredicates validation
+│           ├── MyHintsTest.java               # RuntimeHintsPredicates validation
+│           └── NativeArchitectureTest.java    # ArchUnit 1.4.1 architectural rules
 └── README.md
 ```
 
@@ -64,6 +65,11 @@ mvn -B -ntp verify
 - `MyHintsTest`: Uses `RuntimeHintsPredicates` to assert that:
   - Reflection hints are properly registered for `MyDynamicClass` constructors and public methods.
   - Resource pattern hints are properly registered for `config/app.json`.
+- `NativeArchitectureTest`: Enforces 4 ArchUnit 1.4.1 architectural rules:
+  - `@RestController` annotation enforcement on controllers for proper AOT component scanning.
+  - `RuntimeHintsRegistrar` implementation enforcement on hints registrars.
+  - Complete decoupling between controllers and build-time AOT hint registrations.
+  - Concrete class structure for reflectively accessed dynamic components.
 
 ## Building the Native Binary
 
