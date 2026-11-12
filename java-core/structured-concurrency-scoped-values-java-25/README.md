@@ -38,7 +38,7 @@ This project demonstrates how to eliminate thread leaks, unmanaged thread sprawl
 
 ## Building and Testing
 
-### Run Integration Tests
+### Run All Tests (Integration + Architectural)
 ```bash
 ./mvnw clean test
 ```
@@ -48,12 +48,19 @@ This project demonstrates how to eliminate thread leaks, unmanaged thread sprawl
 ./mvnw clean verify
 ```
 
-All 5 integration tests verify:
-- Happy-path fan-out checkout across 3 virtual threads.
-- Fail-fast cancellation on fraud detection.
-- Transaction rejection on payment limits.
-- Speculative carrier quote racing.
-- Zero cross-thread context pollution under concurrent load.
+All 10 automated tests pass 100%:
+- **5 Integration Tests (`OrderCheckoutControllerTest`)**:
+  - Happy-path fan-out checkout across 3 virtual threads.
+  - Fail-fast cancellation on fraud detection.
+  - Transaction rejection on payment limits.
+  - Speculative carrier quote racing with redundant cancellation.
+  - Zero cross-thread context pollution under concurrent load.
+- **5 Architectural Tests (`ConcurrencyArchitectureTest`)**:
+  - Immutable RequestContext: Enforces that `RequestContext` is a Java record and all components are immutable.
+  - ScopedValue Immutability: Enforces that `RequestContextHolder` fields are `public static final ScopedValue` instances.
+  - Stateless Service Architecture: Enforces that all Spring `@Service` classes maintain zero mutable state.
+  - Stateless Controller Architecture: Enforces that all Spring `@RestController` classes maintain zero mutable state.
+  - Architectural Boundary Isolation: Enforces strict separation between web and service packages.
 
 ---
 
