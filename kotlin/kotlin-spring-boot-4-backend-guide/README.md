@@ -30,10 +30,11 @@ com.webcodein.kotlin
 
 ## Test Suite Breakdown
 
-The repository contains an exhaustive 11-test suite combining unit tests and Spring MVC slice tests:
+The repository contains an exhaustive 16-test suite combining unit tests, Spring MVC slice tests, and ArchUnit architecture verification rules:
 
 | Test Class | Scope / Target | Tests | Description |
 |---|---|---|---|
+| `KotlinBackendArchitectureTest` | ArchUnit 1.4.1 | 5 | Enforces `@RestController` on controllers, `@Service` on services, package placement in `user`, and eliminates `System.out`/`System.err` and `java.util.logging`. |
 | `MessageResponseTest` | Unit / Data Class | 2 | Verifies data class immutability, default arguments (`author = "WebCodein"`), destructuring declarations, and Jackson Kotlin roundtrip serialization. |
 | `UserServiceTest` | Unit / Service | 3 | Verifies null-safety guarantees on `findById()` / `findByEmail()`, user persistence with optional bio, and extension function formatting. |
 | `HelloControllerTest` | Web Slice (`@WebMvcTest`) | 1 | Verifies `GET /api/hello` returning HTTP 200 with JSON payload. |
