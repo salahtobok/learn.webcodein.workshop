@@ -1,117 +1,63 @@
-# Zero-Trust OAuth2 with Keycloak (Java 25 & Spring Boot 4)
+# Zero-Trust Architecture: Implementing OAuth2 and Keycloak in Java 25
 
-Companion workshop project for the tutorial: [Mastering Zero-Trust Architecture: Implementing OAuth2 and Keycloak in Java 25](https://learn.webcodein.com/post/zero-trust-oauth2-keycloak-java25).
+This is the companion code repository for the article **[Mastering Zero-Trust Architecture: Implementing OAuth2 and Keycloak in Java 25](https://learn.webcodein.com/post/zero-trust-oauth2-keycloak-java25)** on Webcodein.
 
-This repository demonstrates how to implement a perimeterless Zero-Trust security model for Java 25 microservices using Spring Boot 4.0.0, Spring Security 7, and Keycloak 26 as the OpenID Connect (OIDC) identity provider.
-
-## Architecture Highlights
-- **Zero-Trust Paradigm**: Continuous cryptographic validation of JSON Web Tokens (JWT) for every inbound HTTP transaction.
-- **Spring Security 7 Resource Server**: Custom `KeycloakGrantedAuthoritiesConverter` parsing both `realm_access.roles` and standard OIDC scopes into Spring `GrantedAuthority` objects.
-- **Role-Based Authorization**: Granular RBAC enforcing `ROLE_USER` and `ROLE_ADMIN` on protected API endpoints.
-- **Automated Verification**: End-to-end integration tests using Testcontainers running an ephemeral Keycloak 26 instance with automated realm import.
+## Architecture & Technology Stack
+- **Runtime:** Java 25 (LTS)
+- **Framework:** Spring Boot 4.0.0 GA
+- **Security:** Spring Security 7.0 (OAuth2 Resource Server with Nimbus JWT)
+- **Identity Provider:** Keycloak 26.0.0 (Quarkus distribution, OIDC/OAuth 2.1)
+- **Testing:** JUnit 5, MockMvc, ArchUnit 1.4.1, Testcontainers Keycloak
 
 ## Prerequisites
-- Docker Engine & Docker Compose
-- JDK 25
-- Maven 3.9+ (or use included `./mvnw`)
+- Java 25 SDK
+- Docker Desktop or Docker daemon running locally
+- Maven 3.9+ (or included `./mvnw`)
 
----
+## Running Locally with Docker Compose
+
+1. **Start the Keycloak Identity Server:**
+   ```bash
+   docker-compose up -d
+   ```
+   Keycloak will be available on `http://localhost:8080` with realm `webcodein-realm` automatically pre-loaded with credentials:
+   - Admin user: `testuser` / `password` (roles: `USER`, `ADMIN`)
+   - Regular user: `regularuser` / `password` (role: `USER`)
+
+2. **Start the Spring Boot Application:**
+   ```bash
+   ./mvnw spring-boot:run
+   ```
+
+3. **Verify API Endpoints:**
+   ```bash
+   # 1. Public endpoint (No token required -> 200 OK)
+   curl http://localhost:8081/api/public/hello
+
+   # 2. Secure endpoint without token -> 401 Unauthorized
+   curl -i http://localhost:8081/api/secure/hello
+
+   # 3. Obtain Access Token from Keycloak
+   TOKEN=$(curl -s -X POST "http://localhost:8080/realms/webcodein-realm/protocol/openid-connect/token" \
+     -d "client_id=spring-boot-client" \
+     -d "grant_type=password" \
+     -d "username=testuser" \
+     -d "password=password" | jq -r .access_token)
+
+   # 4. Access Admin Endpoint with Valid Token -> 200 OK
+   curl -H "Authorization: Bearer $TOKEN" http://localhost:8081/api/admin/dashboard
+   ```
 
 ## Running the Automated Test Suite
 
-Run the full automated test suite (including Testcontainers Keycloak integration tests):
+The test suite validates both unit components, slice controllers, ArchUnit architecture constraints, and live Testcontainers integration with Keycloak 26:
 
 ```bash
-./mvnw clean verify
+mvn clean test
 ```
 
----
-
-## Local Development Running Guide
-
-### 1. Start Keycloak
-
-Start the pre-configured Keycloak instance with Docker Compose:
-
-```bash
-docker compose up -d keycloak
-```
-
-Keycloak will start on `http://localhost:8080`.
-- Admin console: `http://localhost:8080/admin` (admin / admin)
-- Pre-imported realm: `webcodein-realm`
-- Seeded users:
-  - `testuser` / `password` (roles: `USER`, `ADMIN`)
-  - `regularuser` / `password` (roles: `USER`)
-
-### 2. Start the Spring Boot Application
-
-Run the application locally:
-
-```bash
-./mvnw spring-boot:run
-```
-
-The resource server listens on `http://localhost:8081`.
-
----
-
-### 3. Testing the Endpoints via cURL
-
-#### Step A: Test Public Endpoint
-```bash
-curl -i http://localhost:8081/api/public/hello
-```
-*Expected: HTTP 200 OK*
-```json
-{"message":"Hello, this is a public endpoint."}
-```
-
-#### Step B: Test Protected Endpoint without Token
-```bash
-curl -i http://localhost:8081/api/secure/hello
-```
-*Expected: HTTP 401 Unauthorized*
-
-#### Step C: Obtain JWT Access Token from Keycloak
-```bash
-TOKEN=$(curl -s -X POST "http://localhost:8080/realms/webcodein-realm/protocol/openid-connect/token" \
-  -H "Content-Type: application/x-www-form-urlencoded" \
-  -d "grant_type=password" \
-  -d "client_id=spring-boot-client" \
-  -d "username=testuser" \
-  -d "password=password" | jq -r .access_token)
-```
-
-#### Step D: Access User Endpoint with Token
-```bash
-curl -i -H "Authorization: Bearer $TOKEN" http://localhost:8081/api/secure/hello
-```
-*Expected: HTTP 200 OK*
-```json
-{"message":"Hello testuser, you are authenticated via Zero-Trust OAuth2."}
-```
-
-#### Step E: Access Admin Dashboard with Admin Token
-```bash
-curl -i -H "Authorization: Bearer $TOKEN" http://localhost:8081/api/admin/dashboard
-```
-*Expected: HTTP 200 OK*
-```json
-{"message":"Welcome to the Admin Dashboard."}
-```
-
----
-
-## Clean Up
-
-Stop and remove running containers:
-
-```bash
-docker compose down -v
-```
-
-## Related Resources
-- [Mastering Zero-Trust Architecture Article](https://learn.webcodein.com/post/zero-trust-oauth2-keycloak-java25)
-- [Spring Security Reference](https://docs.spring.io/spring-security/reference/)
-- [Keycloak Documentation](https://www.keycloak.org/documentation)
+### Test Suite Structure (16 Tests Passing):
+1. **`ApiControllerTest` (5 tests):** MockMvc slice tests verifying unauthenticated access, JWT authentication, and RBAC authorization (`ROLE_ADMIN` vs `ROLE_USER`).
+2. **`KeycloakGrantedAuthoritiesConverterTest` (3 tests):** Isolated unit tests verifying extraction and mapping of nested `realm_access.roles` and standard OAuth2 scopes.
+3. **`ZeroTrustArchitectureTest` (3 tests):** ArchUnit 1.4.1 rules enforcing layered architectural package locations, controller suffix conventions, and prohibiting direct console stream access.
+4. **`ZeroTrustKeycloakIntegrationTest` (5 tests):** End-to-end integration tests using Testcontainers to launch a live Keycloak 26 instance, import `realm-export.json`, obtain real JWTs via direct access grant, and verify HTTP endpoints.
