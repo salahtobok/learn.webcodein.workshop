@@ -3,10 +3,11 @@ package com.webcodein.workshop.strategy.presentation;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.webcodein.workshop.strategy.domain.PaymentRequest;
 import com.webcodein.workshop.strategy.domain.PaymentType;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -23,10 +24,10 @@ class PaymentControllerTest {
     @Autowired
     private MockMvc mockMvc;
 
-    @Autowired
-    private ObjectMapper objectMapper;
+    private final ObjectMapper objectMapper = new ObjectMapper();
 
     @Test
+    @DisplayName("Should process credit card payment successfully via POST /api/payments")
     void shouldProcessCreditCardPayment() throws Exception {
         PaymentRequest request = new PaymentRequest(
                 new BigDecimal("100.00"),
@@ -44,6 +45,7 @@ class PaymentControllerTest {
     }
 
     @Test
+    @DisplayName("Should process PayPal payment successfully via POST /api/payments")
     void shouldProcessPayPalPayment() throws Exception {
         PaymentRequest request = new PaymentRequest(
                 new BigDecimal("50.00"),
@@ -61,6 +63,7 @@ class PaymentControllerTest {
     }
 
     @Test
+    @DisplayName("Should return HTTP 400 Bad Request when strategy is unsupported")
     void shouldReturnBadRequestForCrypto() throws Exception {
         // Crypto strategy is not implemented yet
         PaymentRequest request = new PaymentRequest(
