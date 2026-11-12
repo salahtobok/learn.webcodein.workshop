@@ -10,6 +10,7 @@ This project demonstrates practical solutions for high-concurrency race conditio
 2. **Optimistic Locking (`@Version`)**: Detecting concurrent modifications via versioning and resolving conflicts using resilient retry loops.
 3. **Pessimistic Locking (`@Lock(LockModeType.PESSIMISTIC_WRITE)`)**: Acquiring exclusive database row locks (`SELECT ... FOR UPDATE`) to guarantee strict serial updates under high contention.
 4. **Non-blocking Queue Allocation (`SKIP LOCKED`)**: Utilizing PostgreSQL `FOR UPDATE SKIP LOCKED` for concurrent worker queue claims without lock contention or thread blocking.
+5. **Architectural Governance (ArchUnit 1.4.1)**: Verifying entity versioning rules, repository lock annotations, and clean architectural separation.
 
 ## Tech Stack
 
@@ -17,7 +18,7 @@ This project demonstrates practical solutions for high-concurrency race conditio
 - **Framework**: Spring Boot 4.0.0
 - **ORM**: Hibernate 7.1.8 / Spring Data JPA 4
 - **Database**: PostgreSQL 16
-- **Testing**: Testcontainers 2.x, JUnit 5, AssertJ
+- **Testing**: Testcontainers 2.x, JUnit 5, AssertJ, ArchUnit 1.4.1
 
 ## Running the Application
 
