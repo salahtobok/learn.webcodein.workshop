@@ -26,5 +26,11 @@ class EmployeeRepositoryIntegrationTest {
         repository.save(new Employee("Ada"));
 
         assertThat(repository.findByName("Ada")).isPresent();
+        assertThat(repository.findByName("Ada").get().getName()).isEqualTo("Ada");
+    }
+
+    @Test
+    void shouldReturnEmptyWhenEmployeeNotFound() {
+        assertThat(repository.findByName("NonExistent")).isEmpty();
     }
 }
