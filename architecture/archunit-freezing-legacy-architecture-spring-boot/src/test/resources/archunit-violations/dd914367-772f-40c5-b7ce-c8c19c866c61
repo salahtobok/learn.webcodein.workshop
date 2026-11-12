@@ -1,3 +1,11 @@
-Layer 'Controllers' is empty
-Layer 'Services' is empty
-Layer 'Utils' is empty
+Class <com.webcodein.legacy.util.LegacyGlobalHelper> extends class <java.lang.Object> in (LegacyGlobalHelper.java:0)
+Constructor <com.webcodein.legacy.order.OrderService.<init>(com.webcodein.legacy.user.UserController)> has parameter of type <com.webcodein.legacy.user.UserController> in (OrderService.java:0)
+Constructor <com.webcodein.legacy.util.LegacyGlobalHelper.<init>()> calls constructor <java.lang.Object.<init>()> in (LegacyGlobalHelper.java:5)
+Field <com.webcodein.legacy.order.OrderService.userController> has type <com.webcodein.legacy.user.UserController> in (OrderService.java:0)
+Method <com.webcodein.legacy.order.OrderService.createOrder()> calls method <com.webcodein.legacy.user.UserController.getUsers()> in (OrderService.java:18)
+Method <com.webcodein.legacy.util.LegacyGlobalHelper.printOrder(com.webcodein.legacy.order.OrderService)> calls method <com.webcodein.legacy.order.OrderService.createOrder()> in (LegacyGlobalHelper.java:9)
+Method <com.webcodein.legacy.util.LegacyGlobalHelper.printOrder(com.webcodein.legacy.order.OrderService)> calls method <com.webcodein.legacy.order.OrderService.createOrder()> in (LegacyGlobalHelper.java:9)
+Method <com.webcodein.legacy.util.LegacyGlobalHelper.printOrder(com.webcodein.legacy.order.OrderService)> calls method <java.io.PrintStream.println(java.lang.String)> in (LegacyGlobalHelper.java:9)
+Method <com.webcodein.legacy.util.LegacyGlobalHelper.printOrder(com.webcodein.legacy.order.OrderService)> gets field <java.lang.System.out> in (LegacyGlobalHelper.java:9)
+Method <com.webcodein.legacy.util.LegacyGlobalHelper.printOrder(com.webcodein.legacy.order.OrderService)> has parameter of type <com.webcodein.legacy.order.OrderService> in (LegacyGlobalHelper.java:0)
+Method <com.webcodein.legacy.util.LegacyGlobalHelper.printOrder(com.webcodein.legacy.order.OrderService)> has parameter of type <com.webcodein.legacy.order.OrderService> in (LegacyGlobalHelper.java:0)

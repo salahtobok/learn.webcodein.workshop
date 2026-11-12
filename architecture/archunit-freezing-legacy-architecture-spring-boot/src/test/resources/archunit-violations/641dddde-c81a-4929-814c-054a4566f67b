@@ -1,0 +1,3 @@
+Constructor <com.webcodein.legacy.order.OrderService.<init>(com.webcodein.legacy.user.UserController)> has parameter of type <com.webcodein.legacy.user.UserController> in (OrderService.java:0)
+Field <com.webcodein.legacy.order.OrderService.userController> has type <com.webcodein.legacy.user.UserController> in (OrderService.java:0)
+Method <com.webcodein.legacy.order.OrderService.createOrder()> calls method <com.webcodein.legacy.user.UserController.getUsers()> in (OrderService.java:18)
