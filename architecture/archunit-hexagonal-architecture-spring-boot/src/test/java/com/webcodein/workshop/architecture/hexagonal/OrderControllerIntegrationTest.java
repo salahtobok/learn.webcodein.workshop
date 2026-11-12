@@ -1,31 +1,25 @@
 package com.webcodein.workshop.architecture.hexagonal;
 
-import com.webcodein.workshop.architecture.hexagonal.adapter.in.web.OrderController;
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @SpringBootTest
+@AutoConfigureMockMvc
 public class OrderControllerIntegrationTest {
 
+    @Autowired
     private MockMvc mockMvc;
 
-    @Autowired
-    private OrderController orderController;
-
-    @BeforeEach
-    public void setup() {
-        this.mockMvc = MockMvcBuilders.standaloneSetup(orderController).build();
-    }
-
     @Test
+    @DisplayName("End-to-end integration: placing an order through HTTP adapter and persisting via JPA adapter")
     public void testPlaceOrder() throws Exception {
         String json = """
             {
