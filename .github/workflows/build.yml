@@ -89,6 +89,7 @@ jobs:
           - architecture/android-flashing-bootloader-fastboot-recovery
           - architecture/idempotent-webhook-consumers-spring-boot-4  # Testcontainers (Docker)
           - kotlin/kotlin-spring-boot-4-backend-guide
+          - fullstack/angular22-springboot4-signals  # Testcontainers (Docker)
     steps:
       - uses: actions/checkout@v4
 
