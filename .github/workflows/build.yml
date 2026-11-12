@@ -34,7 +34,7 @@ jobs:
           - cloud-native/cicd-github-actions-terraform-swarm
           - persistence/hibernate-7-spring-data-jpa-4          # Testcontainers (Docker)
           - persistence/jakarta-data-1-0-vs-spring-data
-          - persistence/zero-downtime-database-migrations-spring-boot-flyway
+          - persistence/zero-downtime-database-migrations-spring-boot-flyway  # Testcontainers (Docker)
           - persistence/hikaricp-connection-pool-tuning-spring-boot
           - persistence/hibernate-7-n-plus-1-query-problem-spring-boot
           - persistence/optimistic-pessimistic-locking-spring-boot
