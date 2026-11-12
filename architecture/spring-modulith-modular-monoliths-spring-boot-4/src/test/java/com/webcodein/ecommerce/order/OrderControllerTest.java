@@ -6,14 +6,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
+import org.springframework.test.util.ReflectionTestUtils;
 import org.springframework.test.web.servlet.MockMvc;
+
+import java.util.Optional;
 
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @WebMvcTest(OrderController.class)
+@DisplayName("OrderController WebMvc Slice Tests")
 class OrderControllerTest {
 
     @Autowired
@@ -26,6 +31,7 @@ class OrderControllerTest {
     @DisplayName("POST /api/orders should successfully place order and return HTTP 200 with order body")
     void shouldPlaceOrderSuccessfully() throws Exception {
         Order mockOrder = new Order("PHONE-12", 2);
+        ReflectionTestUtils.setField(mockOrder, "id", 101L);
         when(orderService.placeOrder(eq("PHONE-12"), eq(2))).thenReturn(mockOrder);
 
         String payload = """
@@ -39,6 +45,7 @@ class OrderControllerTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(payload))
                 .andExpect(status().isOk())
+                .andExpect(jsonPath("$.id").value(101))
                 .andExpect(jsonPath("$.productCode").value("PHONE-12"))
                 .andExpect(jsonPath("$.quantity").value(2))
                 .andExpect(jsonPath("$.status").value("PENDING"));
@@ -51,5 +58,29 @@ class OrderControllerTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(""))
                 .andExpect(status().isBadRequest());
+    }
+
+    @Test
+    @DisplayName("GET /api/orders/{id} should return HTTP 200 when order exists")
+    void shouldGetOrderSuccessfully() throws Exception {
+        Order mockOrder = new Order("LAPTOP-PRO", 1);
+        ReflectionTestUtils.setField(mockOrder, "id", 55L);
+        when(orderService.getOrder(55L)).thenReturn(Optional.of(mockOrder));
+
+        mockMvc.perform(get("/api/orders/55"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.id").value(55))
+                .andExpect(jsonPath("$.productCode").value("LAPTOP-PRO"))
+                .andExpect(jsonPath("$.quantity").value(1))
+                .andExpect(jsonPath("$.status").value("PENDING"));
+    }
+
+    @Test
+    @DisplayName("GET /api/orders/{id} should return HTTP 404 when order does not exist")
+    void shouldReturn404WhenOrderNotFound() throws Exception {
+        when(orderService.getOrder(999L)).thenReturn(Optional.empty());
+
+        mockMvc.perform(get("/api/orders/999"))
+                .andExpect(status().isNotFound());
     }
 }

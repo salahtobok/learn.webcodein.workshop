@@ -14,6 +14,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
+@DisplayName("InventoryService Unit Tests")
 class InventoryServiceTest {
 
     @Mock
@@ -44,5 +45,27 @@ class InventoryServiceTest {
         inventoryService.on(event);
 
         verify(inventoryRepository, never()).save(any());
+    }
+
+    @Test
+    @DisplayName("Should return stock quantity when product exists")
+    void shouldReturnStockWhenProductExists() {
+        InventoryItem item = new InventoryItem("DESK-CHAIR", 15);
+        when(inventoryRepository.findById("DESK-CHAIR")).thenReturn(Optional.of(item));
+
+        Optional<Integer> stock = inventoryService.getStock("DESK-CHAIR");
+        assertThat(stock).isPresent().contains(15);
+    }
+
+    @Test
+    @DisplayName("Should restock existing product by adding quantity")
+    void shouldRestockExistingProduct() {
+        InventoryItem item = new InventoryItem("MONITOR-27", 5);
+        when(inventoryRepository.findById("MONITOR-27")).thenReturn(Optional.of(item));
+
+        inventoryService.restock("MONITOR-27", 10);
+
+        assertThat(item.getStockQuantity()).isEqualTo(15);
+        verify(inventoryRepository).save(item);
     }
 }
