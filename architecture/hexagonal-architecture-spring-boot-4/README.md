@@ -58,7 +58,7 @@ com.webcodein.bank
 
 ## Verification & Test Suite
 
-The project includes 12 automated unit and integration tests across all layers:
+The project includes 16 automated unit, slice, integration, and architecture tests across all layers:
 
 ```bash
 # Execute the full test suite
@@ -75,6 +75,7 @@ mvn clean verify
 3. **Web Adapter Integration Tests (`TransferControllerTest`)**: Uses `@WebMvcTest` and `MockMvc` with `@MockitoBean` to test HTTP 200 OK and HTTP 400 Bad Request responses.
 4. **Persistence Adapter Integration Tests (`AccountPersistenceAdapterTest`)**: Tests JPA mapping, loading, updating, and entity lifecycle in H2.
 5. **End-to-End Integration Tests (`BankApplicationTests`)**: Validates full application context startup and end-to-end REST transfer flow.
+6. **ArchUnit Boundary Governance (`HexagonalArchitectureTest`)**: 4 automated architectural rules enforcing strict domain independence, POJO isolation from Spring frameworks, driving-to-driven decoupling, and interface-based port contracts.
 
 ---
 
