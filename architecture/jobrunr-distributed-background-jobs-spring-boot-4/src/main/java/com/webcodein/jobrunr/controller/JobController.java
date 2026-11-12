@@ -24,7 +24,10 @@ public class JobController {
     }
 
     @PostMapping("/enqueue")
-    public ResponseEntity<String> enqueueJob(@RequestParam String email) {
+    public ResponseEntity<String> enqueueJob(@RequestParam(required = false) String email) {
+        if (email == null || email.isBlank() || !email.contains("@")) {
+            return ResponseEntity.badRequest().body("Valid email parameter is required");
+        }
         // Fire-and-forget job
         jobScheduler.enqueue(() -> emailService.sendWelcomeEmail(email));
         return ResponseEntity.ok("Job enqueued successfully");
@@ -32,8 +35,15 @@ public class JobController {
 
     @PostMapping("/schedule")
     public ResponseEntity<String> scheduleJob() {
-        // Delayed job
+        // Delayed job scheduled 1 minute into the future
         jobScheduler.schedule(Instant.now().plus(Duration.ofMinutes(1)), () -> emailService.generateMonthlyReport());
         return ResponseEntity.ok("Report scheduled in 1 minute");
+    }
+
+    @PostMapping("/recurring")
+    public ResponseEntity<String> scheduleRecurringJob() {
+        // Recurring job triggered daily at midnight
+        jobScheduler.scheduleRecurrently("monthly-report-job", "0 0 1 * *", () -> emailService.generateMonthlyReport());
+        return ResponseEntity.ok("Recurring report job registered successfully");
     }
 }

@@ -59,4 +59,15 @@ class JobRunrApplicationTests {
         mockMvc.perform(post("/api/jobs/schedule"))
                 .andExpect(status().isOk());
     }
+
+    @Test
+    void testScheduleRecurringJob() throws Exception {
+        mockMvc.perform(post("/api/jobs/recurring"))
+                .andExpect(status().isOk());
+    }
+
+    @org.junit.jupiter.api.AfterAll
+    static void tearDown() {
+        org.jobrunr.configuration.JobRunr.destroy();
+    }
 }
