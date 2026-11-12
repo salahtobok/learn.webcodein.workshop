@@ -25,17 +25,18 @@ This project demonstrates the performance and memory benefits of **Project Valha
 
 ## Running the Test Suite
 
-Execute the full suite of unit, MockMvc web slice, and Testcontainers integration tests:
+Execute the full suite of unit, MockMvc web slice, ArchUnit 1.4.1 architecture rules, and Testcontainers integration tests:
 
 ```bash
 ./mvnw clean test
 ```
 
-### Test Suite Structure
-- `com.webcodein.valhalla.PointTest`: Validates coordinates and object properties.
-- `com.webcodein.valhalla.benchmark.MemoryLayoutBenchmarkTest`: Validates deterministic computation and array initialization.
-- `com.webcodein.valhalla.controller.BenchmarkControllerTest`: `@WebMvcTest` slice testing GET/POST REST APIs.
-- `com.webcodein.valhalla.ValhallaApplicationTests`: Full Spring Boot 4 integration test running against PostgreSQL 16 Testcontainers.
+### Test Suite Structure (11 Tests Passing 100%)
+- `com.webcodein.valhalla.PointTest`: Validates coordinates and object properties (2 tests).
+- `com.webcodein.valhalla.benchmark.MemoryLayoutBenchmarkTest`: Validates deterministic computation and array initialization (1 test).
+- `com.webcodein.valhalla.controller.BenchmarkControllerTest`: `@WebMvcTest` slice testing GET/POST REST APIs (2 tests).
+- `com.webcodein.valhalla.ValhallaApplicationTests`: Full Spring Boot 4 integration test running against PostgreSQL 16 Testcontainers (1 test).
+- `com.webcodein.valhalla.ValhallaArchitectureTest`: ArchUnit 1.4.1 architectural fitness rules validating controller, repository, and entity boundaries (5 tests).
 
 ---
 
