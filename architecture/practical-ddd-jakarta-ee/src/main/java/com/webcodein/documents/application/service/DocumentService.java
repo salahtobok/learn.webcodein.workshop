@@ -29,9 +29,24 @@ public class DocumentService {
     @Transactional
     public void publishDocument(UUID documentId) {
         Document document = documentRepository.findById(documentId)
-                .orElseThrow(() -> new IllegalArgumentException("Document not found"));
-        
+                .orElseThrow(() -> new IllegalArgumentException("Document not found with ID: " + documentId));
+
         document.publish();
         documentRepository.update(document);
+    }
+
+    @Transactional
+    public void archiveDocument(UUID documentId) {
+        Document document = documentRepository.findById(documentId)
+                .orElseThrow(() -> new IllegalArgumentException("Document not found with ID: " + documentId));
+
+        document.archive();
+        documentRepository.update(document);
+    }
+
+    @Transactional(readOnly = true)
+    public Document getDocument(UUID documentId) {
+        return documentRepository.findById(documentId)
+                .orElseThrow(() -> new IllegalArgumentException("Document not found with ID: " + documentId));
     }
 }

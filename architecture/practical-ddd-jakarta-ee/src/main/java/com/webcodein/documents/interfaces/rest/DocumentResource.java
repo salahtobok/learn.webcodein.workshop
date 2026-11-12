@@ -21,18 +21,58 @@ public class DocumentResource {
         this.documentService = documentService;
     }
 
+    public record DocumentRequest(String title) {}
+
+    public record DocumentResponse(UUID id, String title, String status) {
+        public static DocumentResponse from(Document document) {
+            return new DocumentResponse(
+                    document.getId(),
+                    document.getTitle().getValue(),
+                    document.getStatus().name()
+            );
+        }
+    }
+
     @POST
     public Response createDocument(DocumentRequest request) {
         Document doc = documentService.createDocument(request.title());
-        return Response.status(Response.Status.CREATED).entity(doc).build();
+        return Response.status(Response.Status.CREATED).entity(DocumentResponse.from(doc)).build();
+    }
+
+    @GET
+    @Path("/{id}")
+    public Response getDocument(@PathParam("id") UUID id) {
+        try {
+            Document doc = documentService.getDocument(id);
+            return Response.ok(DocumentResponse.from(doc)).build();
+        } catch (IllegalArgumentException e) {
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
     }
 
     @POST
     @Path("/{id}/publish")
     public Response publishDocument(@PathParam("id") UUID id) {
-        documentService.publishDocument(id);
-        return Response.ok().build();
+        try {
+            documentService.publishDocument(id);
+            return Response.ok().build();
+        } catch (IllegalArgumentException e) {
+            return Response.status(Response.Status.NOT_FOUND).build();
+        } catch (IllegalStateException e) {
+            return Response.status(Response.Status.CONFLICT).entity(e.getMessage()).build();
+        }
+    }
+
+    @POST
+    @Path("/{id}/archive")
+    public Response archiveDocument(@PathParam("id") UUID id) {
+        try {
+            documentService.archiveDocument(id);
+            return Response.ok().build();
+        } catch (IllegalArgumentException e) {
+            return Response.status(Response.Status.NOT_FOUND).build();
+        } catch (IllegalStateException e) {
+            return Response.status(Response.Status.CONFLICT).entity(e.getMessage()).build();
+        }
     }
 }
-
-record DocumentRequest(String title) {}

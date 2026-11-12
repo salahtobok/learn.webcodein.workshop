@@ -61,6 +61,7 @@ jobs:
           - java-core/structured-concurrency-scoped-values-java-25
           - architecture/hexagonal-architecture-ddd-jakarta-ee-11
           - architecture/introduction-to-ddd-jakarta-ee-11
+          - architecture/practical-ddd-jakarta-ee  # Testcontainers (Docker)
           - architecture/ddd-masterclass-java-guide  # Testcontainers (Docker)
           - architecture/domain-driven-design-explained-beginners-guide
           - architecture/first-ddd-application-spring-boot-4-tutorial
