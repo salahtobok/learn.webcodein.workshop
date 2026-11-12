@@ -5,8 +5,8 @@ import com.webcodein.dop.model.CreditCard;
 import com.webcodein.dop.model.PaymentRequest;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -21,14 +21,12 @@ class DopApplicationTests {
     @Autowired
     private MockMvc mockMvc;
 
-    @Autowired
-    private ObjectMapper objectMapper;
+    private final ObjectMapper objectMapper = new ObjectMapper();
 
     @Test
     void shouldProcessCreditCardPayment() throws Exception {
         PaymentRequest request = new PaymentRequest(150.0, new CreditCard("1234567890123456", "12/27"));
 
-        // When using @JsonTypeInfo, Jackson will serialize it with "type": "creditCard"
         mockMvc.perform(post("/api/payments/process")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(request)))
