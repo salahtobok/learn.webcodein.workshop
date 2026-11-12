@@ -34,6 +34,7 @@ ai/spring-ai-2-0-spring-boot-4/
     │       └── application.properties                    # OpenAI and Ollama fallback properties
     └── test/
         └── java/com/webcodein/ai/
+            ├── AiArchitectureTest.java                   # ArchUnit 1.4.1 architectural guardrails (5 tests)
             ├── AiControllerTest.java                     # Mockito unit tests for fluent ChatClient endpoints (4 tests)
             ├── SpringAiApplicationTests.java             # Spring context & ChatMemory state integration (2 tests)
             └── WeatherServiceTest.java                   # Unit tests for @Tool reflection & Java 25 records (3 tests)
@@ -52,7 +53,7 @@ ai/spring-ai-2-0-spring-boot-4/
 
 ## Build and Verification
 
-Compile the project and run the complete automated test suite (9 tests):
+Compile the project and run the complete automated test suite (14 tests):
 
 ```bash
 mvn clean verify
@@ -63,6 +64,16 @@ Expected output:
 [INFO] Running com.webcodein.ai.AiControllerTest
 [INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0
 [INFO] Running com.webcodein.ai.SpringAiApplicationTests
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
+[INFO] Running com.webcodein.ai.WeatherServiceTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0
+[INFO] Running com.webcodein.ai.AiArchitectureTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] Results:
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0
+[INFO] BUILD SUCCESS
+```
 [INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
 [INFO] Running com.webcodein.ai.WeatherServiceTest
 [INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0
