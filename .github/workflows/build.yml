@@ -100,6 +100,7 @@ jobs:
           - architecture/spring-cloud-gateway-spring-boot-4-virtual-threads
           - architecture/kafka-dead-letter-topic-exponential-retry-spring-boot-4
           - security/oauth2-token-exchange-spring-security-7-keycloak
+          - fullstack/spring-boot-4-sse-angular-22-signals
     steps:
       - uses: actions/checkout@v4
 
