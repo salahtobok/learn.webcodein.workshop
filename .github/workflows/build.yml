@@ -110,6 +110,7 @@ jobs:
           - security/csp-level-3-modern-browser-security-headers
           - security/oauth2-1-security-deprecations-migration-guide
           - networking/ebpf-xdp-ddos-packet-filtering-kernel-architecture
+          - networking/java-25-httpclient-virtual-threads-networking
     steps:
       - uses: actions/checkout@v4
 

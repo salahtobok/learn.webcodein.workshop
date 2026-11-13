@@ -95,3 +95,4 @@ This repository contains the companion code projects for all articles published 
 | security | `security/csp-level-3-modern-browser-security-headers` |
 | security | `security/oauth2-1-security-deprecations-migration-guide` |
 | networking | `networking/ebpf-xdp-ddos-packet-filtering-kernel-architecture` |
+| networking | `networking/java-25-httpclient-virtual-threads-networking` |
