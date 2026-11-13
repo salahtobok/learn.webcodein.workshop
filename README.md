@@ -91,3 +91,4 @@ This repository contains the companion code projects for all articles published 
 | security | `security/paseto-vs-jwt-modern-token-security` |
 | security | `security/owasp-api-security-top-10-architectural-mitigations` |
 | security | `security/zero-trust-mtls-envoy-proxy-service-mesh` |
+| networking | `networking/websockets-vs-sse-vs-webtransport-realtime-protocols` |

@@ -106,6 +106,7 @@ jobs:
           - security/paseto-vs-jwt-modern-token-security
           - security/owasp-api-security-top-10-architectural-mitigations
           - security/zero-trust-mtls-envoy-proxy-service-mesh
+          - networking/websockets-vs-sse-vs-webtransport-realtime-protocols
     steps:
       - uses: actions/checkout@v4
 
