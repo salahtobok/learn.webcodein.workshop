@@ -92,3 +92,4 @@ This repository contains the companion code projects for all articles published 
 | security | `security/owasp-api-security-top-10-architectural-mitigations` |
 | security | `security/zero-trust-mtls-envoy-proxy-service-mesh` |
 | networking | `networking/websockets-vs-sse-vs-webtransport-realtime-protocols` |
+| security | `security/csp-level-3-modern-browser-security-headers` |
