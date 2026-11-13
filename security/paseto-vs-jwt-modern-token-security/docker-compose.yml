@@ -1,0 +1,6 @@
+services:
+  paseto-security:
+    build: .
+    container_name: paseto-token-security
+    environment:
+      JAVA_OPTS: "-XX:+UseZGC -Xms256m -Xmx512m"
