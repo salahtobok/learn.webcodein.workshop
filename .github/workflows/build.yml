@@ -94,6 +94,7 @@ jobs:
           - ai/spring-ai-ollama-deepseek-local-llm-guide
           - architecture/distributed-rate-limiting-spring-boot-4-redis-bucket4j
           - architecture/grpc-vs-rest-spring-boot-4-java-25-performance
+          - architecture/resilience4j-circuit-breaker-spring-boot-4-virtual-threads
     steps:
       - uses: actions/checkout@v4
 
