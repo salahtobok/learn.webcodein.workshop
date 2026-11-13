@@ -97,6 +97,7 @@ jobs:
           - architecture/resilience4j-circuit-breaker-spring-boot-4-virtual-threads
           - architecture/two-level-cache-spring-boot-4-redis-caffeine
           - ai/spring-ai-pgvector-hybrid-search
+          - architecture/spring-cloud-gateway-spring-boot-4-virtual-threads
     steps:
       - uses: actions/checkout@v4
 
