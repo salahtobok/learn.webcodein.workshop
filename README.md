@@ -89,3 +89,4 @@ This repository contains the companion code projects for all articles published 
 | cloud-native | `cloud-native/spring-boot-4-kubernetes-graceful-shutdown-cgroups` |
 | networking | `networking/http3-quic-protocol-head-of-line-blocking` |
 | security | `security/paseto-vs-jwt-modern-token-security` |
+| security | `security/owasp-api-security-top-10-architectural-mitigations` |

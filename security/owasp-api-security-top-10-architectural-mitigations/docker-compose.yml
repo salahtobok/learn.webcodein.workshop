@@ -1,0 +1,6 @@
+services:
+  owasp-mitigations:
+    build: .
+    container_name: owasp-api-mitigations
+    environment:
+      JAVA_OPTS: "-XX:+UseZGC -Xms256m -Xmx512m"

@@ -104,6 +104,7 @@ jobs:
           - cloud-native/spring-boot-4-kubernetes-graceful-shutdown-cgroups
           - networking/http3-quic-protocol-head-of-line-blocking
           - security/paseto-vs-jwt-modern-token-security
+          - security/owasp-api-security-top-10-architectural-mitigations
     steps:
       - uses: actions/checkout@v4
 
