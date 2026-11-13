@@ -94,3 +94,4 @@ This repository contains the companion code projects for all articles published 
 | networking | `networking/websockets-vs-sse-vs-webtransport-realtime-protocols` |
 | security | `security/csp-level-3-modern-browser-security-headers` |
 | security | `security/oauth2-1-security-deprecations-migration-guide` |
+| networking | `networking/ebpf-xdp-ddos-packet-filtering-kernel-architecture` |
