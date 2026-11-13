@@ -87,3 +87,4 @@ This repository contains the companion code projects for all articles published 
 | security | `security/oauth2-token-exchange-spring-security-7-keycloak` |
 | fullstack | `fullstack/spring-boot-4-sse-angular-22-signals` |
 | cloud-native | `cloud-native/spring-boot-4-kubernetes-graceful-shutdown-cgroups` |
+| networking | `networking/http3-quic-protocol-head-of-line-blocking` |

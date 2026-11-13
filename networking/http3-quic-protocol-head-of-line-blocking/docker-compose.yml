@@ -1,0 +1,6 @@
+services:
+  quic-benchmark:
+    build: .
+    container_name: quic-hol-benchmark
+    environment:
+      JAVA_OPTS: "-XX:+UseZGC -Xms256m -Xmx512m"
