@@ -101,6 +101,7 @@ jobs:
           - architecture/kafka-dead-letter-topic-exponential-retry-spring-boot-4
           - security/oauth2-token-exchange-spring-security-7-keycloak
           - fullstack/spring-boot-4-sse-angular-22-signals
+          - cloud-native/spring-boot-4-kubernetes-graceful-shutdown-cgroups
     steps:
       - uses: actions/checkout@v4
 
