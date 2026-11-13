@@ -90,3 +90,4 @@ This repository contains the companion code projects for all articles published 
 | networking | `networking/http3-quic-protocol-head-of-line-blocking` |
 | security | `security/paseto-vs-jwt-modern-token-security` |
 | security | `security/owasp-api-security-top-10-architectural-mitigations` |
+| security | `security/zero-trust-mtls-envoy-proxy-service-mesh` |

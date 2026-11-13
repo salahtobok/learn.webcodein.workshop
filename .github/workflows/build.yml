@@ -105,6 +105,7 @@ jobs:
           - networking/http3-quic-protocol-head-of-line-blocking
           - security/paseto-vs-jwt-modern-token-security
           - security/owasp-api-security-top-10-architectural-mitigations
+          - security/zero-trust-mtls-envoy-proxy-service-mesh
     steps:
       - uses: actions/checkout@v4
 

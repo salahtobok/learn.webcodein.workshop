@@ -1,0 +1,6 @@
+services:
+  mtls-service:
+    build: .
+    container_name: mtls-spiffe-service
+    environment:
+      JAVA_OPTS: "-XX:+UseZGC -Xms256m -Xmx512m"
