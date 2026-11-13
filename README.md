@@ -83,3 +83,4 @@ This repository contains the companion code projects for all articles published 
 | architecture | `architecture/two-level-cache-spring-boot-4-redis-caffeine` |
 | ai | `ai/spring-ai-pgvector-hybrid-search` |
 | architecture | `architecture/spring-cloud-gateway-spring-boot-4-virtual-threads` |
+| architecture | `architecture/kafka-dead-letter-topic-exponential-retry-spring-boot-4` |

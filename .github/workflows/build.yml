@@ -98,6 +98,7 @@ jobs:
           - architecture/two-level-cache-spring-boot-4-redis-caffeine
           - ai/spring-ai-pgvector-hybrid-search
           - architecture/spring-cloud-gateway-spring-boot-4-virtual-threads
+          - architecture/kafka-dead-letter-topic-exponential-retry-spring-boot-4
     steps:
       - uses: actions/checkout@v4
 
