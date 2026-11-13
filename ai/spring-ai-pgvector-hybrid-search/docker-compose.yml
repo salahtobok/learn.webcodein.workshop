@@ -1,0 +1,8 @@
+services:
+  hybrid-search-app:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+      - SPRING_THREADS_VIRTUAL_ENABLED=true
