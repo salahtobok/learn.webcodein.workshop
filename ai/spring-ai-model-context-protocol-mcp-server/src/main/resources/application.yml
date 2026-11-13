@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: spring-ai-model-context-protocol-mcp-server
+  ai:
+    openai:
+      api-key: demo-key-local
+      chat:
+        options:
+          model: gpt-4o-mini
+
+server:
+  port: 8080
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info

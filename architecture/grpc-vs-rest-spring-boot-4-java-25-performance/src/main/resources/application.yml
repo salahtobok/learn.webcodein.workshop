@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: grpc-vs-rest-spring-boot-4-java-25-performance
+
+server:
+  port: 8083
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info

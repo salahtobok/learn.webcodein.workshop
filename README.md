@@ -75,3 +75,7 @@ This repository contains the companion code projects for all articles published 
 | architecture | `architecture/multi-tenant-saas-hibernate-7-spring-boot` |
 | architecture | `architecture/saga-pattern-spring-boot-4-temporal` |
 | architecture | `architecture/idempotent-webhook-consumers-spring-boot-4` |
+| ai | `ai/spring-ai-model-context-protocol-mcp-server` |
+| ai | `ai/spring-ai-ollama-deepseek-local-llm-guide` |
+| architecture | `architecture/distributed-rate-limiting-spring-boot-4-redis-bucket4j` |
+| architecture | `architecture/grpc-vs-rest-spring-boot-4-java-25-performance` |
