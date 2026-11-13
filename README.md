@@ -80,3 +80,4 @@ This repository contains the companion code projects for all articles published 
 | architecture | `architecture/distributed-rate-limiting-spring-boot-4-redis-bucket4j` |
 | architecture | `architecture/grpc-vs-rest-spring-boot-4-java-25-performance` |
 | architecture | `architecture/resilience4j-circuit-breaker-spring-boot-4-virtual-threads` |
+| architecture | `architecture/two-level-cache-spring-boot-4-redis-caffeine` |

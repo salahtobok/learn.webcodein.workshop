@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: two-level-cache-spring-boot-4-redis-caffeine
+  threads:
+    virtual:
+      enabled: true
+
+server:
+  port: 8080
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
