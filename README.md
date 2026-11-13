@@ -84,3 +84,4 @@ This repository contains the companion code projects for all articles published 
 | ai | `ai/spring-ai-pgvector-hybrid-search` |
 | architecture | `architecture/spring-cloud-gateway-spring-boot-4-virtual-threads` |
 | architecture | `architecture/kafka-dead-letter-topic-exponential-retry-spring-boot-4` |
+| security | `security/oauth2-token-exchange-spring-security-7-keycloak` |
